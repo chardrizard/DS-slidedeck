@@ -1016,119 +1016,17 @@
       </section>
 
       <!-- SLIDE 06 — Full-Bleed DS Hero (first look into Aeon) -->
-      <section class="slide slide-fullbleed" id="slide-06" data-index="5" data-section="cs1" data-slide-type="solution">
-        <img 
-  src="images/cs1-aeon/Aeon Design System Overview.png" 
-  style="width:100%; height:100%; object-fit:cover; display:block;"
->
-          <!-- Simulated Figma canvas: component library bird's-eye -->
-          <div style="width:100%; height:100%; background:#1e1e1e; display:flex; align-items:center; justify-content:center; position:relative;">
-            <!-- Canvas texture -->
-            <div style="position:absolute; inset:0; background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px); background-size:24px 24px;"></div>
-            <!-- Centered content -->
-            <div style="display:flex; flex-direction:column; align-items:center; gap:10px; position:relative; z-index:1;">
-              <!-- Row 1: Buttons -->
-              <div style="display:flex; gap:10px; align-items:center;">
-                <!-- Button primary -->
-                <div style="background:#2563eb; border-radius:6px; padding:8px 18px; font-size:13px; font-weight:600; color:#fff; font-family:var(--sans); white-space:nowrap; box-shadow:0 0 0 1px rgba(37,99,235,0.6);">Button</div>
-                <!-- Button secondary -->
-                <div style="background:rgba(255,255,255,0.06); border-radius:6px; padding:8px 18px; font-size:13px; font-weight:600; color:rgba(255,255,255,0.85); font-family:var(--sans); border:1px solid rgba(255,255,255,0.14); white-space:nowrap;">Button</div>
-                <!-- Button ghost -->
-                <div style="background:transparent; border-radius:6px; padding:8px 18px; font-size:13px; font-weight:600; color:rgba(255,255,255,0.5); font-family:var(--sans); border:1px solid rgba(255,255,255,0.1); white-space:nowrap;">Button</div>
-                <!-- Button disabled -->
-                <div style="background:rgba(255,255,255,0.04); border-radius:6px; padding:8px 18px; font-size:13px; font-weight:500; color:rgba(255,255,255,0.2); font-family:var(--sans); border:1px solid rgba(255,255,255,0.06); white-space:nowrap; cursor:not-allowed;">Button</div>
-                <!-- Button danger -->
-                <div style="background:rgba(239,68,68,0.15); border-radius:6px; padding:8px 18px; font-size:13px; font-weight:600; color:#f87171; font-family:var(--sans); border:1px solid rgba(239,68,68,0.3); white-space:nowrap;">Delete</div>
-                <!-- Icon button -->
-                <div style="background:rgba(255,255,255,0.06); border-radius:6px; width:34px; height:34px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.12);">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </div>
-              </div>
-              <!-- Row 2: Badges + Tags -->
-              <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:center;">
-                <div style="background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.25); border-radius:4px; padding:3px 10px; font-size:11px; font-weight:600; color:#4ade80; font-family:var(--mono); letter-spacing:0.04em;">ACTIVE</div>
-                <div style="background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.25); border-radius:4px; padding:3px 10px; font-size:11px; font-weight:600; color:#fbbf24; font-family:var(--mono); letter-spacing:0.04em;">PENDING</div>
-                <div style="background:rgba(239,68,68,0.12); border:1px solid rgba(239,68,68,0.25); border-radius:4px; padding:3px 10px; font-size:11px; font-weight:600; color:#f87171; font-family:var(--mono); letter-spacing:0.04em;">ERROR</div>
-                <div style="background:rgba(148,163,184,0.1); border:1px solid rgba(148,163,184,0.2); border-radius:4px; padding:3px 10px; font-size:11px; font-weight:600; color:#94a3b8; font-family:var(--mono); letter-spacing:0.04em;">DRAFT</div>
-                <div style="background:rgba(99,102,241,0.12); border:1px solid rgba(99,102,241,0.25); border-radius:100px; padding:4px 12px; font-size:12px; font-weight:500; color:#a5b4fc; font-family:var(--sans);">New</div>
-                <div style="background:rgba(20,184,166,0.12); border:1px solid rgba(20,184,166,0.25); border-radius:100px; padding:4px 12px; font-size:12px; font-weight:500; color:#5eead4; font-family:var(--sans);">Verified</div>
-                <div style="background:rgba(255,255,255,0.06); border-radius:100px; padding:4px 12px; font-size:12px; font-weight:500; color:rgba(255,255,255,0.45); font-family:var(--sans);">Archived</div>
-              </div>
-              <!-- Row 3: Input fields -->
-              <div style="display:flex; gap:10px; align-items:flex-start; flex-wrap:wrap; justify-content:center;">
-                <!-- Default field -->
-                <div style="display:flex; flex-direction:column; gap:5px;">
-                  <div style="font-size:11px; font-weight:500; color:rgba(255,255,255,0.55); font-family:var(--sans);">Label</div>
-                  <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); border-radius:6px; padding:8px 12px; font-size:13px; color:rgba(255,255,255,0.85); font-family:var(--sans); width:160px;">Placeholder</div>
-                </div>
-                <!-- Focus field -->
-                <div style="display:flex; flex-direction:column; gap:5px;">
-                  <div style="font-size:11px; font-weight:500; color:rgba(255,255,255,0.55); font-family:var(--sans);">Label</div>
-                  <div style="background:rgba(255,255,255,0.06); border:1.5px solid rgba(37,99,235,0.7); border-radius:6px; padding:8px 12px; font-size:13px; color:rgba(255,255,255,0.9); font-family:var(--sans); width:160px; box-shadow:0 0 0 3px rgba(37,99,235,0.15);">Input value</div>
-                </div>
-                <!-- Error field -->
-                <div style="display:flex; flex-direction:column; gap:5px;">
-                  <div style="font-size:11px; font-weight:500; color:rgba(239,68,68,0.8); font-family:var(--sans);">Label</div>
-                  <div style="background:rgba(239,68,68,0.06); border:1.5px solid rgba(239,68,68,0.5); border-radius:6px; padding:8px 12px; font-size:13px; color:rgba(255,255,255,0.85); font-family:var(--sans); width:160px;">Invalid value</div>
-                  <div style="font-size:11px; color:#f87171; font-family:var(--sans);">This field is required</div>
-                </div>
-                <!-- Disabled field -->
-                <div style="display:flex; flex-direction:column; gap:5px;">
-                  <div style="font-size:11px; font-weight:500; color:rgba(255,255,255,0.25); font-family:var(--sans);">Label</div>
-                  <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.07); border-radius:6px; padding:8px 12px; font-size:13px; color:rgba(255,255,255,0.25); font-family:var(--sans); width:160px; cursor:not-allowed;">Disabled</div>
-                </div>
-              </div>
-              <!-- Row 4: Card + Dropdown snippet -->
-              <div style="display:flex; gap:10px; align-items:flex-start;">
-                <!-- Mini card -->
-                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:16px 18px; width:200px;">
-                  <div style="font-size:11px; font-family:var(--mono); color:rgba(245,158,11,0.7); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;">Summary</div>
-                  <div style="font-size:20px; font-weight:700; color:#fff; letter-spacing:-0.02em; margin-bottom:4px;">€ 48,200</div>
-                  <div style="font-size:12px; color:rgba(255,255,255,0.4);">Portfolio value · Q3 2023</div>
-                </div>
-                <!-- Dropdown snippet -->
-                <div style="display:flex; flex-direction:column; gap:0; background:rgba(20,20,20,0.98); border:1px solid rgba(255,255,255,0.14); border-radius:8px; overflow:hidden; width:180px; box-shadow:0 8px 24px rgba(0,0,0,0.4);">
-                  <div style="padding:8px 12px; font-size:13px; color:rgba(255,255,255,0.85); font-family:var(--sans); background:rgba(37,99,235,0.15); border-left:2px solid #2563eb;">Option A</div>
-                  <div style="padding:8px 12px; font-size:13px; color:rgba(255,255,255,0.6); font-family:var(--sans); border-top:1px solid rgba(255,255,255,0.06);">Option B</div>
-                  <div style="padding:8px 12px; font-size:13px; color:rgba(255,255,255,0.6); font-family:var(--sans); border-top:1px solid rgba(255,255,255,0.06);">Option C</div>
-                  <div style="padding:8px 12px; font-size:13px; color:rgba(255,255,255,0.25); font-family:var(--sans); border-top:1px solid rgba(255,255,255,0.06); cursor:not-allowed;">Disabled</div>
-                </div>
-                <!-- Step indicator -->
-                <div style="display:flex; flex-direction:column; gap:0;">
-                  <div style="display:flex; align-items:center; gap:0;">
-                    <div style="width:28px; height:28px; border-radius:50%; background:#2563eb; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:#fff; flex-shrink:0;">1</div>
-                    <div style="width:36px; height:2px; background:#2563eb;"></div>
-                    <div style="width:28px; height:28px; border-radius:50%; background:#2563eb; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <div style="width:36px; height:2px; background:rgba(255,255,255,0.15);"></div>
-                    <div style="width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,0.07); border:1.5px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; color:rgba(255,255,255,0.45); flex-shrink:0;">3</div>
-                    <div style="width:36px; height:2px; background:rgba(255,255,255,0.07);"></div>
-                    <div style="width:28px; height:28px; border-radius:50%; background:rgba(255,255,255,0.04); border:1px dashed rgba(255,255,255,0.12); display:flex; align-items:center; justify-content:center; font-size:12px; color:rgba(255,255,255,0.25); flex-shrink:0;">4</div>
-                  </div>
-                  <div style="display:flex; gap:0; margin-top:6px; padding-left:0;">
-                    <div style="font-size:10px; color:#60a5fa; font-family:var(--mono); width:28px; text-align:center;">Info</div>
-                    <div style="width:36px;"></div>
-                    <div style="font-size:10px; color:#4ade80; font-family:var(--mono); width:28px; text-align:center;">Done</div>
-                    <div style="width:36px;"></div>
-                    <div style="font-size:10px; color:rgba(255,255,255,0.3); font-family:var(--mono); width:28px; text-align:center;">Review</div>
-                    <div style="width:36px;"></div>
-                    <div style="font-size:10px; color:rgba(255,255,255,0.2); font-family:var(--mono); width:28px; text-align:center;">Sign</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Figma frame label top-left -->
-            <div style="position:absolute; top:18px; left:22px; font-family:var(--mono); font-size:11px; color:rgba(255,255,255,0.2); letter-spacing:0.06em;">Aeon / Component States / All</div>
-            <!-- Scale label top-right -->
-            <div style="position:absolute; top:18px; right:22px; font-family:var(--mono); font-size:11px; color:rgba(255,255,255,0.18);">50%</div>
-          </div>
-        </div>
-        <div class="caption-overlay">
-          <div class="caption-label">Aeon Design System</div>
-          <div class="caption-text">Replace with your actual Figma component sheet — full library overview, all states, zoomed out to show breadth.</div>
-        </div>
-      </section>
+      <!-- SLIDE 06 — Full-Bleed DS Hero -->
+<section class="slide slide-fullbleed" id="slide-06" data-index="5" data-section="cs1" data-slide-type="solution">
+  <img 
+    src="images/cs1-aeon/Aeon Design System Overview.png" 
+    style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block; position:absolute; inset:0;"
+  >
+  <div class="caption-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 60%, transparent 100%); padding:40px 72px;">
+    <div class="caption-label">Aeon Design System · Component Library</div>
+    <div class="caption-text">Buttons, fields, dropdowns, date pickers, step indicators, value sliders — every component documented with all states. One library. Six platforms.</div>
+  </div>
+</section>
 
       <!-- SLIDE 07 — Problem + Scope (merged, text-only) -->
       <section class="slide slide-light" id="slide-07" data-index="6" data-section="cs1" data-slide-type="context">
