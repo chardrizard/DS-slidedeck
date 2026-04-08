@@ -842,178 +842,50 @@
       </section>
 
       <!-- SLIDE 05 — Before/After Reveal Slider -->
-      <section class="slide slide-fullbleed" id="slide-05" data-index="4" data-section="cs1" data-slide-type="solution">
-        <div id="ba-slider" data-no-advance="true" style="position:absolute; inset:0; overflow:hidden; cursor:ew-resize; user-select:none;">
+<section class="slide slide-fullbleed" id="slide-05" data-index="4" data-section="cs1" data-slide-type="solution">
+  <div id="ba-slider" data-no-advance="true" style="position:absolute; inset:0; overflow:hidden; cursor:ew-resize; user-select:none;">
 
-          <!-- AFTER layer (full 1440px canvas, underneath) — clean Aeon DS screen -->
-          <div id="ba-after" style="position:absolute; inset:0; background:#0d0d0d; overflow:hidden; display:flex; align-items:center; justify-content:center;">
-            <!-- Screenshot frame: centered, padded, fixed size -->
-            <div style="width:1100px; height:640px; background:#111827; border-radius:10px; box-shadow:0 8px 48px rgba(0,0,0,0.6); overflow:hidden; flex-shrink:0;">
-              <!-- Top nav bar -->
-              <div style="height:48px; background:#1f2937; border-bottom:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; padding:0 28px; gap:20px;">
-                <div style="font-size:12px; font-weight:700; color:#fff; font-family:var(--sans); letter-spacing:-0.01em; flex-shrink:0;">Aegon Portal</div>
-                <div style="width:1px; height:18px; background:rgba(255,255,255,0.1); flex-shrink:0;"></div>
-                <div style="display:flex; gap:3px;">
-                  <div style="padding:4px 10px; border-radius:5px; font-size:10px; font-weight:500; color:#f59e0b; background:rgba(245,158,11,0.12); font-family:var(--mono); white-space:nowrap;">Dashboard</div>
-                  <div style="padding:4px 10px; border-radius:5px; font-size:10px; font-weight:500; color:rgba(255,255,255,0.45); font-family:var(--mono); white-space:nowrap;">Polissen</div>
-                  <div style="padding:4px 10px; border-radius:5px; font-size:10px; font-weight:500; color:rgba(255,255,255,0.45); font-family:var(--mono); white-space:nowrap;">Klanten</div>
-                </div>
-              </div>
-              <!-- Page content -->
-              <div style="padding:24px 28px; display:flex; flex-direction:column; gap:16px;">
-                <div style="display:flex; align-items:center; justify-content:space-between;">
-                  <div>
-                    <div style="font-size:17px; font-weight:700; color:#fff; font-family:var(--sans); letter-spacing:-0.01em;">Aanvragen</div>
-                    <div style="font-size:11px; color:rgba(255,255,255,0.4); font-family:var(--mono); margin-top:2px;">124 resultaten · bijgewerkt 2 min geleden</div>
-                  </div>
-                  <div style="display:flex; gap:7px;">
-                    <div style="padding:6px 14px; border-radius:6px; font-size:11px; font-weight:500; color:rgba(255,255,255,0.7); background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); font-family:var(--sans); white-space:nowrap;">Filteren</div>
-                    <div style="padding:6px 14px; border-radius:6px; font-size:11px; font-weight:600; color:#111; background:#f59e0b; font-family:var(--sans); white-space:nowrap;">+ Nieuwe aanvraag</div>
-                  </div>
-                </div>
-                <div style="display:flex; gap:7px;">
-                  <div style="padding:4px 11px; border-radius:100px; font-size:10px; font-weight:500; color:#f59e0b; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.25); font-family:var(--sans); white-space:nowrap;">Alle status</div>
-                  <div style="padding:4px 11px; border-radius:100px; font-size:10px; font-weight:500; color:rgba(255,255,255,0.45); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); font-family:var(--sans); white-space:nowrap;">In behandeling</div>
-                  <div style="padding:4px 11px; border-radius:100px; font-size:10px; font-weight:500; color:rgba(255,255,255,0.45); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); font-family:var(--sans); white-space:nowrap;">Goedgekeurd</div>
-                  <div style="padding:4px 11px; border-radius:100px; font-size:10px; font-weight:500; color:rgba(255,255,255,0.45); background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); font-family:var(--sans); white-space:nowrap;">Geweigerd</div>
-                </div>
-                <div style="background:#1f2937; border:1px solid rgba(255,255,255,0.08); border-radius:7px; overflow:hidden;">
-                  <div style="display:grid; grid-template-columns:2fr 1.5fr 1fr 1.3fr 1fr; padding:9px 16px; border-bottom:1px solid rgba(255,255,255,0.08);">
-                    <div style="font-size:10px; font-weight:600; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.07em; font-family:var(--mono);">Klant</div>
-                    <div style="font-size:10px; font-weight:600; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.07em; font-family:var(--mono);">Product</div>
-                    <div style="font-size:10px; font-weight:600; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.07em; font-family:var(--mono);">Bedrag</div>
-                    <div style="font-size:10px; font-weight:600; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.07em; font-family:var(--mono);">Status</div>
-                    <div style="font-size:10px; font-weight:600; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:0.07em; font-family:var(--mono);">Datum</div>
-                  </div>
-                  <div style="display:grid; grid-template-columns:2fr 1.5fr 1fr 1.3fr 1fr; padding:11px 16px; border-bottom:1px solid rgba(255,255,255,0.05); align-items:center;">
-                    <div style="font-size:12px; font-weight:500; color:#fff; font-family:var(--sans);">Jan de Vries</div>
-                    <div style="font-size:12px; color:rgba(255,255,255,0.55); font-family:var(--sans);">Hypotheek</div>
-                    <div style="font-size:12px; color:rgba(255,255,255,0.8); font-family:var(--mono);">€ 312.000</div>
-                    <div><span style="padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600; color:#4ade80; background:rgba(34,197,94,0.12); font-family:var(--mono);">ACTIEF</span></div>
-                    <div style="font-size:11px; color:rgba(255,255,255,0.4); font-family:var(--mono);">14 jan 2024</div>
-                  </div>
-                  <div style="display:grid; grid-template-columns:2fr 1.5fr 1fr 1.3fr 1fr; padding:11px 16px; border-bottom:1px solid rgba(255,255,255,0.05); align-items:center; background:rgba(255,255,255,0.02);">
-                    <div style="font-size:12px; font-weight:500; color:#fff; font-family:var(--sans);">Maria Jansen</div>
-                    <div style="font-size:12px; color:rgba(255,255,255,0.55); font-family:var(--sans);">Levensverzekering</div>
-                    <div style="font-size:12px; color:rgba(255,255,255,0.8); font-family:var(--mono);">€ 48.500</div>
-                    <div><span style="padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600; color:#fbbf24; background:rgba(245,158,11,0.12); font-family:var(--mono);">IN BEHANDELING</span></div>
-                    <div style="font-size:11px; color:rgba(255,255,255,0.4); font-family:var(--mono);">09 jan 2024</div>
-                  </div>
-                  <div style="display:grid; grid-template-columns:2fr 1.5fr 1fr 1.3fr 1fr; padding:11px 16px; border-bottom:1px solid rgba(255,255,255,0.05); align-items:center;">
-                    <div style="font-size:12px; font-weight:500; color:#fff; font-family:var(--sans);">Pieter Bakker</div>
-                    <div style="font-size:12px; color:rgba(255,255,255,0.55); font-family:var(--sans);">Pensioen</div>
-                    <div style="font-size:12px; color:rgba(255,255,255,0.8); font-family:var(--mono);">€ 220.000</div>
-                    <div><span style="padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600; color:#4ade80; background:rgba(34,197,94,0.12); font-family:var(--mono);">ACTIEF</span></div>
-                    <div style="font-size:11px; color:rgba(255,255,255,0.4); font-family:var(--mono);">03 jan 2024</div>
-                  </div>
-                  <div style="display:grid; grid-template-columns:2fr 1.5fr 1fr 1.3fr 1fr; padding:11px 16px; align-items:center; background:rgba(255,255,255,0.02);">
-                    <div style="font-size:12px; font-weight:500; color:#fff; font-family:var(--sans);">Anna Smit</div>
-                    <div style="font-size:12px; color:rgba(255,255,255,0.55); font-family:var(--sans);">Hypotheek</div>
-                    <div style="font-size:12px; color:rgba(255,255,255,0.8); font-family:var(--mono);">€ 415.000</div>
-                    <div><span style="padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600; color:#f87171; background:rgba(239,68,68,0.12); font-family:var(--mono);">GEWEIGERD</span></div>
-                    <div style="font-size:11px; color:rgba(255,255,255,0.4); font-family:var(--mono);">28 dec 2023</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- After label -->
-            <div style="position:absolute; bottom:24px; left:40px;">
-              <div style="font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:0.12em; color:#f59e0b; margin-bottom:4px;">After · Aeon DS</div>
-              <div style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.4;">Consistent tokens. One shared system.</div>
-            </div>
-          </div>
+    <!-- AFTER layer — full-bleed image -->
+    <div id="ba-after" style="position:absolute; inset:0; overflow:hidden;">
+      <img src="images/cs1-aeon/AIP_uplift_AEON_02.png"
+           style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
+    </div>
 
-          <!-- BEFORE layer — fixed snapshot centered on canvas, clips as handle moves -->
-          <div id="ba-before" style="position:absolute; top:0; left:0; bottom:0; width:50%; overflow:hidden;">
-            <div style="width:1440px; height:758px; background:#1a1a2a; display:flex; align-items:center; justify-content:center; position:relative;">
-              <!-- Screenshot frame -->
-              <div style="width:1100px; height:640px; background:#f0f2f5; border-radius:10px; box-shadow:0 8px 48px rgba(0,0,0,0.5); overflow:hidden; flex-shrink:0;">
-                <!-- Old nav -->
-                <div style="height:50px; background:#003087; display:flex; align-items:center; padding:0 28px; gap:16px; flex-shrink:0;">
-                  <div style="font-size:13px; font-weight:700; color:#fff; font-family:Arial, sans-serif; white-space:nowrap; flex-shrink:0;">AEGON Intermediair</div>
-                  <div style="width:1px; height:18px; background:rgba(255,255,255,0.3); flex-shrink:0;"></div>
-                  <div style="display:flex; gap:0; flex-shrink:0;">
-                    <div style="padding:6px 14px; font-size:11px; color:#fff; font-family:Arial, sans-serif; border-right:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.15); white-space:nowrap;">Home</div>
-                    <div style="padding:6px 14px; font-size:11px; color:rgba(255,255,255,0.7); font-family:Arial, sans-serif; border-right:1px solid rgba(255,255,255,0.2); white-space:nowrap;">Aanvragen</div>
-                    <div style="padding:6px 14px; font-size:11px; color:rgba(255,255,255,0.7); font-family:Arial, sans-serif; white-space:nowrap;">Relaties</div>
-                  </div>
-                </div>
-                <!-- Body -->
-                <div style="padding:22px 28px; display:flex; flex-direction:column; gap:14px;">
-                  <div style="display:flex; align-items:center; justify-content:space-between; padding-bottom:12px; border-bottom:2px solid #003087;">
-                    <div style="font-size:17px; font-weight:bold; color:#003087; font-family:Arial, sans-serif; white-space:nowrap;">Aanvragen overzicht</div>
-                    <div style="display:flex; gap:6px; align-items:center;">
-                      <select style="padding:4px 8px; border:1px solid #bbb; border-radius:2px; font-size:11px; font-family:Arial; background:#fff; color:#333; flex-shrink:0;">
-                        <option>Alle statussen</option>
-                      </select>
-                      <div style="padding:5px 14px; background:#003087; color:#fff; font-size:11px; font-family:Arial; border-radius:2px; white-space:nowrap; flex-shrink:0;">Nieuwe aanvraag</div>
-                      <div style="padding:5px 14px; background:#e8e8e8; color:#333; font-size:11px; font-family:Arial; border:1px solid #bbb; border-radius:2px; white-space:nowrap; flex-shrink:0;">Exporteer</div>
-                    </div>
-                  </div>
-                  <table style="width:100%; border-collapse:collapse; font-family:Arial, sans-serif; font-size:12px; table-layout:fixed;">
-                    <thead>
-                      <tr style="background:#dce4f0;">
-                        <th style="padding:9px 10px; text-align:left; font-weight:bold; color:#003087; border:1px solid #b8c4d8; width:22%;">Klantnaam</th>
-                        <th style="padding:9px 10px; text-align:left; font-weight:bold; color:#003087; border:1px solid #b8c4d8; width:22%;">Producttype</th>
-                        <th style="padding:9px 10px; text-align:left; font-weight:bold; color:#003087; border:1px solid #b8c4d8; width:18%;">Aanvraag bedrag</th>
-                        <th style="padding:9px 10px; text-align:left; font-weight:bold; color:#003087; border:1px solid #b8c4d8; width:20%;">Status</th>
-                        <th style="padding:9px 10px; text-align:left; font-weight:bold; color:#003087; border:1px solid #b8c4d8; width:18%;">Aanvraagdatum</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr style="background:#fff;">
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#222;">Jan de Vries</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#444;">Hypotheek</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#222;">312.000 EUR</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8;"><span style="background:#d4edda; color:#155724; padding:2px 7px; border-radius:10px; font-size:10px; font-weight:bold; white-space:nowrap;">✓ Actief</span></td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#555;">14-01-2024</td>
-                      </tr>
-                      <tr style="background:#f5f7fa;">
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#222;">Maria Jansen</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#444;">Levensverzekering</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#222;">48.500 EUR</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8;"><span style="background:#fff3cd; color:#856404; padding:2px 7px; border:1px solid #ffc107; font-size:10px; white-space:nowrap;">⏳ In behandeling</span></td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#555;">09-01-2024</td>
-                      </tr>
-                      <tr style="background:#fff;">
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#222;">Pieter Bakker</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#444;">Pensioen</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#222;">220.000 EUR</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8;"><span style="background:#d4edda; color:#155724; padding:2px 7px; border-radius:10px; font-size:10px; font-weight:bold; white-space:nowrap;">✓ Actief</span></td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#555;">03-01-2024</td>
-                      </tr>
-                      <tr style="background:#f5f7fa;">
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#222;">Anna Smit</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#444;">Hypotheek</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#222;">415.000 EUR</td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8;"><span style="color:#721c24; font-size:10px; white-space:nowrap;">✗ Geweigerd</span></td>
-                        <td style="padding:9px 10px; border:1px solid #d0d8e8; color:#555;">28-12-2023</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <!-- Before label -->
-              <div style="position:absolute; bottom:24px; left:40px;">
-                <div style="font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.3); margin-bottom:4px;">Before · Pre-DS</div>
-                <div style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.4;">47 variants. No shared language.</div>
-              </div>
-            </div>
-          </div>
+    <!-- BEFORE layer — clips as handle moves -->
+    <div id="ba-before" style="position:absolute; top:0; left:0; bottom:0; width:50%; overflow:hidden;">
+      <div style="width:1440px; height:100%; position:relative;">
+        <img src="images/cs1-aeon/AIP_old_2.0.png"
+             style="width:1440px; height:100%; object-fit:cover; object-position:center top; display:block;">
+      </div>
+    </div>
 
-          <!-- Divider line -->
-          <div id="ba-divider" style="position:absolute; top:0; bottom:0; left:50%; width:2px; background:rgba(255,255,255,0.9); transform:translateX(-50%); pointer-events:none; z-index:10;">
-            <!-- Handle -->
-            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px rgba(0,0,0,0.5);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" style="margin-left:-6px;"><polyline points="9 18 15 12 9 6"/></svg>
-            </div>
-          </div>
+    <!-- Divider line -->
+    <div id="ba-divider" style="position:absolute; top:0; bottom:0; left:50%; width:2px; background:rgba(255,255,255,0.9); transform:translateX(-50%); pointer-events:none; z-index:10;">
+      <!-- Handle -->
+      <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px rgba(0,0,0,0.5);">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" style="margin-left:-6px;"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
 
-          <!-- Drag hint (fades after interaction) -->
-          <div id="ba-hint" style="position:absolute; bottom:18px; left:50%; transform:translateX(-50%); font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.3); pointer-events:none; transition:opacity 0.4s; white-space:nowrap;">drag to reveal</div>
-        </div>
-      </section>
+    <!-- Drag hint -->
+    <div id="ba-hint" style="position:absolute; bottom:96px; left:50%; transform:translateX(-50%); font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.4); pointer-events:none; transition:opacity 0.4s; white-space:nowrap;">drag to reveal</div>
+
+    <!-- Static overlay — sits above slider, non-interactive passthrough -->
+    <div style="position:absolute; bottom:0; left:0; right:0; padding:28px 40px 28px 40px; background:linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 60%, transparent 100%); pointer-events:none; z-index:20;">
+      <!-- Pill -->
+      <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,0,0,0.90); border:1px solid rgba(255,255,255,0.25); border-radius:4px; padding:4px 10px; margin-bottom:10px; width:fit-content;">
+        <div style="width:5px; height:5px; border-radius:50%; background:#f59e0b; flex-shrink:0;"></div>
+        <span style="font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.9);">Aeon Design System</span>
+      </div>
+      <!-- Title -->
+      <div style="font-size:20px; font-weight:700; color:#fff; line-height:1.25; letter-spacing:-0.01em; margin-bottom:6px;">From 47 variants to one shared language.</div>
+      <!-- Description -->
+      <div style="font-size:14px; color:rgba(255,255,255,0.55); line-height:1.5; max-width:560px;">Before: six isolated platforms, no shared components. After: one token system, one component architecture, actually adopted.</div>
+    </div>
+
+  </div>
+</section>
 
       <!-- SLIDE 06 — Full-Bleed DS Hero (first look into Aeon) -->
       <!-- SLIDE 06 — Full-Bleed DS Hero -->
