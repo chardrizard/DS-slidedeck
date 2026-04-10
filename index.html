@@ -38,6 +38,13 @@
     --slide-w: 1440px;
     --slide-h: 810px;
     --pad: 72px;
+    /* Aeon component tokens */
+    --aeon-blue:     #1B75BB;
+    --aeon-blue-h:   #15609E;
+    --aeon-blue-a:   #115180;
+    --aeon-blue-dis: #8BBAD8;
+    --aeon-err:      #e53935;
+    --aeon-sec-h:    rgba(27,117,187,0.07);
   }
 
   /* ─── RESET ─── */
@@ -350,7 +357,7 @@
   .metric-value.amber { color: #fbbf24; }
   .metric-label { font-size: 15px; font-weight: 400; color: var(--white-muted); line-height: 1.4; max-width: 200px; }
 
-  /* ─── REFLECTION TIMELINE (Option B) ─── */
+  /* ─── REFLECTION TIMELINE ─── */
   .reflection-timeline { display: grid; grid-template-columns: 1fr 1px 1fr; gap: 48px; flex: 1; }
   .reflection-tl-line { background: var(--border-light); }
   .reflection-tl-col { display: flex; flex-direction: column; gap: 0; }
@@ -369,23 +376,6 @@
   .reflection-tl-dot.slate { background: var(--ink-faint); }
   .reflection-tl-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
   .reflection-tl-body { font-size: 14px; color: var(--ink-muted); line-height: 1.5; }
-
-  /* ─── REFLECTION GRID ─── */
-  .reflection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; }
-  .reflection-col { display: flex; flex-direction: column; gap: 0; }
-  .reflection-header {
-    font-family: var(--mono); font-size: 11px; font-weight: 500;
-    text-transform: uppercase; letter-spacing: 0.1em;
-    padding: 0 0 16px 0;
-    margin-bottom: 20px;
-    border-bottom: 2px solid;
-  }
-  .reflection-header.green { color: #fbbf24; border-color: #fbbf24; }
-  .reflection-header.amber { color: #fbbf24; border-color: #fbbf24; }
-  .reflection-item { padding: 20px 0; border-bottom: 1px solid var(--border-light); }
-  .reflection-item:last-child { border-bottom: none; }
-  .reflection-item-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
-  .reflection-item-body { font-size: 14px; color: var(--ink-muted); line-height: 1.5; }
 
   /* ─── PUSHBACK QUOTES ─── */
   .pushback-quotes { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
@@ -475,13 +465,10 @@
   /* ─── ANALYSIS SUBSECTIONS ─── */
   .analysis-sub { margin-top: 16px; }
   .analysis-sub-label { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-  .analysis-sub-body { font-size: 15px; color: var(--ink-muted); line-height: 1.5; padding-left: 0; }
+  .analysis-sub-body { font-size: 15px; color: var(--ink-muted); line-height: 1.5; }
 
   /* ─── FULL-BLEED ─── */
-  .slide-fullbleed {
-    overflow: hidden;
-    background: var(--dark-2);
-  }
+  .slide-fullbleed { overflow: hidden; background: var(--dark-2); }
   .fullbleed-img {
     width: 100%; height: 100%;
     display: flex; align-items: center; justify-content: center;
@@ -520,7 +507,7 @@
     color: #60a5fa; margin-bottom: 12px;
   }
 
-  /* ─── SIDE PROJECTS SLIDE ─── */
+  /* ─── SIDE PROJECTS ─── */
   .sproj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; }
   .sproj-card {
     display: flex; align-items: flex-start; gap: 16px;
@@ -552,16 +539,16 @@
   .sproj-card:hover .sproj-card-arr { color: var(--accent); }
 
   /* ─── CONTACT ─── */
-  #slide-24 .slide-inner { align-items: center; justify-content: center; text-align: center; }
-  #slide-24 .contact-name { font-size: 60px; font-weight: 700; margin-bottom: 32px; color: var(--white); }
-  #slide-24 .contact-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
-  #slide-24 .contact-link {
+  #slide-26 .slide-inner { align-items: center; justify-content: center; text-align: center; }
+  #slide-26 .contact-name { font-size: 60px; font-weight: 700; margin-bottom: 32px; color: var(--white); }
+  #slide-26 .contact-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+  #slide-26 .contact-link {
     font-size: 18px; color: var(--white-muted);
     font-family: var(--mono);
     transition: color 0.15s;
   }
-  #slide-24 .contact-link:hover { color: var(--accent); }
-  #slide-24 .pill-row { justify-content: center; }
+  #slide-26 .contact-link:hover { color: var(--accent); }
+  #slide-26 .pill-row { justify-content: center; }
 
   /* ─── SWIMLANE CONTRACT ─── */
   .swimlane { display: grid; grid-template-columns: 110px 1fr; gap: 0; flex: 1; }
@@ -602,14 +589,7 @@
     background: rgba(0,0,0,0.05); color: var(--ink-muted);
   }
 
-  /* ─── SLIDE 01 LOGO ─── */
-  .hero-logo {
-    display: flex; align-items: center; gap: 0;
-    margin-bottom: 28px;
-  }
-  .hero-logo svg { display: block; }
-
-  /* ─── SLIDE 01 SOCIAL ICONS ─── */
+  /* ─── HERO SOCIALS ─── */
   .hero-socials { display: flex; gap: 10px; margin-top: 24px; }
   .hero-social {
     width: 36px; height: 36px; border-radius: 8px;
@@ -683,6 +663,255 @@
   .dot:hover { background: rgba(255,255,255,0.5); }
   .dot.active { background: var(--accent); transform: scale(1.4); }
 
+  /* ═══════════════════════════════════════════════════════
+     SLIDE 08 — FLIP CARD + AEON COMPONENT STYLES
+  ═══════════════════════════════════════════════════════ */
+
+  /* ─── Card grid ─── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 16px;
+    flex: 1;
+    min-height: 0;
+  }
+  #c3 { grid-column: 3; grid-row: 1 / 3; }
+
+  /* ─── Flip card shell ─── */
+  .flip-card { perspective: 1200px; cursor: pointer; min-height: 0; }
+  .flip-card-inner {
+    width: 100%; height: 100%; position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+    will-change: transform;
+  }
+  .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+  .card-front, .card-back {
+    position: absolute; inset: 0;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    overflow: hidden;
+  }
+
+  /* ─── Front face ─── */
+  .card-front {
+    background: var(--white); border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    display: flex; flex-direction: column; transition: box-shadow 0.2s; cursor: pointer;
+  }
+  .flip-card:not(.flipped):hover .card-front {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.06);
+  }
+  .card-front-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 14px 9px; border-bottom: 1px solid var(--border-light);
+    background: var(--paper); flex-shrink: 0;
+  }
+  .card-bu {
+    display: flex; align-items: center; gap: 5px;
+    font-family: var(--mono); font-size: 9px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.09em; color: var(--ink-muted);
+  }
+  .bu-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+  .card-era { font-family: var(--mono); font-size: 8px; color: var(--ink-faint); letter-spacing: 0.06em; text-transform: uppercase; }
+  .card-screenshot { flex: 1; min-height: 0; position: relative; overflow: hidden; background: var(--paper-2); }
+  .card-screenshot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+  .card-screenshot-placeholder {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px;
+    font-family: var(--mono); font-size: 9px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--ink-faint);
+    background: var(--paper-2); text-align: center; padding: 16px;
+  }
+  .card-screenshot-placeholder svg { opacity: 0.3; }
+  .click-hint {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 7px 14px; border-top: 1px solid var(--border-light);
+    background: var(--paper); flex-shrink: 0;
+    font-family: var(--mono); font-size: 9px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-faint); transition: color 0.15s, background 0.15s;
+  }
+  .flip-card:not(.flipped):hover .click-hint { color: var(--accent); background: var(--accent-dim); }
+  .flip-card.flipped .click-hint { opacity: 0; }
+
+  /* ─── Back face ─── */
+  .card-back {
+    transform: rotateY(180deg); background: var(--white);
+    border: 1px solid rgba(27,117,187,0.2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06); display: flex; flex-direction: column;
+  }
+  .card-back-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 9px 12px; border-bottom: 1px solid rgba(27,117,187,0.1);
+    background: var(--paper); flex-shrink: 0;
+  }
+  .card-back-label {
+    display: flex; align-items: center; gap: 6px;
+    font-family: var(--mono); font-size: 9px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.09em; color: var(--aeon-blue);
+  }
+  .aeon-dot { width: 8px; height: 8px; border-radius: 2px; background: var(--aeon-blue); flex-shrink: 0; }
+  .flip-back-btn {
+    display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px;
+    border: 1px solid rgba(0,0,0,0.12); background: transparent;
+    font-family: var(--mono); font-size: 8.5px; font-weight: 500;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--ink-muted); cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+  .flip-back-btn:hover { border-color: rgba(0,0,0,0.25); color: var(--ink); background: var(--paper-2); }
+  .card-back-body {
+    flex: 1; min-height: 0; padding: 18px 16px;
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 12px; overflow: visible;
+  }
+
+  /* ─── Aeon Button ─── */
+  .aeon-btn {
+    display: inline-flex; align-items: center; justify-content: flex-start;
+    font-family: var(--sans); font-weight: 600; cursor: pointer;
+    border: 2px solid transparent; border-radius: 0;
+    gap: 0; white-space: nowrap; user-select: none;
+    transition: background 140ms ease, border-color 140ms ease, transform 80ms ease;
+    position: relative; overflow: hidden;
+  }
+  .aeon-btn:focus { outline: none; }
+  .aeon-btn:focus-visible { outline: 3px solid var(--aeon-blue); outline-offset: 2px; }
+  .aeon-btn--md { height: 56px; font-size: 16px; padding: 0 16px; }
+  .aeon-btn__txt { flex: 1; text-align: left; }
+  .aeon-btn--ctr { justify-content: center; }
+  .aeon-btn--ctr .aeon-btn__txt { text-align: center; }
+  .aeon-btn__arr { display: flex; align-items: center; justify-content: center; width: 57px; height: 100%; flex-shrink: 0; border-left: 2px solid rgba(255,255,255,0.18); }
+  .aeon-btn__arr svg { width: 16px; height: 16px; }
+  .aeon-btn--full { width: 100%; }
+  .aeon-btn--pri { background: var(--aeon-blue); border-color: var(--aeon-blue); color: #fff; }
+  .aeon-btn--pri:hover:not(:disabled) { background: var(--aeon-blue-h); border-color: var(--aeon-blue-h); }
+  .aeon-btn--pri:active:not(:disabled) { background: var(--aeon-blue-a); transform: translateY(1px); }
+  .aeon-btn--pri:disabled { background: var(--aeon-blue-dis); border-color: var(--aeon-blue-dis); cursor: not-allowed; }
+  .aeon-btn--sec { background: transparent; border-color: var(--aeon-blue); color: var(--aeon-blue); }
+  .aeon-btn--sec:hover:not(:disabled) { background: var(--aeon-sec-h); }
+  .aeon-btn--sec:active:not(:disabled) { background: rgba(27,117,187,0.13); transform: translateY(1px); }
+  .aeon-btn--sec:disabled { border-color: #d4d4d4; color: #a0a0a0; cursor: not-allowed; }
+
+  /* ─── Aeon Text Field ─── */
+  .s-field { position: relative; display: flex; flex-direction: column; }
+  .s-field__box {
+    position: relative; display: flex; align-items: center;
+    width: 100%; height: 56px; border: 1.5px solid #C8C8C8;
+    border-radius: 4px; background: #fff; cursor: text;
+    transition: border-color 140ms ease, box-shadow 140ms ease;
+  }
+  .s-field:hover:not(.is-err) .s-field__box { border-color: #888; }
+  .s-field__box:focus-within { border-color: var(--aeon-blue); box-shadow: 0 0 0 3px rgba(27,117,187,0.12); }
+  .s-field.is-err .s-field__box { border-color: var(--aeon-err); box-shadow: 0 0 0 3px rgba(229,57,53,0.10); }
+  .s-field__inner { flex: 1; min-width: 0; height: 100%; position: relative; padding: 0 16px; }
+  .s-field__label {
+    position: absolute; left: 16px; right: 0; top: 50%; transform: translateY(-50%);
+    font-family: var(--sans); font-size: 14px; font-weight: 400; color: #a0a0a0;
+    pointer-events: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    line-height: 1; text-transform: uppercase;
+    transition: top 140ms ease, transform 140ms ease, font-size 140ms ease, font-weight 140ms ease, color 140ms ease, letter-spacing 140ms ease;
+  }
+  .s-field__box:focus-within .s-field__label,
+  .s-field.is-filled .s-field__label { top: 8px; transform: translateY(0); font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+  .s-field__box:focus-within .s-field__label { color: var(--aeon-blue); }
+  .s-field.is-filled .s-field__label { color: #525252; }
+  .s-field.is-err .s-field__label { color: var(--aeon-err); }
+  .s-field__input {
+    position: absolute; left: 16px; right: 0; bottom: 8px;
+    width: calc(100% - 16px); height: 20px;
+    border: none; outline: none; background: transparent;
+    font-family: var(--sans); font-size: 14px; color: #0e1218;
+    line-height: 1; padding: 0; caret-color: var(--aeon-blue);
+  }
+  .s-field__input::placeholder { color: transparent; }
+  .s-field__support { min-height: 16px; padding: 3px 2px 0; font-family: var(--sans); font-size: 10px; line-height: 1.3; }
+  .s-field__support.ok { color: #15803d; }
+  .s-field__support.err { color: var(--aeon-err); }
+  .s-field__clear {
+    display: none; align-items: center; justify-content: center;
+    width: 28px; height: 28px; margin-right: 10px;
+    border: none; background: none; cursor: pointer;
+    border-radius: 50%; color: #a0a0a0; flex-shrink: 0;
+    transition: background 120ms, color 120ms;
+  }
+  .s-field__clear:hover { background: rgba(0,0,0,0.06); color: #525252; }
+  .s-field.is-filled .s-field__clear { display: flex; }
+  .s-field--clearable .s-field__input { right: 40px; width: calc(100% - 56px); }
+
+  /* ─── Aeon Dropdown ─── */
+  .aeon-dd-wrap { position: relative; width: 100%; }
+  .aeon-dd {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; height: 56px; padding: 0 16px;
+    border: 1.5px solid #C8C8C8; border-radius: 4px;
+    background: #fff; cursor: pointer;
+    transition: border-color 140ms ease; position: relative; user-select: none;
+  }
+  .aeon-dd:hover:not(.aeon-dd--dis):not(.aeon-dd--open) { border-color: #888; }
+  .aeon-dd--open { border-color: var(--aeon-blue); border-bottom-left-radius: 0; border-bottom-right-radius: 0; align-items: flex-start; padding-top: 8px; padding-bottom: 9px; }
+  .aeon-dd--dis { border-color: #e0e0e0; background: #fafafa; cursor: not-allowed; opacity: 0.55; }
+  .aeon-dd--open .aeon-dd__inner { display: flex; flex-direction: column; justify-content: flex-start; gap: 4px; flex: 1; min-width: 0; height: 100%; }
+  .aeon-dd__float { font-size: 8px; font-weight: 600; color: var(--aeon-blue); line-height: 1; letter-spacing: 0.04em; text-transform: uppercase; }
+  .aeon-dd__val { font-size: 16px; color: #0e1218; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1; }
+  .aeon-dd__lbl { font-size: 16px; color: #0e1218; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .aeon-dd__lbl--ph { color: #a0a0a0; }
+  .aeon-dd__chev { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex-shrink: 0; color: #525252; transition: transform 140ms ease, color 140ms ease; }
+  .aeon-dd--open .aeon-dd__chev { color: var(--aeon-blue); transform: rotate(180deg); align-self: center; }
+  .aeon-dd--dis .aeon-dd__chev { color: #d4d4d4; }
+  .aeon-dd-menu { position: absolute; top: 100%; left: 0; right: 0; border: 1.5px solid var(--aeon-blue); border-top: none; border-radius: 0 0 4px 4px; background: #fff; z-index: 300; box-shadow: 0 6px 18px rgba(0,0,0,0.10); overflow-y: auto; max-height: 340px; }
+  .aeon-dd-item { display: flex; align-items: center; min-height: 44px; padding: 10px 16px; font-size: 16px; color: #0e1218; cursor: pointer; transition: background 100ms; font-family: var(--sans); }
+  .aeon-dd-item:hover { background: #f5f5f5; }
+  .aeon-dd-item--sel { background: var(--aeon-sec-h); color: var(--aeon-blue); font-weight: 500; }
+  .aeon-dd-chk { width: 16px; height: 16px; border-radius: 3px; border: 1.5px solid #C8C8C8; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; background: #fff; transition: background 100ms, border-color 100ms; }
+  .aeon-dd-chk--on { background: var(--aeon-blue); border-color: var(--aeon-blue); }
+
+  /* ─── Aeon Pill Toggle ─── */
+  .pill-group { display: flex; flex-wrap: wrap; gap: 8px; }
+  .aeon-pill {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 32px; padding: 0 16px; border-radius: 16px;
+    border: 1.5px solid var(--aeon-blue); background: #fff;
+    color: var(--aeon-blue); font-family: var(--sans); font-size: 13px; font-weight: 500;
+    white-space: nowrap; cursor: pointer; user-select: none;
+    transition: background 140ms ease, color 140ms ease, border-color 140ms ease;
+  }
+  .aeon-pill:focus { outline: none; }
+  .aeon-pill:focus-visible { outline: 3px solid var(--aeon-blue); outline-offset: 2px; }
+  .aeon-pill:hover:not(.aeon-pill--on) { background: var(--aeon-sec-h); }
+  .aeon-pill--on { background: var(--aeon-blue); color: #fff; }
+  .aeon-pill--on:hover { background: var(--aeon-blue-h); }
+
+  /* ─── Aeon Badge ─── */
+  .aeon-badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 100px; font-family: var(--sans); font-size: 12px; font-weight: 500; white-space: nowrap; cursor: pointer; transition: filter 0.15s, transform 0.12s; user-select: none; }
+  .aeon-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+  .aeon-badge-success { background: rgba(34,197,94,0.1); color: #15803d; border: 1px solid rgba(34,197,94,0.2); }
+  .aeon-badge-success::before { background: #22c55e; }
+  .aeon-badge-warning { background: rgba(245,158,11,0.1); color: #b45309; border: 1px solid rgba(245,158,11,0.2); }
+  .aeon-badge-warning::before { background: #f59e0b; }
+  .aeon-badge-error { background: rgba(229,57,53,0.1); color: #b91c1c; border: 1px solid rgba(229,57,53,0.2); }
+  .aeon-badge-error::before { background: var(--aeon-err); }
+  .aeon-badge-info { background: rgba(27,117,187,0.1); color: #1d4ed8; border: 1px solid rgba(27,117,187,0.2); }
+  .aeon-badge-info::before { background: var(--aeon-blue); }
+  .aeon-badge-neutral { background: var(--paper-2); color: var(--ink-muted); border: 1px solid rgba(0,0,0,0.1); }
+  .aeon-badge-neutral::before { background: var(--ink-faint); }
+  .aeon-badge:hover { filter: brightness(0.92); transform: scale(1.04); }
+
+  /* ─── Aeon Checkbox ─── */
+  .aeon-chk-row { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  .aeon-chk-box { width: 18px; height: 18px; flex-shrink: 0; border: 1.5px solid #C8C8C8; border-radius: 3px; background: #fff; display: flex; align-items: center; justify-content: center; transition: all 140ms; }
+  .aeon-chk-row input[type=checkbox] { display: none; }
+  .aeon-chk-row input:checked ~ .aeon-chk-box { background: var(--aeon-blue); border-color: var(--aeon-blue); }
+  .aeon-chk-row input:checked ~ .aeon-chk-box::after { content: ''; width: 4px; height: 8px; border: 2px solid #fff; border-top: none; border-left: none; transform: rotate(45deg) translate(-1px,-1px); }
+  .aeon-chk-label { font-family: var(--sans); font-size: 14px; color: #0e1218; }
+
+  /* ─── Slide 08 utilities ─── */
+  .col-flex { display: flex; flex-direction: column; }
+  .gap-10 { gap: 10px; }
+  .gap-12 { gap: 12px; }
+  .row-flex { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
   /* ─── RESPONSIVE SCALE ─── */
   @media (max-width: 1500px) {
     #scaler { transform-origin: center center; }
@@ -712,7 +941,7 @@
       </div>
       <div id="nav-right">
         <button id="notes-toggle" title="Toggle speaker notes">📝</button>
-        <span id="slide-counter">1 / 24</span>
+        <span id="slide-counter">1 / 27</span>
         <button class="nav-arrow" id="btn-prev">←</button>
         <button class="nav-arrow" id="btn-next">→</button>
       </div>
@@ -765,18 +994,10 @@
           </div>
           <div class="col" style="flex:0 0 70%; min-width:0; gap:16px; justify-content:center;">
             <div style="overflow-x:auto; overflow-y:hidden; display:flex; gap:12px; flex:1; min-height:0; scrollbar-width:none; -ms-overflow-style:none; scroll-snap-type:x mandatory; padding-bottom:2px;">
-              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;">
-                <img src="images/personal/Skiing.png" style="width:100%; height:100%; object-fit:cover; display:block;">
-              </div>
-              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;">
-                <img src="images/personal/Landscape_01.png" style="width:100%; height:100%; object-fit:cover; display:block;">
-              </div>
-              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;">
-                <img src="images/personal/Landscape_02.png" style="width:100%; height:100%; object-fit:cover; display:block;">
-              </div>
-              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;">
-                <img src="images/personal/teaching.png" style="width:100%; height:100%; object-fit:cover; display:block;">
-              </div>
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Skiing.png" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Landscape_01.png" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Landscape_02.png" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/teaching.png" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
             </div>
             <div class="eyebrow" style="margin-bottom:12px; margin-top:4px;">Expertise</div>
             <div class="skill-pills">
@@ -809,7 +1030,7 @@
               <div class="nav-card-body">Aeon Design System. 60+ products unified under one component architecture. Audit, conditional logic, documentation, adoption pipeline.</div>
               <div class="nav-card-link">View case study →</div>
             </div>
-            <div class="nav-card" data-goto="14">
+            <div class="nav-card" data-goto="15">
               <div class="nav-card-label">Case Study 02</div>
               <div class="nav-card-title">Driving Adoption</div>
               <div class="nav-card-body">Hypotheek Data Table. When your biggest revenue team won't adopt your system. Reframing conflict into partnership.</div>
@@ -825,97 +1046,65 @@
           <div class="eyebrow eyebrow-accent">Case Study 01 · Design Systems · Aegon · 2022–2023</div>
           <h2 class="cs-title">Aeon Design System<br><em>60+ products, one system. Actually used.</em></h2>
           <div class="meta-row">
-            <div class="meta-item">
-              <div class="meta-label">Role</div>
-              <div class="meta-value">Design System Designer</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">Company</div>
-              <div class="meta-value">Aegon · $22.4B revenue</div>
-            </div>
-            <div class="meta-item">
-              <div class="meta-label">Team</div>
-              <div class="meta-value">2 designers + devs + PM</div>
-            </div>
+            <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">Design System Designer</div></div>
+            <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Aegon · $22.4B revenue</div></div>
+            <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">2 designers + devs + PM</div></div>
           </div>
         </div>
       </section>
 
-<!-- SLIDE 05 — Before/After Reveal Slider -->
-<section class="slide slide-fullbleed" id="slide-05" data-index="4" data-section="cs1" data-slide-type="solution">
-  <div id="ba-slider" data-no-advance="true" style="position:absolute; inset:0; overflow:hidden; cursor:ew-resize; user-select:none;">
+      <!-- SLIDE 05 — Before/After Reveal Slider -->
+      <section class="slide slide-fullbleed" id="slide-05" data-index="4" data-section="cs1" data-slide-type="solution">
+        <div id="ba-slider" data-no-advance="true" style="position:absolute; inset:0; overflow:hidden; cursor:ew-resize; user-select:none;">
+          <div id="ba-after" style="position:absolute; inset:0; background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="images/cs1-aeon/AIP_uplift_AEON_02.png" style="width:100%; height:100%; object-fit:contain; object-position:center center; display:block;">
+          </div>
+          <div id="ba-before" style="position:absolute; top:0; left:0; bottom:0; width:50%; overflow:hidden;">
+            <div style="position:absolute; top:0; left:0; width:1440px; bottom:0; background:#ffffff; display:flex; align-items:center; justify-content:center;">
+              <img src="images/cs1-aeon/AIP_old_2.0.png" style="width:1440px; height:100%; object-fit:contain; object-position:center center; display:block;">
+            </div>
+          </div>
+          <div id="ba-divider" style="position:absolute; top:0; bottom:0; left:50%; width:2px; background:rgba(255,255,255,0.9); transform:translateX(-50%); pointer-events:none; z-index:10;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px rgba(0,0,0,0.5);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" style="margin-left:-6px;"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+          </div>
+          <div id="ba-hint" style="position:absolute; bottom:104px; left:50%; transform:translateX(-50%); font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.35); pointer-events:none; transition:opacity 0.4s; white-space:nowrap;">drag to reveal</div>
+          <div style="position:absolute; bottom:0; left:0; right:0; padding:32px 40px; background:linear-gradient(to top, rgba(15,15,15,0.95) 0%, rgba(0,0,0,0.55) 55%, transparent 100%); pointer-events:none; z-index:20;">
+            <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,0,0,0.90); border:1px solid rgba(255,255,255,0.25); border-radius:4px; padding:4px 10px; margin-bottom:10px;">
+              <div style="width:5px; height:5px; border-radius:50%; background:#f59e0b; flex-shrink:0;"></div>
+              <span style="font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.9);">AIP · Before & After</span>
+            </div>
+            <div style="font-size:20px; font-weight:700; color:#fff; line-height:1.25; letter-spacing:-0.01em; margin-bottom:6px;">The same portal. Four years apart.</div>
+            <div style="font-size:14px; color:rgba(255,255,255,0.55); line-height:1.5; max-width:640px;">Left: AIP 1.0 — each business unit shipping its own patterns. Right: AIP on Aeon — one token system, one component set, 22,000 advisors on a consistent interface.</div>
+          </div>
+        </div>
+      </section>
 
-    <!-- AFTER layer — full-bleed image -->
-    <div id="ba-after" style="position:absolute; inset:0; background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-      <img src="images/cs1-aeon/AIP_uplift_AEON_02.png"
-           style="width:100%; height:100%; object-fit:contain; object-position:center center; display:block;">
-    </div>
-
-    <!-- BEFORE layer — clips as handle moves -->
-    <div id="ba-before" style="position:absolute; top:0; left:0; bottom:0; width:50%; overflow:hidden;">
-      <div style="position:absolute; top:0; left:0; width:1440px; bottom:0; background:#ffffff; display:flex; align-items:center; justify-content:center;">
-        <img src="images/cs1-aeon/AIP_old_2.0.png"
-             style="width:1440px; height:100%; object-fit:contain; object-position:center center; display:block;">
-      </div>
-    </div>
-
-    <!-- Divider line -->
-    <div id="ba-divider" style="position:absolute; top:0; bottom:0; left:50%; width:2px; background:rgba(255,255,255,0.9); transform:translateX(-50%); pointer-events:none; z-index:10;">
-      <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px rgba(0,0,0,0.5);">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" style="margin-left:-6px;"><polyline points="9 18 15 12 9 6"/></svg>
-      </div>
-    </div>
-
-    <!-- Drag hint -->
-    <div id="ba-hint" style="position:absolute; bottom:104px; left:50%; transform:translateX(-50%); font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.35); pointer-events:none; transition:opacity 0.4s; white-space:nowrap;">drag to reveal</div>
-
-    <!-- Static overlay — non-interactive, always visible -->
-    <div style="position:absolute; bottom:0; left:0; right:0; padding:32px 40px; background:linear-gradient(to top, rgba(15,15,15,0.95) 0%, rgba(0,0,0,0.55) 55%, transparent 100%); pointer-events:none; z-index:20;">
-      <!-- Pill -->
-      <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,0,0,0.90); border:1px solid rgba(255,255,255,0.25); border-radius:4px; padding:4px 10px; margin-bottom:10px;">
-        <div style="width:5px; height:5px; border-radius:50%; background:#f59e0b; flex-shrink:0;"></div>
-        <span style="font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.9);">AIP · Before & After</span>
-      </div>
-      <!-- Title -->
-      <div style="font-size:20px; font-weight:700; color:#fff; line-height:1.25; letter-spacing:-0.01em; margin-bottom:6px;">The same portal. Four years apart.</div>
-      <!-- Description -->
-      <div style="font-size:14px; color:rgba(255,255,255,0.55); line-height:1.5; max-width:640px;">Left: AIP 1.0 — each business unit shipping its own patterns. Right: AIP on Aeon — one token system, one component set, 22,000 advisors on a consistent interface.</div>
-    </div>
-
-  </div>
-</section>
-
-      <!-- SLIDE 06 — Full-Bleed DS Hero (first look into Aeon) -->
       <!-- SLIDE 06 — Full-Bleed DS Hero -->
-<section class="slide slide-fullbleed" id="slide-06" data-index="5" data-section="cs1" data-slide-type="solution">
-  <img 
-    src="images/cs1-aeon/Aeon Design System Overview.png" 
-    style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block; position:absolute; inset:0;"
-  >
-  <div class="caption-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 55%, transparent 100%); padding:32px 72px;">
-  <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,0,0,0.90); border:1px solid rgba(255,255,255,0.25); border-radius:4px; padding:4px 10px; margin-bottom:10px; width:fit-content;">
-    <div style="width:5px; height:5px; border-radius:50%; background:#f59e0b; flex-shrink:0;"></div>
-    <span style="font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.9);">Aeon Design System</span>
-  </div>
-  <div style="font-size:16px; font-weight:600; color:#fff; line-height:1.3; margin-bottom:6px;">From 47 variants to one shared language.</div>
-  <div class="caption-text">Buttons, fields, date pickers, step indicators — every component documented with states and usage rules. Built for six platforms.</div>
-</div>
-</section>
+      <section class="slide slide-fullbleed" id="slide-06" data-index="5" data-section="cs1" data-slide-type="solution">
+        <img src="images/cs1-aeon/Aeon Design System Overview.png" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block; position:absolute; inset:0;">
+        <div class="caption-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 55%, transparent 100%); padding:32px 72px;">
+          <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,0,0,0.90); border:1px solid rgba(255,255,255,0.25); border-radius:4px; padding:4px 10px; margin-bottom:10px; width:fit-content;">
+            <div style="width:5px; height:5px; border-radius:50%; background:#f59e0b; flex-shrink:0;"></div>
+            <span style="font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.9);">Aeon Design System</span>
+          </div>
+          <div style="font-size:16px; font-weight:600; color:#fff; line-height:1.3; margin-bottom:6px;">From 47 variants to one shared language.</div>
+          <div class="caption-text">Buttons, fields, date pickers, step indicators — every component documented with states and usage rules. Built for six platforms.</div>
+        </div>
+      </section>
 
-      <!-- SLIDE 07 — Problem + Scope (merged, text-only) -->
+      <!-- SLIDE 07 — Problem + Scope -->
       <section class="slide slide-light" id="slide-07" data-index="6" data-section="cs1" data-slide-type="context">
         <div class="slide-inner" style="justify-content:center;">
           <div style="display:grid; grid-template-columns:1fr 1px 1fr; gap:0 72px; width:100%;">
-            <!-- Left: Problem -->
             <div style="display:flex; flex-direction:column; justify-content:center;">
               <div class="eyebrow">The Problem</div>
               <h2 class="section-title">47 button variants. <em>Six platforms. Zero shared components.</em></h2>
               <p class="body-text">Six platforms, each built independently. No shared components, no token language, no documentation. Every team solving the same problems in isolation.</p>
             </div>
-            <!-- Divider -->
             <div style="background:var(--border-light);"></div>
-            <!-- Right: Scope -->
             <div style="display:flex; flex-direction:column; justify-content:center;">
               <div class="eyebrow">Scope · What I owned</div>
               <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
@@ -932,10 +1121,281 @@
         </div>
       </section>
 
-      <!-- SLIDE 08 — Full-Bleed 2-col (after Problem+Scope, before Architecture) -->
-      <section class="slide slide-fullbleed" id="slide-08" data-index="7" data-section="cs1" data-slide-type="solution">
+      <!-- SLIDE 08 — Before/After Flipcard (NEW) -->
+      <section class="slide slide-light" id="slide-08" data-index="7" data-section="cs1" data-slide-type="solution" data-no-advance="true">
+        <div class="slide-inner" style="padding: 20px var(--pad);">
+          <div class="card-grid">
+
+            <!-- CARD 1 — BUTTONS · BU02 Hypotheek ~2008 -->
+            <div class="flip-card" id="c1" onclick="handleCardClick(event,'c1')">
+              <div class="flip-card-inner">
+                <div class="card-front">
+                  <div class="card-front-header">
+                    <div class="card-bu"><span class="bu-dot" style="background:#4a6080;"></span>Hypotheek Portaal</div>
+                    <div class="card-era">~2008 · Buttons</div>
+                  </div>
+                  <div class="card-screenshot">
+                    <img src="images/before/buttons.png" alt="Before — Hypotheek buttons"
+                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                      style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
+                    <div class="card-screenshot-placeholder">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      images/before/buttons.png
+                    </div>
+                  </div>
+                  <div class="click-hint">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Before · Fragmented state
+                  </div>
+                </div>
+                <div class="card-back" onclick="event.stopPropagation()">
+                  <div class="card-back-header">
+                    <div class="card-back-label"><div class="aeon-dot"></div>Aeon · Click to reveal</div>
+                    <button class="flip-back-btn" onclick="flipBack('c1')">↩ before</button>
+                  </div>
+                  <div class="card-back-body col-flex gap-10">
+                    <button class="aeon-btn aeon-btn--pri aeon-btn--md aeon-btn--full" type="button">
+                      <span class="aeon-btn__txt">Offerte aanvragen</span>
+                      <span class="aeon-btn__arr"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <button class="aeon-btn aeon-btn--sec aeon-btn--md aeon-btn--full aeon-btn--ctr" type="button">
+                      <span class="aeon-btn__txt">Meer informatie</span>
+                    </button>
+                    <button class="aeon-btn aeon-btn--pri aeon-btn--md aeon-btn--full" type="button" disabled>
+                      <span class="aeon-btn__txt">Bezig met verwerken…</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 2 — TEXT INPUT · BU04 Investment ~2011 -->
+            <div class="flip-card" id="c2" onclick="handleCardClick(event,'c2')">
+              <div class="flip-card-inner">
+                <div class="card-front">
+                  <div class="card-front-header">
+                    <div class="card-bu"><span class="bu-dot" style="background:#2a4060;"></span>Beleggingsplatform</div>
+                    <div class="card-era">~2011 · Text Input</div>
+                  </div>
+                  <div class="card-screenshot">
+                    <img src="images/before/input.png" alt="Before — Investment text input"
+                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="card-screenshot-placeholder">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      images/before/input.png
+                    </div>
+                  </div>
+                  <div class="click-hint">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Before · Fragmented state
+                  </div>
+                </div>
+                <div class="card-back" onclick="event.stopPropagation()">
+                  <div class="card-back-header">
+                    <div class="card-back-label"><div class="aeon-dot"></div>Aeon · Click to reveal</div>
+                    <button class="flip-back-btn" onclick="flipBack('c2')">↩ before</button>
+                  </div>
+                  <div class="card-back-body col-flex gap-10">
+                    <div class="s-field s-field--clearable">
+                      <div class="s-field__box">
+                        <div class="s-field__inner">
+                          <span class="s-field__label">Naam</span>
+                          <input class="s-field__input" type="text" autocomplete="off" oninput="sfInput(this)" onblur="sfBlur(this)">
+                        </div>
+                        <button class="s-field__clear" type="button" tabindex="-1" onclick="sfClear(this)">
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div style="display:flex;gap:10px;">
+                      <div class="s-field" style="flex:0 0 120px;">
+                        <div class="s-field__box">
+                          <div class="s-field__inner">
+                            <span class="s-field__label">Postcode</span>
+                            <input class="s-field__input" type="text" maxlength="7" autocomplete="off" oninput="sfInputPostcode(this)" onblur="sfBlurValidate(this,'postcode')">
+                          </div>
+                        </div>
+                        <div class="s-field__support"></div>
+                      </div>
+                      <div class="s-field" style="flex:1;">
+                        <div class="s-field__box">
+                          <div class="s-field__inner">
+                            <span class="s-field__label">IBAN</span>
+                            <input class="s-field__input" type="text" maxlength="22" autocomplete="off" oninput="sfInputIban(this)" onblur="sfBlurValidate(this,'iban')">
+                          </div>
+                        </div>
+                        <div class="s-field__support"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 3 — DROPDOWN · BU01 L&P ~2010 (spans full column) -->
+            <div class="flip-card" id="c3" onclick="handleCardClick(event,'c3')">
+              <div class="flip-card-inner">
+                <div class="card-front">
+                  <div class="card-front-header">
+                    <div class="card-bu"><span class="bu-dot" style="background:#4a80c0;"></span>Life &amp; Pensions</div>
+                    <div class="card-era">~2010 · Dropdown</div>
+                  </div>
+                  <div class="card-screenshot">
+                    <img src="images/before/dropdown.png" alt="Before — L&amp;P dropdown"
+                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="card-screenshot-placeholder">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      images/before/dropdown.png
+                    </div>
+                  </div>
+                  <div class="click-hint">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Before · Fragmented state
+                  </div>
+                </div>
+                <div class="card-back" onclick="event.stopPropagation()">
+                  <div class="card-back-header">
+                    <div class="card-back-label"><div class="aeon-dot"></div>Aeon · Click to reveal</div>
+                    <button class="flip-back-btn" onclick="flipBack('c3')">↩ before</button>
+                  </div>
+                  <div class="card-back-body" style="justify-content:flex-start;padding-top:16px;">
+                    <div class="pill-group" id="dd-select-ctrl" style="margin-bottom:10px;">
+                      <button class="aeon-pill aeon-pill--on" data-val="single" type="button">Single</button>
+                      <button class="aeon-pill" data-val="multi" type="button">Multi</button>
+                      <button class="aeon-pill" data-val="filterable" type="button">Filterable</button>
+                    </div>
+                    <div id="aeon-dd-c3"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 4 — BADGES · BU05 Pensioen ~2009 -->
+            <div class="flip-card" id="c4" onclick="handleCardClick(event,'c4')">
+              <div class="flip-card-inner">
+                <div class="card-front">
+                  <div class="card-front-header">
+                    <div class="card-bu"><span class="bu-dot" style="background:#1B4A88;"></span>Pensioenportaal</div>
+                    <div class="card-era">~2009 · Badges</div>
+                  </div>
+                  <div class="card-screenshot">
+                    <img src="images/before/badges.png" alt="Before — Pensioen badges"
+                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="card-screenshot-placeholder">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      images/before/badges.png
+                    </div>
+                  </div>
+                  <div class="click-hint">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Before · Fragmented state
+                  </div>
+                </div>
+                <div class="card-back" onclick="event.stopPropagation()">
+                  <div class="card-back-header">
+                    <div class="card-back-label"><div class="aeon-dot"></div>Aeon · Click to reveal</div>
+                    <button class="flip-back-btn" onclick="flipBack('c4')">↩ before</button>
+                  </div>
+                  <div class="card-back-body col-flex gap-12">
+                    <div>
+                      <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Status badges</div>
+                      <div class="row-flex" style="gap:6px;">
+                        <span class="aeon-badge aeon-badge-success">Actief</span>
+                        <span class="aeon-badge aeon-badge-warning">In behandeling</span>
+                        <span class="aeon-badge aeon-badge-error">Verlopen</span>
+                      </div>
+                      <div class="row-flex" style="margin-top:8px;gap:6px;">
+                        <span class="aeon-badge aeon-badge-neutral">Concept</span>
+                        <span class="aeon-badge aeon-badge-info">Nieuw</span>
+                        <span class="aeon-badge aeon-badge-success">Goedgekeurd</span>
+                      </div>
+                      <div class="row-flex" style="margin-top:8px;gap:6px;">
+                        <span class="aeon-badge aeon-badge-error">Geblokkeerd</span>
+                        <span class="aeon-badge aeon-badge-warning">Herzien</span>
+                      </div>
+                    </div>
+                    <div style="height:1px;background:rgba(0,0,0,0.07);flex-shrink:0;"></div>
+                    <div>
+                      <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Filter pills</div>
+                      <div class="pill-group" id="pill-c4" style="gap:6px;">
+                        <button class="aeon-pill aeon-pill--on" data-group="c4" type="button">Alle</button>
+                        <button class="aeon-pill" data-group="c4" type="button">Actief</button>
+                        <button class="aeon-pill" data-group="c4" type="button">Concept</button>
+                        <button class="aeon-pill" data-group="c4" type="button">Verlopen</button>
+                        <button class="aeon-pill" data-group="c4" type="button">Nieuw</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 5 — CHECKBOXES + RADIO · BU03 Health ~2013 -->
+            <div class="flip-card" id="c5" onclick="handleCardClick(event,'c5')">
+              <div class="flip-card-inner">
+                <div class="card-front">
+                  <div class="card-front-header">
+                    <div class="card-bu"><span class="bu-dot" style="background:#4caf50;"></span>Zorgverzekering</div>
+                    <div class="card-era">~2013 · Toggles</div>
+                  </div>
+                  <div class="card-screenshot">
+                    <img src="images/before/toggles.png" alt="Before — Health toggles"
+                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="card-screenshot-placeholder">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      images/before/toggles.png
+                    </div>
+                  </div>
+                  <div class="click-hint">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Before · Fragmented state
+                  </div>
+                </div>
+                <div class="card-back" onclick="event.stopPropagation()">
+                  <div class="card-back-header">
+                    <div class="card-back-label"><div class="aeon-dot"></div>Aeon · Click to reveal</div>
+                    <button class="flip-back-btn" onclick="flipBack('c5')">↩ before</button>
+                  </div>
+                  <div class="card-back-body col-flex gap-0" style="justify-content:flex-start;padding-top:4px;">
+                    <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Aanvullende vergoedingen</div>
+                    <div class="col-flex gap-12" style="margin-bottom:20px;">
+                      <label class="aeon-chk-row"><input type="checkbox" checked onchange="syncChk(this)"><div class="aeon-chk-box"></div><span class="aeon-chk-label">Tandarts vergoeding</span></label>
+                      <label class="aeon-chk-row"><input type="checkbox" onchange="syncChk(this)"><div class="aeon-chk-box"></div><span class="aeon-chk-label">Fysiotherapie</span></label>
+                      <label class="aeon-chk-row"><input type="checkbox" disabled><div class="aeon-chk-box" style="opacity:0.38;cursor:not-allowed;"></div><span class="aeon-chk-label" style="color:var(--ink-faint);">Buitenland (niet beschikbaar)</span></label>
+                    </div>
+                    <div style="height:1px;background:rgba(0,0,0,0.07);margin-bottom:16px;flex-shrink:0;"></div>
+                    <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Betalingsfrequentie</div>
+                    <div style="display:flex;gap:20px;flex-wrap:wrap;">
+                      <label class="aeon-chk-row">
+                        <input type="radio" name="freq" id="freq-m" checked style="display:none;">
+                        <div class="aeon-radio-box" id="rb-freq-m" onclick="selectRadio('freq','freq-m')" style="width:18px;height:18px;flex-shrink:0;border:1.5px solid var(--aeon-blue);border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 140ms;">
+                          <div style="width:8px;height:8px;border-radius:50%;background:var(--aeon-blue);"></div>
+                        </div>
+                        <span class="aeon-chk-label">Maandelijks</span>
+                      </label>
+                      <label class="aeon-chk-row">
+                        <input type="radio" name="freq" id="freq-q" style="display:none;">
+                        <div class="aeon-radio-box" id="rb-freq-q" onclick="selectRadio('freq','freq-q')" style="width:18px;height:18px;flex-shrink:0;border:1.5px solid #C8C8C8;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 140ms;"></div>
+                        <span class="aeon-chk-label">Per kwartaal</span>
+                      </label>
+                      <label class="aeon-chk-row">
+                        <input type="radio" name="freq" id="freq-y" style="display:none;">
+                        <div class="aeon-radio-box" id="rb-freq-y" onclick="selectRadio('freq','freq-y')" style="width:18px;height:18px;flex-shrink:0;border:1.5px solid #C8C8C8;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 140ms;"></div>
+                        <span class="aeon-chk-label">Jaarlijks</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /card-grid -->
+        </div><!-- /slide-inner -->
+      </section>
+
+      <!-- SLIDE 09 — Full-Bleed 2-col -->
+      <section class="slide slide-fullbleed" id="slide-09" data-index="8" data-section="cs1" data-slide-type="solution">
         <div style="width:100%; height:100%; display:grid; grid-template-columns:1fr 1fr;">
-          <!-- Left panel -->
           <div style="position:relative; overflow:hidden; border-right:1px solid rgba(255,255,255,0.08);">
             <div class="fullbleed-img" style="height:100%; border:none; border-radius:0; background:rgba(255,255,255,0.02);">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
@@ -947,7 +1407,6 @@
               <div class="caption-text" style="font-size:14px;">Replace with your audit or fragmented-state visual.</div>
             </div>
           </div>
-          <!-- Right panel -->
           <div style="position:relative; overflow:hidden;">
             <div class="fullbleed-img" style="height:100%; border:none; border-radius:0; background:rgba(255,255,255,0.01);">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -962,8 +1421,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 09 — Full-Bleed Component Library -->
-      <section class="slide slide-fullbleed" id="slide-09" data-index="8" data-section="cs1" data-slide-type="solution">
+      <!-- SLIDE 10 — Full-Bleed Component Library -->
+      <section class="slide slide-fullbleed" id="slide-10" data-index="9" data-section="cs1" data-slide-type="solution">
         <div class="fullbleed-img">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           <div>[Image: Component states grid — Button, Field, Dropdown, Badge, Card, Table Row showing all states side by side]</div>
@@ -975,8 +1434,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 10 — Conditional Architecture -->
-      <section class="slide slide-light" id="slide-10" data-index="9" data-section="cs1" data-slide-type="solution">
+      <!-- SLIDE 11 — Conditional Architecture -->
+      <section class="slide slide-light" id="slide-11" data-index="10" data-section="cs1" data-slide-type="solution">
         <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
           <div class="col col-center" style="flex:0 0 30%; min-width:0;">
             <div class="eyebrow">Architecture</div>
@@ -993,8 +1452,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 11 — Documentation & Adoption -->
-      <section class="slide slide-light" id="slide-11" data-index="10" data-section="cs1" data-slide-type="solution">
+      <!-- SLIDE 12 — Documentation & Adoption -->
+      <section class="slide slide-light" id="slide-12" data-index="11" data-section="cs1" data-slide-type="solution">
         <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
           <div class="col col-center" style="flex:0 0 30%; min-width:0;">
             <div class="eyebrow">Documentation & Adoption</div>
@@ -1015,8 +1474,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 12 — Full-Bleed Documentation -->
-      <section class="slide slide-fullbleed" id="slide-12" data-index="11" data-section="cs1" data-slide-type="solution">
+      <!-- SLIDE 13 — Full-Bleed Documentation -->
+      <section class="slide slide-fullbleed" id="slide-13" data-index="12" data-section="cs1" data-slide-type="solution">
         <div class="fullbleed-img">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           <div>[Image: Complete documentation page — anatomy, usage guidelines, do/don't examples, token mapping, code snippet]</div>
@@ -1028,8 +1487,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 11 — CS1 Outcomes -->
-      <section class="slide slide-dark" id="slide-13" data-index="12" data-section="cs1" data-slide-type="impact">
+      <!-- SLIDE 14 — CS1 Outcomes -->
+      <section class="slide slide-dark" id="slide-14" data-index="13" data-section="cs1" data-slide-type="impact">
         <div class="slide-inner">
           <div class="eyebrow eyebrow-accent">Outcomes</div>
           <div class="metric-grid" style="flex:1;">
@@ -1039,10 +1498,7 @@
               <div class="metric-label">Average load times across adopting platforms</div>
               <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;">
                 <span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Team-estimated</span>
-                <div class="metric-tooltip-wrap">
-                  <div class="metric-info-icon">i</div>
-                  <div class="metric-tooltip">Load time reduction was observed after consolidating platform-specific Field variants into a single component with conditional rendering. Not formally benchmarked — reported consistently across adopting teams.</div>
-                </div>
+                <div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Load time reduction was observed after consolidating platform-specific Field variants into a single component with conditional rendering. Not formally benchmarked — reported consistently across adopting teams.</div></div>
               </div>
             </div>
             <div class="metric-col">
@@ -1051,10 +1507,7 @@
               <div class="metric-label">Development time for new features built on system components</div>
               <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;">
                 <span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Dev team-reported</span>
-                <div class="metric-tooltip-wrap">
-                  <div class="metric-info-icon">i</div>
-                  <div class="metric-tooltip">Reported by dev leads across three onboarded teams. The component brief template eliminated most one-off build requests before design started — fewer divergent builds, less rework.</div>
-                </div>
+                <div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Reported by dev leads across three onboarded teams. The component brief template eliminated most one-off build requests before design started — fewer divergent builds, less rework.</div></div>
               </div>
             </div>
             <div class="metric-col">
@@ -1063,70 +1516,37 @@
               <div class="metric-label">Component adoption rate across tracked screens</div>
               <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;">
                 <span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured · 3 teams</span>
-                <div class="metric-tooltip-wrap">
-                  <div class="metric-info-icon">i</div>
-                  <div class="metric-tooltip">Tracked via component audit across screens from three onboarded teams — measured as % of UI surface using system components vs custom builds.</div>
-                </div>
+                <div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Tracked via component audit across screens from three onboarded teams — measured as % of UI surface using system components vs custom builds.</div></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 12 — Reflection -->
-      <section class="slide slide-light" id="slide-14" data-index="13" data-section="cs1" data-slide-type="takeaway">
+      <!-- SLIDE 15 — CS1 Reflection -->
+      <section class="slide slide-light" id="slide-15" data-index="14" data-section="cs1" data-slide-type="takeaway">
         <div class="slide-inner">
           <div class="eyebrow">Reflection</div>
           <h2 class="section-title" style="margin-bottom:32px;">What worked. What I'd change.</h2>
           <div class="reflection-timeline">
             <div class="reflection-tl-col">
               <div class="reflection-tl-header amber">What I'd keep</div>
-              <div class="reflection-tl-item">
-                <div class="reflection-tl-dot amber"></div>
-                <div>
-                  <div class="reflection-tl-title">Component brief template</div>
-                  <div class="reflection-tl-body">Forcing teams to articulate requirements before design eliminated most custom requests before a pixel was touched.</div>
-                </div>
-              </div>
-              <div class="reflection-tl-item">
-                <div class="reflection-tl-dot amber"></div>
-                <div>
-                  <div class="reflection-tl-title">Documentation as a design artifact</div>
-                  <div class="reflection-tl-body">89% of adopting teams said it was why they moved 4× faster. Structured, designer-led guidelines. Not afterthoughts.</div>
-                </div>
-              </div>
-              <div class="reflection-tl-item">
-                <div class="reflection-tl-dot amber"></div>
-                <div>
-                  <div class="reflection-tl-title">Framing in business terms</div>
-                  <div class="reflection-tl-body">Load time = retention. Consistency = support costs. That kept the team funded through two org changes.</div>
-                </div>
-              </div>
+              <div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Component brief template</div><div class="reflection-tl-body">Forcing teams to articulate requirements before design eliminated most custom requests before a pixel was touched.</div></div></div>
+              <div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Documentation as a design artifact</div><div class="reflection-tl-body">89% of adopting teams said it was why they moved 4× faster. Structured, designer-led guidelines. Not afterthoughts.</div></div></div>
+              <div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Framing in business terms</div><div class="reflection-tl-body">Load time = retention. Consistency = support costs. That kept the team funded through two org changes.</div></div></div>
             </div>
             <div class="reflection-tl-line"></div>
             <div class="reflection-tl-col">
               <div class="reflection-tl-header slate">What I'd change</div>
-              <div class="reflection-tl-item">
-                <div class="reflection-tl-dot slate"></div>
-                <div>
-                  <div class="reflection-tl-title">Brief template before the audit</div>
-                  <div class="reflection-tl-body">No structured format in round one. Brief first, audit second would have saved weeks of rework.</div>
-                </div>
-              </div>
-              <div class="reflection-tl-item">
-                <div class="reflection-tl-dot slate"></div>
-                <div>
-                  <div class="reflection-tl-title">Measure adoption from week one</div>
-                  <div class="reflection-tl-body">Started tracking months in. A week-one baseline would show trajectory, not just endpoint.</div>
-                </div>
-              </div>
+              <div class="reflection-tl-item"><div class="reflection-tl-dot slate"></div><div><div class="reflection-tl-title">Brief template before the audit</div><div class="reflection-tl-body">No structured format in round one. Brief first, audit second would have saved weeks of rework.</div></div></div>
+              <div class="reflection-tl-item"><div class="reflection-tl-dot slate"></div><div><div class="reflection-tl-title">Measure adoption from week one</div><div class="reflection-tl-body">Started tracking months in. A week-one baseline would show trajectory, not just endpoint.</div></div></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 13 — CS2 Hero -->
-      <section class="slide slide-dark" id="slide-15" data-index="14" data-section="cs2" data-slide-type="title">
+      <!-- SLIDE 16 — CS2 Hero -->
+      <section class="slide slide-dark" id="slide-16" data-index="15" data-section="cs2" data-slide-type="title">
         <div class="slide-inner cs-hero">
           <div class="eyebrow eyebrow-accent">Case Study 02 · Design System Adoption · Aegon · 2022–2023</div>
           <h2 class="cs-title">When your biggest team <em>won't adopt your system.</em></h2>
@@ -1134,8 +1554,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 14 — The Situation -->
-      <section class="slide slide-light" id="slide-16" data-index="15" data-section="cs2" data-slide-type="context">
+      <!-- SLIDE 17 — The Situation -->
+      <section class="slide slide-light" id="slide-17" data-index="16" data-section="cs2" data-slide-type="context">
         <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
           <div class="col col-center" style="flex:0 0 30%; min-width:0;">
             <div class="eyebrow">The Situation</div>
@@ -1156,8 +1576,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 15 — The Reframe -->
-      <section class="slide slide-light" id="slide-17" data-index="16" data-section="cs2" data-slide-type="context">
+      <!-- SLIDE 18 — The Reframe -->
+      <section class="slide slide-light" id="slide-18" data-index="17" data-section="cs2" data-slide-type="context">
         <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
           <div class="col col-center" style="flex:0 0 30%; min-width:0;">
             <div class="eyebrow">The Reframe</div>
@@ -1166,27 +1586,21 @@
           <div class="col col-center" style="flex:0 0 70%; min-width:0;">
             <div class="img-placeholder" style="min-height:340px; flex:1;">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              <div>[Image: Mortgage overview screens being reviewed — expandable rows, conditional columns, inline status indicators]</div>
+              <div>[Image: Mortgage overview screens being reviewed]</div>
               <div class="img-label">Photo or annotated screenshot · ~4:3 · Candid preferred</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 16 — Analysis -->
-      <section class="slide slide-light" id="slide-18" data-index="17" data-section="cs2" data-slide-type="evidence">
+      <!-- SLIDE 19 — Analysis -->
+      <section class="slide slide-light" id="slide-19" data-index="18" data-section="cs2" data-slide-type="evidence">
         <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
           <div class="col col-center" style="flex:0 0 30%; min-width:0;">
             <div class="eyebrow">Analysis</div>
             <h2 class="section-title">70–80% was standard. <em>Just wasn't packaged for them.</em></h2>
-            <div class="analysis-sub" style="margin-top:20px;">
-              <div class="analysis-sub-label">Shared fundamentals</div>
-              <div class="analysis-sub-body" style="color:var(--ink-muted);">Sorting, pagination, selection, bulk actions, accessibility, keyboard behavior</div>
-            </div>
-            <div class="analysis-sub" style="margin-top:16px;">
-              <div class="analysis-sub-label">Mortgage-specific complexity</div>
-              <div class="analysis-sub-body" style="color:var(--ink-muted);">Conditional columns, inline calculations, warning states, expandable rows</div>
-            </div>
+            <div class="analysis-sub" style="margin-top:20px;"><div class="analysis-sub-label">Shared fundamentals</div><div class="analysis-sub-body" style="color:var(--ink-muted);">Sorting, pagination, selection, bulk actions, accessibility, keyboard behavior</div></div>
+            <div class="analysis-sub" style="margin-top:16px;"><div class="analysis-sub-label">Mortgage-specific complexity</div><div class="analysis-sub-body" style="color:var(--ink-muted);">Conditional columns, inline calculations, warning states, expandable rows</div></div>
           </div>
           <div class="col col-center" style="flex:0 0 70%; min-width:0;">
             <div class="img-placeholder" style="min-height:340px; flex:1;">
@@ -1198,47 +1612,30 @@
         </div>
       </section>
 
-      <!-- SLIDE 17 — The Contract -->
-      <section class="slide slide-light" id="slide-19" data-index="18" data-section="cs2" data-slide-type="solution">
+      <!-- SLIDE 20 — The Contract -->
+      <section class="slide slide-light" id="slide-20" data-index="19" data-section="cs2" data-slide-type="solution">
         <div class="slide-inner">
           <div class="eyebrow">The Contract</div>
           <h2 class="section-title" style="margin-bottom:32px;">Clear ownership. <em>Neither team steps on the other's toes.</em></h2>
           <div class="swimlane">
             <div class="swim-lane">
               <div class="swim-head amber"><span class="swim-lane-label amber">Hypotheek<br>layer</span></div>
-              <div class="swim-body">
-                <span class="swim-chip amber">Business logic</span>
-                <span class="swim-chip amber">Domain rules</span>
-                <span class="swim-chip amber">Custom rendering</span>
-                <span class="swim-chip amber">Conditional columns</span>
-                <span class="swim-chip amber">Extension content</span>
-                <span class="swim-chip amber">User actions</span>
-              </div>
+              <div class="swim-body"><span class="swim-chip amber">Business logic</span><span class="swim-chip amber">Domain rules</span><span class="swim-chip amber">Custom rendering</span><span class="swim-chip amber">Conditional columns</span><span class="swim-chip amber">Extension content</span><span class="swim-chip amber">User actions</span></div>
             </div>
             <div class="swim-lane">
               <div class="swim-head neutral"><span class="swim-lane-label neutral">API<br>boundary</span></div>
-              <div class="swim-body">
-                <span class="swim-chip-mono">renderCell()</span>
-                <span class="swim-chip-mono">renderExpandedRow()</span>
-                <span class="swim-chip-mono">isVisible()</span>
-              </div>
+              <div class="swim-body"><span class="swim-chip-mono">renderCell()</span><span class="swim-chip-mono">renderExpandedRow()</span><span class="swim-chip-mono">isVisible()</span></div>
             </div>
             <div class="swim-lane">
               <div class="swim-head blue"><span class="swim-lane-label blue">Design<br>System</span></div>
-              <div class="swim-body">
-                <span class="swim-chip blue">UI infrastructure</span>
-                <span class="swim-chip blue">Interaction patterns</span>
-                <span class="swim-chip blue">Visual design</span>
-                <span class="swim-chip blue">Accessibility</span>
-                <span class="swim-chip blue">Performance</span>
-              </div>
+              <div class="swim-body"><span class="swim-chip blue">UI infrastructure</span><span class="swim-chip blue">Interaction patterns</span><span class="swim-chip blue">Visual design</span><span class="swim-chip blue">Accessibility</span><span class="swim-chip blue">Performance</span></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 18 — Composable Solution -->
-      <section class="slide slide-light" id="slide-20" data-index="19" data-section="cs2" data-slide-type="solution">
+      <!-- SLIDE 21 — Composable Solution -->
+      <section class="slide slide-light" id="slide-21" data-index="20" data-section="cs2" data-slide-type="solution">
         <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
           <div class="col col-center" style="flex:0 0 30%; min-width:0;">
             <div class="eyebrow">Solution</div>
@@ -1247,23 +1644,17 @@
             <p class="body-text">Their edge cases stayed. No fork required.</p>
           </div>
           <div class="col col-center" style="flex:0 0 70%; min-width:0; gap:16px;">
-            <div class="img-placeholder" style="min-height:180px; flex:1;">
-              <div>[Image: Conditional columns — Fixed Rate → "Rate Locked Until", Variable → "Current Rate", Interest-Only → "Principal Due"]</div>
-              <div class="img-label">Same table, different column configs · ~16:9</div>
-            </div>
-            <div class="img-placeholder" style="min-height:160px; flex:1;">
-              <div>[Image: Expanded row — Property Details (read-only) + Notifications (editable) in shared table chrome]</div>
-              <div class="img-label">Extension slot with domain content inside shared table shell · ~16:9</div>
-            </div>
+            <div class="img-placeholder" style="min-height:180px; flex:1;"><div>[Image: Conditional columns]</div><div class="img-label">Same table, different column configs · ~16:9</div></div>
+            <div class="img-placeholder" style="min-height:160px; flex:1;"><div>[Image: Expanded row — Property Details + Notifications in shared table chrome]</div><div class="img-label">Extension slot with domain content inside shared table shell · ~16:9</div></div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 19 — Full-Bleed Data Table -->
-      <section class="slide slide-fullbleed" id="slide-21" data-index="20" data-section="cs2" data-slide-type="solution">
+      <!-- SLIDE 22 — Full-Bleed Data Table -->
+      <section class="slide slide-fullbleed" id="slide-22" data-index="21" data-section="cs2" data-slide-type="solution">
         <div class="fullbleed-img">
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/><line x1="15" y1="9" x2="15" y2="21"/></svg>
-          <div>[Image: Composable Data Table in production — full Hypotheek advisor screen with expanded rows, conditional columns, inline status indicators]</div>
+          <div>[Image: Composable Data Table in production]</div>
           <div class="img-label">Critical — full-screen product screenshot · Redact sensitive data · Fill entire slide</div>
         </div>
         <div class="caption-overlay">
@@ -1272,8 +1663,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 20 — Process Change -->
-      <section class="slide slide-light" id="slide-22" data-index="21" data-section="cs2" data-slide-type="context">
+      <!-- SLIDE 23 — Process Change -->
+      <section class="slide slide-light" id="slide-23" data-index="22" data-section="cs2" data-slide-type="context">
         <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
           <div class="col col-center" style="flex:0 0 30%; min-width:0;">
             <div class="eyebrow">Process Change</div>
@@ -1295,8 +1686,8 @@
         </div>
       </section>
 
-      <!-- SLIDE 21 — CS2 Outcomes -->
-      <section class="slide slide-dark" id="slide-23" data-index="22" data-section="cs2" data-slide-type="impact">
+      <!-- SLIDE 24 — CS2 Outcomes -->
+      <section class="slide slide-dark" id="slide-24" data-index="23" data-section="cs2" data-slide-type="impact">
         <div class="slide-inner">
           <div class="eyebrow eyebrow-accent">Outcomes</div>
           <div class="metric-grid" style="flex:1; grid-template-columns:1fr 1fr;">
@@ -1306,10 +1697,7 @@
               <div class="metric-label">Custom tables replaced with the shared Data Table</div>
               <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;">
                 <span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured</span>
-                <div class="metric-tooltip-wrap">
-                  <div class="metric-info-icon">i</div>
-                  <div class="metric-tooltip">Three separate custom-built table implementations across Hypotheek products were replaced with a single shared Data Table component.</div>
-                </div>
+                <div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Three separate custom-built table implementations across Hypotheek products were replaced with a single shared Data Table component.</div></div>
               </div>
             </div>
             <div class="metric-col">
@@ -1318,18 +1706,15 @@
               <div class="metric-label">Table-related accessibility defects (keyboard + focus)</div>
               <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;">
                 <span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Verify this number</span>
-                <div class="metric-tooltip-wrap">
-                  <div class="metric-info-icon">i</div>
-                  <div class="metric-tooltip">Defect reduction tracked against accessibility QA results pre and post adoption. Confirm exact figure before presenting.</div>
-                </div>
+                <div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Defect reduction tracked against accessibility QA results pre and post adoption. Confirm exact figure before presenting.</div></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 22 — WCAG Feature -->
-      <section class="slide slide-light" id="slide-24" data-index="23" data-section="features" data-slide-type="solution">
+      <!-- SLIDE 25 — WCAG Feature -->
+      <section class="slide slide-light" id="slide-25" data-index="24" data-section="features" data-slide-type="solution">
         <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
           <div class="col col-center" style="flex:0 0 30%; min-width:0;">
             <div class="eyebrow">Selected Feature · Accessibility</div>
@@ -1341,82 +1726,44 @@
           <div class="col col-center" style="flex:0 0 70%; min-width:0;">
             <div class="img-placeholder" style="min-height:360px; flex:1;">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <div>[Image: WCAG audit results — component checklist with pass/fail for 2.4.11, 2.5.8, 2.5.7. Before/after contrast ratios]</div>
+              <div>[Image: WCAG audit results — component checklist with pass/fail for 2.4.11, 2.5.8, 2.5.7]</div>
               <div class="img-label">Checklist with green checkmarks · Or before/after focus indicators · ~4:5</div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 23 — Side Projects -->
-      <section class="slide slide-dark" id="slide-25" data-index="24" data-section="features" data-slide-type="context">
+      <!-- SLIDE 26 — Side Projects -->
+      <section class="slide slide-dark" id="slide-26" data-index="25" data-section="features" data-slide-type="context">
         <div class="slide-inner">
           <div class="eyebrow eyebrow-accent">Side projects</div>
           <h2 class="section-title" style="margin-bottom:24px;">Things I build when nobody asked.</h2>
           <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; flex:1;">
-
-            <!-- Samengestelde Werkwoorden -->
             <a href="https://chardrizard.github.io/samengestelde-werkwoorden-quiz/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;">
               <div class="sproj-card-icon" style="background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.18);">🇳🇱</div>
-              <div class="sproj-card-body">
-                <div class="sproj-card-name">Samengestelde Werkwoorden</div>
-                <div class="sproj-card-desc">Dutch compound verb quiz. Built to pass NT2. It worked. The app runs better than my grammar.</div>
-                <div class="sproj-card-tags">
-                  <span class="sproj-tag">Education</span>
-                  <span class="sproj-tag">Spaced repetition</span>
-                </div>
-              </div>
+              <div class="sproj-card-body"><div class="sproj-card-name">Samengestelde Werkwoorden</div><div class="sproj-card-desc">Dutch compound verb quiz. Built to pass NT2. It worked.</div><div class="sproj-card-tags"><span class="sproj-tag">Education</span><span class="sproj-tag">Spaced repetition</span></div></div>
               <div class="sproj-card-arr" style="margin-top:auto;">↗</div>
             </a>
-
-            <!-- Krachttreinen -->
             <a href="https://chardrizard.github.io/krachttreinen-tracker/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;">
               <div class="sproj-card-icon" style="background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.18);">🏋️</div>
-              <div class="sproj-card-body">
-                <div class="sproj-card-name">Krachttreinen Tracker</div>
-                <div class="sproj-card-desc">Powerlifting PWA. Started as a spreadsheet. Naturally went too far.</div>
-                <div class="sproj-card-tags">
-                  <span class="sproj-tag">PWA</span>
-                  <span class="sproj-tag">Fitness</span>
-                </div>
-              </div>
+              <div class="sproj-card-body"><div class="sproj-card-name">Krachttreinen Tracker</div><div class="sproj-card-desc">Powerlifting PWA. Started as a spreadsheet. Naturally went too far.</div><div class="sproj-card-tags"><span class="sproj-tag">PWA</span><span class="sproj-tag">Fitness</span></div></div>
               <div class="sproj-card-arr" style="margin-top:auto;">↗</div>
             </a>
-
-            <!-- Quip -->
             <a href="https://chardrizard.github.io/quip/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;">
               <div class="sproj-card-icon" style="background:rgba(20,184,166,0.1); border:1px solid rgba(20,184,166,0.18);">💬</div>
-              <div class="sproj-card-body">
-                <div class="sproj-card-name">Quip</div>
-                <div class="sproj-card-desc">Party word game. One hint, ten words, 15 tries. Game night got out of hand.</div>
-                <div class="sproj-card-tags">
-                  <span class="sproj-tag">Game</span>
-                  <span class="sproj-tag">Multiplayer</span>
-                </div>
-              </div>
+              <div class="sproj-card-body"><div class="sproj-card-name">Quip</div><div class="sproj-card-desc">Party word game. One hint, ten words, 15 tries.</div><div class="sproj-card-tags"><span class="sproj-tag">Game</span><span class="sproj-tag">Multiplayer</span></div></div>
               <div class="sproj-card-arr" style="margin-top:auto;">↗</div>
             </a>
-
-            <!-- Placeholder: 4th project -->
             <div class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px; opacity:0.45; cursor:default; pointer-events:none;">
-              <div class="sproj-card-icon" style="background:rgba(255,255,255,0.04); border:1px dashed rgba(255,255,255,0.12);">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </div>
-              <div class="sproj-card-body">
-                <div class="sproj-card-name" style="color:rgba(255,255,255,0.4);">Coming soon</div>
-                <div class="sproj-card-desc" style="color:rgba(255,255,255,0.25);">Next project in progress. Probably over-engineered.</div>
-                <div class="sproj-card-tags">
-                  <span class="sproj-tag" style="opacity:0.5;">TBD</span>
-                </div>
-              </div>
+              <div class="sproj-card-icon" style="background:rgba(255,255,255,0.04); border:1px dashed rgba(255,255,255,0.12);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+              <div class="sproj-card-body"><div class="sproj-card-name" style="color:rgba(255,255,255,0.4);">Coming soon</div><div class="sproj-card-desc" style="color:rgba(255,255,255,0.25);">Next project in progress. Probably over-engineered.</div><div class="sproj-card-tags"><span class="sproj-tag" style="opacity:0.5;">TBD</span></div></div>
             </div>
-
           </div>
         </div>
       </section>
 
-      <!-- SLIDE 24 — Contact -->
-      <section class="slide slide-dark" id="slide-26" data-index="25" data-section="close" data-slide-type="title">
+      <!-- SLIDE 27 — Contact -->
+      <section class="slide slide-dark" id="slide-27" data-index="26" data-section="close" data-slide-type="title">
         <div class="slide-inner">
           <div class="contact-name">Richard Andhika</div>
           <div class="contact-links">
@@ -1424,18 +1771,10 @@
             <a class="contact-link" href="https://richard.design" target="_blank">richard.design</a>
           </div>
           <div style="display:flex; gap:10px; margin-top:20px; justify-content:center;">
-            <a href="https://www.linkedin.com/in/richard-andhika-936344129/" target="_blank" class="hero-social" title="LinkedIn">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" opacity="0.8"/><rect x="2" y="9" width="4" height="12" opacity="0.8"/><circle cx="4" cy="4" r="2" opacity="0.8"/></svg>
-            </a>
-            <a href="https://github.com/chardrizard" target="_blank" class="hero-social" title="GitHub">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" opacity="0.8"/></svg>
-            </a>
-            <a href="https://www.instagram.com/lichatandhika/" target="_blank" class="hero-social" title="Instagram">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            </a>
-            <a href="https://medium.com/@chardrizard" target="_blank" class="hero-social" title="Medium">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" opacity="0.8"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-            </a>
+            <a href="https://www.linkedin.com/in/richard-andhika-936344129/" target="_blank" class="hero-social" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" opacity="0.8"/><rect x="2" y="9" width="4" height="12" opacity="0.8"/><circle cx="4" cy="4" r="2" opacity="0.8"/></svg></a>
+            <a href="https://github.com/chardrizard" target="_blank" class="hero-social" title="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" opacity="0.8"/></svg></a>
+            <a href="https://www.instagram.com/lichatandhika/" target="_blank" class="hero-social" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://medium.com/@chardrizard" target="_blank" class="hero-social" title="Medium"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" opacity="0.8"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a>
           </div>
           <div class="pill-row" style="margin-top:28px;">
             <div class="pill"><span>🟡</span> Utrecht, NL</div>
@@ -1457,11 +1796,11 @@
   const SLIDES = document.querySelectorAll('.slide');
   const TOTAL = SLIDES.length;
   const SECTIONS = [
-    { id: 'intro',    start: 0,  count: 3 },
-    { id: 'cs1',      start: 3,  count: 11 },
-    { id: 'cs2',      start: 14, count: 9 },
-    { id: 'features', start: 23, count: 2 },
-    { id: 'close',    start: 25, count: 1 },
+    { id: 'intro',    start: 0,  count: 3  },
+    { id: 'cs1',      start: 3,  count: 12 }, // +1 for slide-08
+    { id: 'cs2',      start: 15, count: 9  },
+    { id: 'features', start: 24, count: 2  },
+    { id: 'close',    start: 26, count: 1  },
   ];
 
   let current = 0;
@@ -1470,11 +1809,7 @@
   // ─── SCALE ───
   function scaleStage() {
     const scaler = document.getElementById('scaler');
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    const scaleX = vw / 1440;
-    const scaleY = vh / 810;
-    const scale = Math.min(scaleX, scaleY);
+    const scale = Math.min(window.innerWidth / 1440, window.innerHeight / 810);
     scaler.style.transform = `scale(${scale})`;
   }
   scaleStage();
@@ -1483,11 +1818,7 @@
   // ─── BUILD DOTS ───
   const dotsEl = document.getElementById('dots');
   SECTIONS.forEach((sec, si) => {
-    if (si > 0) {
-      const sep = document.createElement('div');
-      sep.className = 'dot-section-sep';
-      dotsEl.appendChild(sep);
-    }
+    if (si > 0) { const sep = document.createElement('div'); sep.className = 'dot-section-sep'; dotsEl.appendChild(sep); }
     for (let i = 0; i < sec.count; i++) {
       const dot = document.createElement('div');
       dot.className = 'dot';
@@ -1512,17 +1843,14 @@
     toSlide.style.opacity = '0';
     toSlide.style.pointerEvents = 'none';
 
-    // Force reflow
-    toSlide.getBoundingClientRect();
+    toSlide.getBoundingClientRect(); // force reflow
 
     toSlide.style.transform = '';
     toSlide.style.opacity = '';
     toSlide.style.pointerEvents = '';
     toSlide.classList.add('active');
 
-    setTimeout(() => {
-      fromSlide.classList.remove('exit-left', 'enter-right');
-    }, 460);
+    setTimeout(() => { fromSlide.classList.remove('exit-left', 'enter-right'); }, 460);
 
     current = idx;
     updateUI();
@@ -1533,149 +1861,232 @@
 
   // ─── UPDATE UI ───
   function updateUI() {
-    // Counter
     document.getElementById('slide-counter').textContent = `${current + 1} / ${TOTAL}`;
-
-    // Prev/Next
     document.getElementById('btn-prev').classList.toggle('disabled', current === 0);
     document.getElementById('btn-next').classList.toggle('disabled', current === TOTAL - 1);
-
-    // Tabs
     const sec = SECTIONS.find(s => current >= s.start && current < s.start + s.count);
-    document.querySelectorAll('.nav-tab').forEach(t => {
-      t.classList.toggle('active', t.dataset.section === (sec ? sec.id : ''));
-    });
-
-    // Dots
-    document.querySelectorAll('.dot').forEach(d => {
-      d.classList.toggle('active', parseInt(d.dataset.idx) === current);
-    });
+    document.querySelectorAll('.nav-tab').forEach(t => { t.classList.toggle('active', t.dataset.section === (sec ? sec.id : '')); });
+    document.querySelectorAll('.dot').forEach(d => { d.classList.toggle('active', parseInt(d.dataset.idx) === current); });
   }
 
   // ─── NAV CONTROLS ───
   document.getElementById('btn-prev').addEventListener('click', prev);
   document.getElementById('btn-next').addEventListener('click', next);
-
   document.querySelectorAll('.nav-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      const sec = SECTIONS.find(s => s.id === tab.dataset.section);
-      if (sec) goTo(sec.start);
-    });
+    tab.addEventListener('click', () => { const sec = SECTIONS.find(s => s.id === tab.dataset.section); if (sec) goTo(sec.start); });
   });
-
-  // Nav cards
   document.querySelectorAll('.nav-card[data-goto]').forEach(card => {
     card.addEventListener('click', () => goTo(parseInt(card.dataset.goto)));
   });
-
-  // Speaker notes
   document.getElementById('notes-toggle').addEventListener('click', () => {
     notesVisible = !notesVisible;
     document.body.classList.toggle('notes-visible', notesVisible);
     document.getElementById('notes-toggle').classList.toggle('active', notesVisible);
   });
 
-  // Keyboard
+  // ─── KEYBOARD ───
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prev();
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   prev();
     if (e.key === 'Home') goTo(0);
-    if (e.key === 'End') goTo(TOTAL - 1);
+    if (e.key === 'End')  goTo(TOTAL - 1);
   });
 
-  // Touch/swipe — skip if interaction started on the BA slider
-  let touchStartX = null;
-  let touchOnSlider = false;
+  // ─── TOUCH/SWIPE ───
+  let touchStartX = null, touchOnSlider = false;
   document.getElementById('viewport').addEventListener('touchstart', e => {
-    touchOnSlider = !!e.target.closest('#ba-slider');
+    touchOnSlider = !!e.target.closest('[data-no-advance]');
     touchStartX = e.touches[0].clientX;
   }, { passive: true });
   document.getElementById('viewport').addEventListener('touchend', e => {
     if (touchStartX === null) return;
     const dx = e.changedTouches[0].clientX - touchStartX;
     if (!touchOnSlider && Math.abs(dx) > 50) dx < 0 ? next() : prev();
-    touchStartX = null;
-    touchOnSlider = false;
+    touchStartX = null; touchOnSlider = false;
   }, { passive: true });
 
-  // Click to advance (not on interactive elements, not on BA slider)
+  // ─── CLICK TO ADVANCE ───
   document.getElementById('viewport').addEventListener('click', e => {
     if (e.target.closest('[data-no-advance]')) return;
     const tag = e.target.tagName.toLowerCase();
-    const interactive = ['a', 'button', 'input', 'select', 'textarea', 'label'];
+    const interactive = ['a','button','input','select','textarea','label'];
     if (interactive.includes(tag)) return;
     if (e.target.closest('a, button, input, select, textarea')) return;
     next();
   });
 
-  // ─── BEFORE/AFTER SLIDER ───
+  // ─── BEFORE/AFTER SLIDER (slide-05) ───
   (function() {
     const slider = document.getElementById('ba-slider');
     const before = document.getElementById('ba-before');
     const divider = document.getElementById('ba-divider');
     const hint = document.getElementById('ba-hint');
     if (!slider) return;
-
-    let dragging = false;
-    let hintHidden = false;
-
+    let dragging = false, hintHidden = false;
     function setPosition(clientX) {
       const rect = slider.getBoundingClientRect();
-      let pct = (clientX - rect.left) / rect.width;
-      pct = Math.max(0.04, Math.min(0.96, pct));
+      let pct = Math.max(0.04, Math.min(0.96, (clientX - rect.left) / rect.width));
       const pctStr = (pct * 100).toFixed(2) + '%';
-      before.style.width = pctStr;
-      divider.style.left = pctStr;
+      before.style.width = pctStr; divider.style.left = pctStr;
     }
-
-    function hideHint() {
-      if (!hintHidden) {
-        hint.style.opacity = '0';
-        hintHidden = true;
-      }
-    }
-
-    // Mouse
-    slider.addEventListener('mousedown', e => {
-      dragging = true;
-      setPosition(e.clientX);
-      hideHint();
-      e.preventDefault();
-    });
-    document.addEventListener('mousemove', e => {
-      if (!dragging) return;
-      setPosition(e.clientX);
-    });
+    function hideHint() { if (!hintHidden) { hint.style.opacity = '0'; hintHidden = true; } }
+    slider.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); hideHint(); e.preventDefault(); });
+    document.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
     document.addEventListener('mouseup', () => { dragging = false; });
-
-    // Touch
-    slider.addEventListener('touchstart', e => {
-      dragging = true;
-      setPosition(e.touches[0].clientX);
-      hideHint();
-    }, { passive: true });
-    slider.addEventListener('touchmove', e => {
-      if (!dragging) return;
-      setPosition(e.touches[0].clientX);
-      e.stopPropagation();
-    }, { passive: true });
+    slider.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); hideHint(); }, { passive: true });
+    slider.addEventListener('touchmove', e => { if (dragging) { setPosition(e.touches[0].clientX); e.stopPropagation(); } }, { passive: true });
     slider.addEventListener('touchend', () => { dragging = false; });
-
-    // Reset to 50% whenever this slide becomes active
     const slideEl = document.getElementById('slide-05');
-    const observer = new MutationObserver(() => {
-      if (slideEl.classList.contains('active')) {
-        before.style.width = '50%';
-        divider.style.left = '50%';
-        hint.style.opacity = '1';
-        hintHidden = false;
-      }
-    });
-    observer.observe(slideEl, { attributes: true, attributeFilter: ['class'] });
+    new MutationObserver(() => {
+      if (slideEl.classList.contains('active')) { before.style.width = '50%'; divider.style.left = '50%'; hint.style.opacity = '1'; hintHidden = false; }
+    }).observe(slideEl, { attributes: true, attributeFilter: ['class'] });
   })();
 
-  // Init
+  // ═══════════════════════════════════════════
+  // SLIDE 08 — FLIP CARDS
+  // ═══════════════════════════════════════════
+  function handleCardClick(e, id) { flipTo(id); }
+  function flipTo(id) { const c = document.getElementById(id); if (c && !c.classList.contains('flipped')) c.classList.add('flipped'); }
+  function flipBack(id) { const c = document.getElementById(id); if (c) c.classList.remove('flipped'); }
+
+  // ─── TEXT FIELDS ───
+  function sfInput(inp) {
+    const f = inp.closest('.s-field');
+    f.classList.toggle('is-filled', inp.value.length > 0);
+    f.classList.remove('is-err');
+  }
+  function sfBlur(inp) { inp.closest('.s-field').classList.toggle('is-filled', inp.value.length > 0); }
+  function sfClear(btn) {
+    const f = btn.closest('.s-field'); const inp = f.querySelector('.s-field__input');
+    inp.value = ''; f.classList.remove('is-filled', 'is-err'); clearMsg(f); inp.focus();
+  }
+  function sfInputPostcode(inp) {
+    let v = inp.value.replace(/[^0-9A-Za-z]/g, '').toUpperCase();
+    if (v.length > 4) v = v.slice(0,4) + ' ' + v.slice(4);
+    inp.value = v.slice(0, 7);
+    const f = inp.closest('.s-field'); f.classList.toggle('is-filled', inp.value.length > 0); f.classList.remove('is-err'); clearMsg(f);
+  }
+  function sfInputIban(inp) {
+    let raw = inp.value.replace(/\s/g,'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+    inp.value = raw.replace(/(.{4})(?=.)/g,'$1 ').slice(0, 22);
+    const f = inp.closest('.s-field'); f.classList.toggle('is-filled', inp.value.length > 0); f.classList.remove('is-err'); clearMsg(f);
+  }
+  function sfBlurValidate(inp, type) {
+    const f = inp.closest('.s-field'); const v = inp.value.trim();
+    f.classList.toggle('is-filled', v.length > 0);
+    if (!v) { clearMsg(f); return; }
+    if (type === 'postcode') {
+      const ok = /^\d{4}\s?[A-Za-z]{2}$/.test(v);
+      if (ok) { inp.value = v.replace(/^(\d{4})\s?([A-Za-z]{2})$/, (_, n, l) => `${n} ${l.toUpperCase()}`); f.classList.add('is-filled'); f.classList.remove('is-err'); showMsg(f, '✓ Geldig', 'ok'); }
+      else { showMsg(f, 'Formaat: 1234 AB', 'err'); f.classList.add('is-err'); }
+    }
+    if (type === 'iban') {
+      const raw = v.replace(/\s/g,'').toUpperCase(); const ibanRx = /^NL\d{2}[A-Z]{4}\d{10}$/;
+      if (!ibanRx.test(raw)) { showMsg(f, 'NL IBAN: NL91 ABNA 0417 1643 00', 'err'); f.classList.add('is-err'); }
+      else if (!modCheck(raw)) { showMsg(f, 'Ongeldige controlegetal', 'err'); f.classList.add('is-err'); }
+      else { inp.value = raw.replace(/(.{4})/g,'$1 ').trim(); f.classList.add('is-filled'); f.classList.remove('is-err'); showMsg(f, '✓ Geldig IBAN', 'ok'); }
+    }
+  }
+  function modCheck(iban) {
+    const rearranged = iban.slice(4) + iban.slice(0, 4);
+    const numeric = rearranged.split('').map(c => { const code = c.charCodeAt(0); return code >= 65 ? (code - 55).toString() : c; }).join('');
+    let remainder = 0;
+    for (const chunk of numeric.match(/.{1,9}/g)) { remainder = parseInt(remainder + chunk, 10) % 97; }
+    return remainder === 1;
+  }
+  function showMsg(f, text, cls) { const el = f.querySelector('.s-field__support'); if (!el) return; el.textContent = text; el.className = `s-field__support ${cls}`; }
+  function clearMsg(f) { const el = f.querySelector('.s-field__support'); if (el) { el.textContent = ''; el.className = 's-field__support'; } f.classList.remove('is-err'); }
+
+  // ─── DROPDOWN ───
+  const DD_LABEL = 'Verzekeringsproduct';
+  const ddOptions = {
+    single:     ['Overlijdensrisicoverzekering','Arbeidsongeschiktheid','Hypotheek','Pensioenopbouw','Aanvullende zorgverzekering','Uitvaartverzekering','Woonverzekering','Inkomensbescherming','Zorgverzekering','Aansprakelijkheidsverzekering'],
+    multi:      ['Overlijdensrisicoverzekering','Arbeidsongeschiktheid','Hypotheek','Pensioenopbouw','Aanvullende zorgverzekering','Uitvaartverzekering','Woonverzekering','Inkomensbescherming','Zorgverzekering','Aansprakelijkheidsverzekering'],
+    filterable: ['Overlijdensrisicoverzekering','Arbeidsongeschiktheid','Hypotheek','Pensioenopbouw','Aanvullende zorgverzekering','Uitvaartverzekering','Woonverzekering','Inkomensbescherming','Zorgverzekering','Aansprakelijkheidsverzekering'],
+  };
+  let ddSelect = 'single', ddOpen = false, ddSelected = [];
+  const chevSvg = c => `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="${c}" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+  function renderDD() {
+    const c = document.getElementById('aeon-dd-c3'); if (!c) return;
+    const isMulti = ddSelect === 'multi', isFilter = ddSelect === 'filterable';
+    const opts = ddOptions[ddSelect];
+    let tc = 'aeon-dd'; if (ddOpen) tc += ' aeon-dd--open';
+    const chevCol = ddOpen ? '#1B75BB' : 'currentColor';
+    const selCount = ddSelected.length;
+    const labelText = selCount === 0 ? '' : isMulti ? opts.filter((_,i) => ddSelected.includes(i)).join(', ') : opts[ddSelected[0]];
+    const countPill = (isMulti && selCount > 2) ? `<span style="display:inline-flex;align-items:center;gap:4px;background:#1a1a1a;color:#fff;font-size:11px;font-weight:500;padding:3px 8px;border-radius:9999px;white-space:nowrap;flex-shrink:0;">${selCount} <svg width="9" height="9" viewBox="0 0 10 10" fill="none"><path d="M2 2l6 6M8 2l-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>` : '';
+    let html = '<div class="aeon-dd-wrap" id="aeon-dd-root" style="width:100%;">';
+    if (isFilter && ddOpen) {
+      html += `<div class="${tc}" style="cursor:text;"><div class="aeon-dd--open" style="display:contents;"><div class="aeon-dd__inner" style="display:flex;flex-direction:column;gap:1px;flex:1;height:100%;justify-content:center;"><span class="aeon-dd__float">${DD_LABEL}</span><input id="dd-filter-inp" class="aeon-dd__val" style="border:none;outline:none;background:transparent;padding:0;font-family:var(--sans);font-size:13px;" placeholder="Zoeken…" oninput="filterDD(this.value)"></div></div><span class="aeon-dd__chev" style="align-self:center;">${chevSvg(chevCol)}</span></div>`;
+    } else if (ddOpen && labelText && isMulti && selCount > 2) {
+      html += `<div class="${tc}" onclick="toggleDD()" tabindex="0"><div class="aeon-dd__inner"><span class="aeon-dd__float">${DD_LABEL}</span><div style="display:flex;align-items:center;gap:6px;min-width:0;overflow:hidden;"><span class="aeon-dd__val" style="flex:1;min-width:0;">${labelText}</span>${countPill}</div></div><span class="aeon-dd__chev" style="align-self:center;flex-shrink:0;">${chevSvg(chevCol)}</span></div>`;
+    } else if (ddOpen && labelText) {
+      html += `<div class="${tc}" onclick="toggleDD()" tabindex="0"><div class="aeon-dd__inner"><span class="aeon-dd__float">${DD_LABEL}</span><span class="aeon-dd__val">${labelText}</span></div><span class="aeon-dd__chev" style="align-self:center;">${chevSvg(chevCol)}</span></div>`;
+    } else if (ddOpen) {
+      html += `<div class="${tc}" onclick="toggleDD()" tabindex="0"><div class="aeon-dd__inner"><span class="aeon-dd__float">${DD_LABEL}</span><span class="aeon-dd__val" style="color:#a0a0a0;">Selecteer een product</span></div><span class="aeon-dd__chev" style="align-self:center;">${chevSvg(chevCol)}</span></div>`;
+    } else if (isMulti && selCount > 2 && labelText) {
+      html += `<div class="${tc}" onclick="toggleDD()" tabindex="0"><div style="display:flex;align-items:center;gap:6px;flex:1;min-width:0;overflow:hidden;"><span class="aeon-dd__lbl" style="flex:1;min-width:0;">${labelText}</span>${countPill}</div><span class="aeon-dd__chev" style="flex-shrink:0;">${chevSvg(chevCol)}</span></div>`;
+    } else {
+      html += `<div class="${tc}" onclick="toggleDD()" tabindex="0"><span class="aeon-dd__lbl ${labelText?'':'aeon-dd__lbl--ph'}">${labelText||DD_LABEL}</span><span class="aeon-dd__chev">${chevSvg(chevCol)}</span></div>`;
+    }
+    if (ddOpen) {
+      html += `<div class="aeon-dd-menu" id="dd-live-menu">`;
+      opts.forEach((opt, i) => {
+        const active = ddSelected.includes(i);
+        if (isMulti) {
+          html += `<div class="aeon-dd-item" onclick="toggleDDItem(${i})"><span class="aeon-dd-chk${active?' aeon-dd-chk--on':''}">${active?'<svg width="10" height="10" viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3 3 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>':''}</span>${opt}</div>`;
+        } else {
+          html += `<div class="aeon-dd-item${active?' aeon-dd-item--sel':''}" onclick="selectDDItem(${i})">${opt}</div>`;
+        }
+      });
+      html += '</div>';
+    }
+    html += '</div>';
+    c.innerHTML = html;
+    if (isFilter && ddOpen) setTimeout(() => { const el = document.getElementById('dd-filter-inp'); if (el) el.focus(); }, 10);
+  }
+  function toggleDD()      { ddOpen = !ddOpen; renderDD(); }
+  function selectDDItem(i) { ddSelected = [i]; ddOpen = false; renderDD(); }
+  function toggleDDItem(i) { ddSelected = ddSelected.includes(i) ? ddSelected.filter(x=>x!==i) : [...ddSelected, i]; renderDD(); }
+  function filterDD(val)   { document.querySelectorAll('#dd-live-menu .aeon-dd-item').forEach((el,i) => { el.style.display = ddOptions[ddSelect][i].toLowerCase().includes(val.toLowerCase()) ? '' : 'none'; }); }
+
+  function initPillGroup(groupId, cb) {
+    const g = document.getElementById(groupId); if (!g) return;
+    g.querySelectorAll('.aeon-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        g.querySelectorAll('.aeon-pill').forEach(b => b.classList.remove('aeon-pill--on'));
+        btn.classList.add('aeon-pill--on'); cb(btn.dataset.val);
+      });
+    });
+  }
+  initPillGroup('dd-select-ctrl', val => { ddSelect = val; ddSelected = []; ddOpen = false; renderDD(); });
+  initPillGroup('pill-c4', () => {});
+  document.addEventListener('click', e => {
+    if (ddOpen && !e.target.closest('#aeon-dd-root') && !e.target.closest('#aeon-dd-c3')) { ddOpen = false; renderDD(); }
+  });
+
+  // ─── CHECKBOX + RADIO ───
+  function syncChk(input) {
+    const box = input.nextElementSibling; if (!box) return;
+    if (input.checked) { box.style.background = 'var(--aeon-blue)'; box.style.borderColor = 'var(--aeon-blue)'; }
+    else { box.style.background = ''; box.style.borderColor = ''; }
+  }
+  document.querySelectorAll('.aeon-chk-row input[type=checkbox]').forEach(syncChk);
+
+  function selectRadio(name, selectedId) {
+    document.querySelectorAll(`input[name="${name}"]`).forEach(inp => {
+      const rb = document.getElementById('rb-' + inp.id); if (!rb) return;
+      const dot = rb.querySelector('div');
+      if (inp.id === selectedId) { inp.checked = true; rb.style.borderColor = 'var(--aeon-blue)'; if (dot) dot.style.display = 'block'; }
+      else { inp.checked = false; rb.style.borderColor = '#C8C8C8'; if (dot) dot.style.display = 'none'; }
+    });
+  }
+  selectRadio('freq', 'freq-m');
+
+  // ─── INIT ───
   updateUI();
+  renderDD();
 </script>
 </body>
 </html>
