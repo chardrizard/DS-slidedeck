@@ -1,0 +1,43 @@
+/* ─── TOKENS ─── */
+:root {
+  --ink: #0f0f0f;
+  --ink-2: #1c1c1c;
+  --ink-muted: #6b6b6b;
+  --ink-faint: #a0a0a0;
+  --paper: #f4f3ef;
+  --paper-2: #eceae4;
+  --paper-3: #e2dfd8;
+  --dark: #111111;
+  --dark-2: #1a1a1a;
+  --dark-3: #222222;
+  --accent: #f59e0b;
+  --accent-dim: rgba(245,158,11,0.12);
+  --accent-2: #3b82f6;
+  --accent-2-dim: rgba(59,130,246,0.12);
+  --accent-3: #f59e0b;
+  --accent-3-dim: rgba(245,158,11,0.12);
+  --red: #ef4444;
+  --red-dim: rgba(239,68,68,0.10);
+  --white: #ffffff;
+  --white-muted: rgba(255,255,255,0.65);
+  --white-faint: rgba(255,255,255,0.20);
+  --border-light: rgba(0,0,0,0.08);
+  --border-dark: rgba(255,255,255,0.10);
+  --mono: 'DM Mono', monospace;
+  --sans: 'DM Sans', -apple-system, sans-serif;
+  --slide-w: 1440px;
+  --slide-h: 810px;
+  --pad: 72px;
+  /* Aeon component tokens */
+  --aeon-blue:     #1B75BB;
+  --aeon-blue-h:   #15609E;
+  --aeon-blue-a:   #115180;
+  --aeon-blue-dis: #8BBAD8;
+  --aeon-err:      #e53935;
+  --aeon-sec-h:    rgba(27,117,187,0.07);
+}
+
+/* ─── RESET ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #0a0a0a; }
+body { font-family: var(--sans); }
