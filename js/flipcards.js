@@ -219,7 +219,7 @@ function syncChk(input) {
 function selectRadio(name, selectedId) {
   document.querySelectorAll(`input[name="${name}"]`).forEach(inp => {
     const rb = document.getElementById('rb-' + inp.id); if (!rb) return;
-    const dot = rb.querySelector('div');
+    const dot = rb.querySelector('.radio-dot');
     if (inp.id === selectedId) {
       inp.checked = true;
       rb.style.borderColor = 'var(--aeon-blue)';
