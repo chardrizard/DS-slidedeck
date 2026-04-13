@@ -362,7 +362,7 @@
               </div>
             </div>
 
-            <!-- CARD 4 — BADGES -->
+           <!-- CARD 4 — BADGES -->
             <div class="flip-card" id="c4" onclick="handleCardClick(event,'c4')">
               <div class="flip-card-inner">
                 <div class="card-front">
@@ -390,19 +390,40 @@
                   <div class="card-back-body col-flex gap-12">
                     <div>
                       <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Status badges</div>
-                      <div class="row-flex" style="gap:6px;">
-                        <span class="aeon-badge aeon-badge-success">Actief</span>
-                        <span class="aeon-badge aeon-badge-warning">In behandeling</span>
-                        <span class="aeon-badge aeon-badge-error">Verlopen</span>
+                      <div class="row-flex" style="gap:6px;flex-wrap:wrap;">
+                        <span class="aeon-badge aeon-badge-primary">Primair</span>
+                        <span class="aeon-badge aeon-badge-secondary">Secundair</span>
+                        <span class="aeon-badge aeon-badge-error">
+                          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L1.5 13.5h13L8 2z"/><line x1="8" y1="7" x2="8" y2="10"/><circle cx="8" cy="12" r="0.5" fill="currentColor" stroke="none"/></svg>
+                          Fout
+                        </span>
+                        <span class="aeon-badge aeon-badge-valid">
+                          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8.5 6.5 12.5 13.5 4"/></svg>
+                          Geldig
+                        </span>
+                        <span class="aeon-badge aeon-badge-warning">
+                          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2a4.5 4.5 0 00-4.5 4.5c0 2.5-.5 3.5-1.5 4.5h12c-1-1-1.5-2-1.5-4.5A4.5 4.5 0 008 2z"/><line x1="8" y1="14.5" x2="8" y2="13.5"/></svg>
+                          Waarschuwing
+                        </span>
                       </div>
-                      <div class="row-flex" style="margin-top:8px;gap:6px;">
-                        <span class="aeon-badge aeon-badge-neutral">Concept</span>
-                        <span class="aeon-badge aeon-badge-info">Nieuw</span>
-                        <span class="aeon-badge aeon-badge-success">Goedgekeurd</span>
+                      <div class="row-flex" style="gap:6px;flex-wrap:wrap;margin-top:8px;">
+                        <span class="aeon-badge aeon-badge--sm aeon-badge-primary">Klein</span>
+                        <span class="aeon-badge aeon-badge--sm aeon-badge-valid">
+                          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8.5 6.5 12.5 13.5 4"/></svg>
+                          Actief
+                        </span>
+                        <span class="aeon-badge aeon-badge--sm aeon-badge-error">
+                          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L1.5 13.5h13L8 2z"/><line x1="8" y1="7" x2="8" y2="10"/><circle cx="8" cy="12" r="0.5" fill="currentColor" stroke="none"/></svg>
+                          Verlopen
+                        </span>
+                        <span class="aeon-badge aeon-badge--sm aeon-badge-warning">
+                          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2a4.5 4.5 0 00-4.5 4.5c0 2.5-.5 3.5-1.5 4.5h12c-1-1-1.5-2-1.5-4.5A4.5 4.5 0 008 2z"/><line x1="8" y1="14.5" x2="8" y2="13.5"/></svg>
+                          In behandeling
+                        </span>
                       </div>
-                      <div class="row-flex" style="margin-top:8px;gap:6px;">
-                        <span class="aeon-badge aeon-badge-error">Geblokkeerd</span>
-                        <span class="aeon-badge aeon-badge-warning">Herzien</span>
+                      <div class="row-flex" style="gap:6px;flex-wrap:wrap;margin-top:8px;background:#1B75BB;padding:8px 10px;border-radius:8px;">
+                        <span class="aeon-badge aeon-badge--inverted aeon-badge-primary">Inverted</span>
+                        <span class="aeon-badge aeon-badge--sm aeon-badge--inverted aeon-badge-primary">Klein</span>
                       </div>
                     </div>
                     <div style="height:1px;background:rgba(0,0,0,0.07);flex-shrink:0;"></div>
