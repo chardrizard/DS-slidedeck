@@ -118,7 +118,8 @@
 .aeon-btn__txt { flex: 1; text-align: left; }
 .aeon-btn--ctr { justify-content: center; }
 .aeon-btn--ctr .aeon-btn__txt { text-align: center; }
-.aeon-btn__arr { display: flex; align-items: center; justify-content: center; width: 57px; height: 100%; flex-shrink: 0; border-left: 2px solid rgba(255,255,255,0.18); }
+/* FIX 1: removed border-left: 2px solid rgba(255,255,255,0.18) — was causing vertical divider line */
+.aeon-btn__arr { display: flex; align-items: center; justify-content: center; width: 57px; height: 100%; flex-shrink: 0; }
 .aeon-btn__arr svg { width: 16px; height: 16px; }
 .aeon-btn--full { width: 100%; }
 .aeon-btn--pri { background: var(--aeon-blue); border-color: var(--aeon-blue); color: #fff; }
@@ -197,7 +198,8 @@
 .aeon-dd--open .aeon-dd__chev { color: var(--aeon-blue); transform: rotate(180deg); align-self: center; }
 .aeon-dd--dis .aeon-dd__chev { color: #d4d4d4; }
 .aeon-dd-menu { position: absolute; top: 100%; left: 0; right: 0; border: 1.5px solid var(--aeon-blue); border-top: none; border-radius: 0 0 4px 4px; background: #fff; z-index: 300; box-shadow: 0 6px 18px rgba(0,0,0,0.10); overflow-y: auto; max-height: 340px; }
-.aeon-dd-item { display: flex; align-items: center; min-height: 44px; padding: 10px 16px; font-size: 16px; color: #0e1218; cursor: pointer; transition: background 100ms; font-family: var(--sans); }
+/* FIX 4: gap:8px between checkbox and label text */
+.aeon-dd-item { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 16px; font-size: 16px; color: #0e1218; cursor: pointer; transition: background 100ms; font-family: var(--sans); }
 .aeon-dd-item:hover { background: #f5f5f5; }
 .aeon-dd-item--sel { background: var(--aeon-sec-h); color: var(--aeon-blue); font-weight: 500; }
 .aeon-dd-chk { width: 16px; height: 16px; border-radius: 3px; border: 1.5px solid #C8C8C8; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; background: #fff; transition: background 100ms, border-color 100ms; }
@@ -219,20 +221,81 @@
 .aeon-pill--on { background: var(--aeon-blue); color: #fff; }
 .aeon-pill--on:hover { background: var(--aeon-blue-h); }
 
-/* ─── Aeon Badge ─── */
-.aeon-badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 100px; font-family: var(--sans); font-size: 12px; font-weight: 500; white-space: nowrap; cursor: pointer; transition: filter 0.15s, transform 0.12s; user-select: none; }
-.aeon-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+/* ─── Aeon Badge ───────────────────────────────────────
+   Spec (from Figma):
+     Size:         small-12px | large-16px (default)
+     Visual weight: Primary | Secondary | Error | Valid | Warning
+     Inverted:      no (default) | yes
+
+   large-16px: height 32px, padding 4px 16px, radius 16px, font 14px
+   small-12px: height 26px, padding 4px 12px, radius 16px, font 12px
+
+   Icon sizes:  14px (large), 12px (small)
+   Icon gap:    6px (large), 5px (small)
+─────────────────────────────────────────────────────── */
+.aeon-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 32px; padding: 4px 16px; border-radius: 100px;
+  font-family: var(--sans); font-size: 14px; font-weight: 500;
+  white-space: nowrap; cursor: default; user-select: none;
+  transition: filter 0.15s;
+}
+.aeon-badge--sm {
+  height: 26px; padding: 4px 12px; font-size: 12px; gap: 5px;
+}
+.aeon-badge svg {
+  width: 14px; height: 14px; flex-shrink: 0;
+}
+.aeon-badge--sm svg {
+  width: 12px; height: 12px;
+}
+
+/* Primary — white fill, aegonblue border */
+.aeon-badge-primary {
+  background: #fff;
+  border: 1.5px solid var(--aeon-blue);
+  color: var(--aeon-blue);
+}
+
+/* Secondary — subtle neutral, no border */
+.aeon-badge-secondary {
+  background: var(--paper-2);
+  border: 1px solid transparent;
+  color: var(--ink-muted);
+}
+
+/* Error — red tint, triangle warning icon */
+.aeon-badge-error {
+  background: rgba(229,57,53,0.1);
+  border: 1px solid rgba(229,57,53,0.25);
+  color: #b91c1c;
+}
+
+/* Valid — green tint, checkmark icon */
+.aeon-badge-valid {
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.25);
+  color: #15803d;
+}
+
+/* Warning — amber tint, bell icon */
+.aeon-badge-warning {
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.25);
+  color: #b45309;
+}
+
+/* Inverted modifier — filled bg, white text */
+.aeon-badge--inverted.aeon-badge-primary {
+  background: var(--aeon-blue);
+  border-color: var(--aeon-blue);
+  color: #fff;
+}
+
+/* Legacy aliases — keep working for slide 14 tooltips etc */
 .aeon-badge-success { background: rgba(34,197,94,0.1); color: #15803d; border: 1px solid rgba(34,197,94,0.2); }
-.aeon-badge-success::before { background: #22c55e; }
-.aeon-badge-warning { background: rgba(245,158,11,0.1); color: #b45309; border: 1px solid rgba(245,158,11,0.2); }
-.aeon-badge-warning::before { background: #f59e0b; }
-.aeon-badge-error { background: rgba(229,57,53,0.1); color: #b91c1c; border: 1px solid rgba(229,57,53,0.2); }
-.aeon-badge-error::before { background: var(--aeon-err); }
-.aeon-badge-info { background: rgba(27,117,187,0.1); color: #1d4ed8; border: 1px solid rgba(27,117,187,0.2); }
-.aeon-badge-info::before { background: var(--aeon-blue); }
+.aeon-badge-info    { background: rgba(27,117,187,0.1); color: #1d4ed8; border: 1px solid rgba(27,117,187,0.2); }
 .aeon-badge-neutral { background: var(--paper-2); color: var(--ink-muted); border: 1px solid rgba(0,0,0,0.1); }
-.aeon-badge-neutral::before { background: var(--ink-faint); }
-.aeon-badge:hover { filter: brightness(0.92); transform: scale(1.04); }
 
 /* ─── Aeon Checkbox ─── */
 .aeon-chk-row { display: flex; align-items: center; gap: 10px; cursor: pointer; }
