@@ -388,8 +388,6 @@
                     <button class="flip-back-btn" onclick="flipBack('c4')">↩ before</button>
                   </div>
                   <div class="card-back-body col-flex" style="justify-content:flex-start;padding-top:20px;gap:0;">
-
-                    <!-- Status badges section -->
                     <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Status badges</div>
                     <div class="row-flex" style="gap:6px;flex-wrap:wrap;">
                       <span class="aeon-badge aeon-badge-primary">Primair</span>
@@ -407,11 +405,7 @@
                         Waarschuwing
                       </span>
                     </div>
-
-                    <!-- Divider — 16px above, 16px below -->
                     <div style="height:1px;background:rgba(0,0,0,0.07);margin:16px 0;flex-shrink:0;"></div>
-
-                    <!-- Filter pills section -->
                     <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Filter pills</div>
                     <div class="pill-group" id="pill-c4" style="gap:6px;">
                       <button class="aeon-pill aeon-pill--on" data-group="c4" type="button">Alle</button>
@@ -419,7 +413,6 @@
                       <button class="aeon-pill" data-group="c4" type="button">Concept</button>
                       <button class="aeon-pill" data-group="c4" type="button">Verlopen</button>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -450,42 +443,45 @@
                     <div class="card-back-label"><div class="aeon-dot"></div>Aeon · Click to reveal</div>
                     <button class="flip-back-btn" onclick="flipBack('c5')">↩ before</button>
                   </div>
-                  <!-- Same rhythm as card 4: flex-start, padding-top 20px, gap 0, manual 16px divider margins -->
                   <div class="card-back-body col-flex" style="justify-content:flex-start;padding-top:20px;gap:0;">
-
-                    <!-- Aanvullende vergoedingen section -->
                     <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Aanvullende vergoedingen</div>
                     <div class="col-flex" style="gap:12px;">
                       <label class="aeon-chk-row"><input type="checkbox" checked onchange="syncChk(this)"><div class="aeon-chk-box"></div><span class="aeon-chk-label">Tandarts vergoeding</span></label>
                       <label class="aeon-chk-row"><input type="checkbox" onchange="syncChk(this)"><div class="aeon-chk-box"></div><span class="aeon-chk-label">Fysiotherapie</span></label>
                       <label class="aeon-chk-row"><input type="checkbox" disabled><div class="aeon-chk-box" style="opacity:0.38;cursor:not-allowed;"></div><span class="aeon-chk-label" style="color:var(--ink-faint);">Buitenland (niet beschikbaar)</span></label>
                     </div>
-
-                    <!-- Divider — 16px above, 16px below (matches card 4) -->
                     <div style="height:1px;background:rgba(0,0,0,0.07);margin:16px 0;flex-shrink:0;"></div>
-
-                    <!-- Betalingsfrequentie section -->
                     <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Betalingsfrequentie</div>
                     <div style="display:flex;gap:20px;flex-wrap:wrap;">
+
+                      <!-- Radio: Maandelijks — selected by default, dot visible -->
                       <label class="aeon-chk-row">
                         <input type="radio" name="freq" id="freq-m" checked style="display:none;">
                         <div class="aeon-radio-box" id="rb-freq-m" onclick="selectRadio('freq','freq-m')" style="width:18px;height:18px;flex-shrink:0;border:1.5px solid var(--aeon-blue);border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 140ms;">
-                          <div style="width:8px;height:8px;border-radius:50%;background:var(--aeon-blue);"></div>
+                          <div class="radio-dot" style="width:8px;height:8px;border-radius:50%;background:var(--aeon-blue);display:block;"></div>
                         </div>
                         <span class="aeon-chk-label">Maandelijks</span>
                       </label>
+
+                      <!-- Radio: Per kwartaal — dot hidden by default -->
                       <label class="aeon-chk-row">
                         <input type="radio" name="freq" id="freq-q" style="display:none;">
-                        <div class="aeon-radio-box" id="rb-freq-q" onclick="selectRadio('freq','freq-q')" style="width:18px;height:18px;flex-shrink:0;border:1.5px solid #C8C8C8;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 140ms;"></div>
+                        <div class="aeon-radio-box" id="rb-freq-q" onclick="selectRadio('freq','freq-q')" style="width:18px;height:18px;flex-shrink:0;border:1.5px solid #C8C8C8;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 140ms;">
+                          <div class="radio-dot" style="width:8px;height:8px;border-radius:50%;background:var(--aeon-blue);display:none;"></div>
+                        </div>
                         <span class="aeon-chk-label">Per kwartaal</span>
                       </label>
+
+                      <!-- Radio: Jaarlijks — dot hidden by default -->
                       <label class="aeon-chk-row">
                         <input type="radio" name="freq" id="freq-y" style="display:none;">
-                        <div class="aeon-radio-box" id="rb-freq-y" onclick="selectRadio('freq','freq-y')" style="width:18px;height:18px;flex-shrink:0;border:1.5px solid #C8C8C8;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 140ms;"></div>
+                        <div class="aeon-radio-box" id="rb-freq-y" onclick="selectRadio('freq','freq-y')" style="width:18px;height:18px;flex-shrink:0;border:1.5px solid #C8C8C8;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 140ms;">
+                          <div class="radio-dot" style="width:8px;height:8px;border-radius:50%;background:var(--aeon-blue);display:none;"></div>
+                        </div>
                         <span class="aeon-chk-label">Jaarlijks</span>
                       </label>
-                    </div>
 
+                    </div>
                   </div>
                 </div>
               </div>
