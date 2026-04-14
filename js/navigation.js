@@ -128,3 +128,16 @@ updateUI();
 window.goTo = goTo;
 window.next = next;
 window.prev = prev;
+
+/* ─── ARCH TAB SWITCHER ─── */
+document.querySelectorAll('.arch-tab').forEach(tab => {
+  tab.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const idx = this.dataset.tab;
+    const container = this.closest('.arch-tabs');
+    container.querySelectorAll('.arch-tab').forEach(t => t.classList.remove('arch-tab--active'));
+    container.querySelectorAll('.arch-panel').forEach(p => p.classList.remove('arch-panel--active'));
+    this.classList.add('arch-tab--active');
+    container.querySelector(`.arch-panel[data-panel="${idx}"]`).classList.add('arch-panel--active');
+  });
+});
