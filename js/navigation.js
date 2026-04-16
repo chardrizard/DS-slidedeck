@@ -11,12 +11,13 @@ const SECTIONS = [
 
 let current = 0;
 let notesVisible = false;
+let currentScale = 1; /* FIX: track scale for coordinate math in carousel + slider */
 
 // ─── SCALE ───
 function scaleStage() {
   const scaler = document.getElementById('scaler');
-  const scale = Math.min(window.innerWidth / 1440, window.innerHeight / 810);
-  scaler.style.transform = `scale(${scale})`;
+  currentScale = Math.min(window.innerWidth / 1440, window.innerHeight / 810);
+  scaler.style.transform = `scale(${currentScale})`;
 }
 scaleStage();
 window.addEventListener('resize', scaleStage);
@@ -172,7 +173,9 @@ document.getElementById('viewport').addEventListener('touchend', e => {
 
     document.addEventListener('mousemove', e => {
       if (!isDown) return;
-      carousel.scrollLeft = scrollStart - (e.clientX - startX);
+      /* FIX: divide delta by currentScale — mouse moves in viewport coords,
+         scrollLeft operates in unscaled content coords */
+      carousel.scrollLeft = scrollStart - (e.clientX - startX) / currentScale;
     });
 
     document.addEventListener('mouseup', () => {
