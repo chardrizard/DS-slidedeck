@@ -98,28 +98,72 @@ document.addEventListener('keydown', e => {
   if (e.key === 'End')  goTo(TOTAL - 1);
 });
 
-// ─── TOUCH/SWIPE ───
-let touchStartX = null, touchOnSlider = false;
-document.getElementById('viewport').addEventListener('touchstart', e => {
-  touchOnSlider = !!e.target.closest('[data-no-advance]');
-  touchStartX = e.touches[0].clientX;
-}, { passive: true });
-document.getElementById('viewport').addEventListener('touchend', e => {
-  if (touchStartX === null) return;
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  if (!touchOnSlider && Math.abs(dx) > 50) dx < 0 ? next() : prev();
-  touchStartX = null; touchOnSlider = false;
-}, { passive: true });
+// ─── CLICK-TO-ADVANCE ───
+// Track mousedown position so we can distinguish a clean click from a drag.
+// If the pointer moved more than DRAG_THRESHOLD px between down and up, it's
+// a drag (carousel scroll, BA slider, etc.) — don't advance the slide.
+const DRAG_THRESHOLD = 6; // px
+let mouseDownX = 0;
+let mouseDownY = 0;
+let mouseDownOnNoAdvance = false;
 
-// ─── CLICK TO ADVANCE ───
+// Interactive elements that should never trigger slide advance
+const ADVANCE_IGNORE = [
+  'a', 'button', 'input', 'select', 'textarea', 'label',
+  '[data-no-advance]',          // explicit opt-out (slider, flip cards)
+  '.flip-card',                 // flip cards handle their own click
+  '.nav-card',                  // contents-page nav cards
+  '.aeon-dd', '.aeon-dd-wrap', '.aeon-dd-item',
+  '.aeon-pill',
+  '.aeon-chk-row',
+  '.arch-tab',
+  '.sproj-card',
+  '.dot',
+  '#navbar', '#dots',
+].join(', ');
+
+document.getElementById('viewport').addEventListener('mousedown', e => {
+  mouseDownX = e.clientX;
+  mouseDownY = e.clientY;
+  // Check at mousedown whether we're on a no-advance zone so we don't have
+  // to re-check at mouseup (target may differ after a drag).
+  mouseDownOnNoAdvance = !!e.target.closest(ADVANCE_IGNORE);
+});
+
 document.getElementById('viewport').addEventListener('click', e => {
-  if (e.target.closest('[data-no-advance]')) return;
-  const tag = e.target.tagName.toLowerCase();
-  const interactive = ['a','button','input','select','textarea','label'];
-  if (interactive.includes(tag)) return;
-  if (e.target.closest('a, button, input, select, textarea')) return;
+  // Bail if mousedown was on an interactive / no-advance element
+  if (mouseDownOnNoAdvance) return;
+
+  // Bail if the click target itself is interactive
+  if (e.target.closest(ADVANCE_IGNORE)) return;
+
+  // Bail if the pointer moved — user was dragging (carousel, slider, etc.)
+  const dx = Math.abs(e.clientX - mouseDownX);
+  const dy = Math.abs(e.clientY - mouseDownY);
+  if (dx > DRAG_THRESHOLD || dy > DRAG_THRESHOLD) return;
+
   next();
 });
+
+// ─── TOUCH/SWIPE (slide-level) ───
+// Only fires on areas that are NOT marked data-no-advance.
+// Carousel and BA slider stop propagation on their own touchmove so this
+// won't interfere with horizontal scroll inside those elements.
+let touchStartX = null;
+let touchStartOnNoAdvance = false;
+
+document.getElementById('viewport').addEventListener('touchstart', e => {
+  touchStartOnNoAdvance = !!e.target.closest('[data-no-advance]');
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
+
+document.getElementById('viewport').addEventListener('touchend', e => {
+  if (touchStartX === null || touchStartOnNoAdvance) return;
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+  touchStartX = null;
+  touchStartOnNoAdvance = false;
+}, { passive: true });
 
 // ─── INIT ───
 updateUI();
