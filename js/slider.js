@@ -9,16 +9,10 @@
   let dragging = false;
   let hintHidden = false;
 
-  // All child elements pass pointer events up to the slider container.
-  // The slider itself catches everything. We do this in JS so index.html
-  // inline styles don't need changing, and it runs after elements exist.
-  slider.querySelectorAll('*').forEach(el => {
-    // Skip the bottom caption overlay — it already has pointer-events:none inline
-    // Skip ba-divider grip — cosmetic only, no interaction needed
-    el.style.pointerEvents = 'none';
-  });
-  // Slider itself must receive events
-  slider.style.pointerEvents = 'auto';
+  /* FIX: removed the querySelectorAll('*') pointer-events:none loop.
+     The three visual-only layers (#ba-divider, #ba-hint, bottom caption)
+     already have pointer-events:none set inline in HTML. Nothing else
+     needs it — the slider container catches mousedown directly. */
 
   function setPosition(clientX) {
     const rect = slider.getBoundingClientRect();
