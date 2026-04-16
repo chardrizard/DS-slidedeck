@@ -90,10 +90,10 @@
           </div>
           <div class="col" style="flex:0 0 70%; min-width:0; gap:16px; justify-content:center;">
             <div data-no-advance="true" style="overflow-x:auto; overflow-y:hidden; display:flex; gap:12px; flex:1; min-height:0; scrollbar-width:none; -ms-overflow-style:none; scroll-snap-type:x mandatory; padding-bottom:2px;">
-              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Skiing.png" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Landscape_01.png" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Landscape_02.png" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
-              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/teaching.png" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Skiing.png" style="width:100%; height:100%; object-fit:cover; display:block; pointer-events:none;"></div>
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Landscape_01.png" style="width:100%; height:100%; object-fit:cover; display:block; pointer-events:none;"></div>
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Landscape_02.png" style="width:100%; height:100%; object-fit:cover; display:block; pointer-events:none;"></div>
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/teaching.png" style="width:100%; height:100%; object-fit:cover; display:block; pointer-events:none;"></div>
             </div>
             <div class="eyebrow" style="margin-bottom:12px; margin-top:4px;">Expertise</div>
             <div class="skill-pills">
@@ -218,14 +218,16 @@
       </section>
 
       <!-- SLIDE 08 — Before/After Flipcard -->
+      <!-- FIX: data-no-advance stays on the section so slide doesn't advance on click -->
       <section class="slide slide-light" id="slide-08" data-index="7" data-section="cs1" data-slide-type="solution" data-no-advance="true">
         <div class="slide-inner" style="padding: 20px var(--pad);">
           <div class="card-grid">
 
             <!-- CARD 1 — BUTTONS -->
-            <div class="flip-card" id="c1" onclick="handleCardClick(event,'c1')">
+            <!-- FIX: onclick moved from .flip-card to .card-front — avoids bubbling through transform-style:preserve-3d -->
+            <div class="flip-card" id="c1">
               <div class="flip-card-inner">
-                <div class="card-front">
+                <div class="card-front" onclick="handleCardClick(event,'c1')">
                   <div class="card-front-header">
                     <div class="card-bu"><span class="bu-dot" style="background:#4a6080;"></span>Hypotheek Portaal</div>
                     <div class="card-era">~2008 · Buttons</div>
@@ -264,9 +266,9 @@
             </div>
 
             <!-- CARD 2 — TEXT INPUT -->
-            <div class="flip-card" id="c2" onclick="handleCardClick(event,'c2')">
+            <div class="flip-card" id="c2">
               <div class="flip-card-inner">
-                <div class="card-front">
+                <div class="card-front" onclick="handleCardClick(event,'c2')">
                   <div class="card-front-header">
                     <div class="card-bu"><span class="bu-dot" style="background:#2a4060;"></span>Beleggingsplatform</div>
                     <div class="card-era">~2011 · Text Input</div>
@@ -326,9 +328,9 @@
             </div>
 
             <!-- CARD 3 — DROPDOWN -->
-            <div class="flip-card" id="c3" onclick="handleCardClick(event,'c3')">
+            <div class="flip-card" id="c3">
               <div class="flip-card-inner">
-                <div class="card-front">
+                <div class="card-front" onclick="handleCardClick(event,'c3')">
                   <div class="card-front-header">
                     <div class="card-bu"><span class="bu-dot" style="background:#4a80c0;"></span>Life &amp; Pensions</div>
                     <div class="card-era">~2010 · Dropdown</div>
@@ -362,10 +364,10 @@
               </div>
             </div>
 
-           <!-- CARD 4 — BADGES -->
-            <div class="flip-card" id="c4" onclick="handleCardClick(event,'c4')">
+            <!-- CARD 4 — BADGES -->
+            <div class="flip-card" id="c4">
               <div class="flip-card-inner">
-                <div class="card-front">
+                <div class="card-front" onclick="handleCardClick(event,'c4')">
                   <div class="card-front-header">
                     <div class="card-bu"><span class="bu-dot" style="background:#1B4A88;"></span>Pensioenportaal</div>
                     <div class="card-era">~2009 · Badges</div>
@@ -419,9 +421,9 @@
             </div>
 
             <!-- CARD 5 — CHECKBOXES + RADIO -->
-            <div class="flip-card" id="c5" onclick="handleCardClick(event,'c5')">
+            <div class="flip-card" id="c5">
               <div class="flip-card-inner">
-                <div class="card-front">
+                <div class="card-front" onclick="handleCardClick(event,'c5')">
                   <div class="card-front-header">
                     <div class="card-bu"><span class="bu-dot" style="background:#4caf50;"></span>Zorgverzekering</div>
                     <div class="card-era">~2013 · Toggles</div>
@@ -479,6 +481,8 @@
                 </div>
               </div>
             </div>
+
+          </div>
         </div>
       </section>
 
@@ -532,8 +536,6 @@
             <p class="body-text">Platform-specific Field variants were replaced with a single component driven by context flags. Reduced build surface, eliminated drift, and cut load times by <strong>25%</strong>.</p>
           </div>
           <div class="col col-center" style="flex:0 0 70%; min-width:0;">
-
-            <!-- TAB SWITCHER -->
             <div class="arch-tabs">
               <div class="arch-tab-bar">
                 <button class="arch-tab arch-tab--active" data-arch-tab="0">Component</button>
@@ -541,41 +543,20 @@
                 <button class="arch-tab" data-arch-tab="2">MijnAegon</button>
               </div>
               <div class="arch-panels">
-
                 <div class="arch-panel arch-panel--active" data-arch-panel="0">
-                  <img src="images/cs1-aeon/arch-component.png"
-                       alt="Text Input component — Figma properties panel"
-                       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                  <div class="arch-placeholder">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                    <span>images/cs1-aeon/arch-component.png</span>
-                  </div>
+                  <img src="images/cs1-aeon/arch-component.png" alt="Text Input component — Figma properties panel" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="arch-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>images/cs1-aeon/arch-component.png</span></div>
                 </div>
-
                 <div class="arch-panel" data-arch-panel="1">
-                  <img src="images/cs1-aeon/arch-aip.png"
-                       alt="Text Input in AIP context"
-                       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                  <div class="arch-placeholder">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                    <span>images/cs1-aeon/arch-aip.png</span>
-                  </div>
+                  <img src="images/cs1-aeon/arch-aip.png" alt="Text Input in AIP context" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="arch-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>images/cs1-aeon/arch-aip.png</span></div>
                 </div>
-
                 <div class="arch-panel" data-arch-panel="2">
-                  <img src="images/cs1-aeon/arch-mijnaegon.png"
-                       alt="Text Input in MijnAegon context"
-                       onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                  <div class="arch-placeholder">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                    <span>images/cs1-aeon/arch-mijnaegon.png</span>
-                  </div>
+                  <img src="images/cs1-aeon/arch-mijnaegon.png" alt="Text Input in MijnAegon context" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="arch-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>images/cs1-aeon/arch-mijnaegon.png</span></div>
                 </div>
-
               </div>
             </div>
-            <!-- END TAB SWITCHER -->
-
           </div>
         </div>
       </section>
@@ -589,30 +570,16 @@
             <p class="body-text">Scattered, inconsistent, rarely referenced. We restructured the system documentation: usage guidelines, do/don't examples, token mapping, migration notes. 89% of adopting teams cited it as why they moved faster.</p>
           </div>
           <div class="col col-center" style="flex:0 0 70%; min-width:0; gap:16px;">
-            <div class="img-placeholder" style="min-height:200px; flex:1;">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-              <div>[Image: Documentation page]</div>
-              <div class="img-label">Screenshot · ~16:10</div>
-            </div>
-            <div class="img-placeholder" style="min-height:100px;">
-              <div>[Image: Adoption timeline]</div>
-              <div class="img-label">Figma graphic · ~3:1 wide banner</div>
-            </div>
+            <div class="img-placeholder" style="min-height:200px; flex:1;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg><div>[Image: Documentation page]</div><div class="img-label">Screenshot · ~16:10</div></div>
+            <div class="img-placeholder" style="min-height:100px;"><div>[Image: Adoption timeline]</div><div class="img-label">Figma graphic · ~3:1 wide banner</div></div>
           </div>
         </div>
       </section>
 
       <!-- SLIDE 13 — Full-Bleed Documentation -->
       <section class="slide slide-fullbleed" id="slide-13" data-index="12" data-section="cs1" data-slide-type="solution">
-        <div class="fullbleed-img">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          <div>[Image: Complete documentation page]</div>
-          <div class="img-label">Long scroll-capture · Show structure and density</div>
-        </div>
-        <div class="caption-overlay">
-          <div class="caption-label">Documentation</div>
-          <div class="caption-text">Anatomy, usage rules, do/don't examples, semantic token mapping, migration notes. Restructured to actually get used.</div>
-        </div>
+        <div class="fullbleed-img"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><div>[Image: Complete documentation page]</div><div class="img-label">Long scroll-capture · Show structure and density</div></div>
+        <div class="caption-overlay"><div class="caption-label">Documentation</div><div class="caption-text">Anatomy, usage rules, do/don't examples, semantic token mapping, migration notes. Restructured to actually get used.</div></div>
       </section>
 
       <!-- SLIDE 14 — CS1 Outcomes -->
@@ -624,28 +591,19 @@
               <div class="metric-kicker amber">Performance</div>
               <div class="metric-value amber">−25%</div>
               <div class="metric-label">Average load times across adopting platforms</div>
-              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;">
-                <span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Team-estimated</span>
-                <div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Load time reduction was observed after consolidating platform-specific Field variants into a single component with conditional rendering. Not formally benchmarked — reported consistently across adopting teams.</div></div>
-              </div>
+              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Team-estimated</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Load time reduction was observed after consolidating platform-specific Field variants into a single component with conditional rendering. Not formally benchmarked — reported consistently across adopting teams.</div></div></div>
             </div>
             <div class="metric-col">
               <div class="metric-kicker blue">Efficiency</div>
               <div class="metric-value blue">−40%</div>
               <div class="metric-label">Development time for new features built on system components</div>
-              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;">
-                <span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Dev team-reported</span>
-                <div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Reported by dev leads across three onboarded teams. The component brief template eliminated most one-off build requests before design started — fewer divergent builds, less rework.</div></div>
-              </div>
+              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Dev team-reported</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Reported by dev leads across three onboarded teams. The component brief template eliminated most one-off build requests before design started — fewer divergent builds, less rework.</div></div></div>
             </div>
             <div class="metric-col">
               <div class="metric-kicker" style="color:rgba(251,191,36,0.5);">Adoption</div>
               <div class="metric-value" style="color:rgba(251,191,36,0.5);">85%</div>
               <div class="metric-label">Component adoption rate across tracked screens</div>
-              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;">
-                <span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured · 3 teams</span>
-                <div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Tracked via component audit across screens from three onboarded teams — measured as % of UI surface using system components vs custom builds.</div></div>
-              </div>
+              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured · 3 teams</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Tracked via component audit across screens from three onboarded teams — measured as % of UI surface using system components vs custom builds.</div></div></div>
             </div>
           </div>
         </div>
@@ -695,11 +653,7 @@
             </div>
           </div>
           <div class="col col-center" style="flex:0 0 70%; min-width:0;">
-            <div class="img-placeholder" style="min-height:380px; flex:1;">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg>
-              <div>[Image: 3 different custom data table UIs]</div>
-              <div class="img-label">Screenshot composite · Annotate inconsistencies · Redact data</div>
-            </div>
+            <div class="img-placeholder" style="min-height:380px; flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg><div>[Image: 3 different custom data table UIs]</div><div class="img-label">Screenshot composite · Annotate inconsistencies · Redact data</div></div>
           </div>
         </div>
       </section>
@@ -712,11 +666,7 @@
             <div class="key-quote">"I'm not asking you to simplify mortgages. I want to simplify everything that isn't mortgage-specific."</div>
           </div>
           <div class="col col-center" style="flex:0 0 70%; min-width:0;">
-            <div class="img-placeholder" style="min-height:340px; flex:1;">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              <div>[Image: Mortgage overview screens being reviewed]</div>
-              <div class="img-label">Photo or annotated screenshot · ~4:3 · Candid preferred</div>
-            </div>
+            <div class="img-placeholder" style="min-height:340px; flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><div>[Image: Mortgage overview screens being reviewed]</div><div class="img-label">Photo or annotated screenshot · ~4:3 · Candid preferred</div></div>
           </div>
         </div>
       </section>
@@ -731,11 +681,7 @@
             <div class="analysis-sub" style="margin-top:16px;"><div class="analysis-sub-label">Mortgage-specific complexity</div><div class="analysis-sub-body" style="color:var(--ink-muted);">Conditional columns, inline calculations, warning states, expandable rows</div></div>
           </div>
           <div class="col col-center" style="flex:0 0 70%; min-width:0;">
-            <div class="img-placeholder" style="min-height:340px; flex:1;">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/><line x1="15" y1="9" x2="15" y2="21"/></svg>
-              <div>[Image: Base data table]</div>
-              <div class="img-label">Clean data table screenshot · Redact real values · ~16:10</div>
-            </div>
+            <div class="img-placeholder" style="min-height:340px; flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/><line x1="15" y1="9" x2="15" y2="21"/></svg><div>[Image: Base data table]</div><div class="img-label">Clean data table screenshot · Redact real values · ~16:10</div></div>
           </div>
         </div>
       </section>
@@ -746,18 +692,9 @@
           <div class="eyebrow">The Contract</div>
           <h2 class="section-title" style="margin-bottom:32px;">Clear ownership. <em>Neither team steps on the other's toes.</em></h2>
           <div class="swimlane">
-            <div class="swim-lane">
-              <div class="swim-head amber"><span class="swim-lane-label amber">Hypotheek<br>layer</span></div>
-              <div class="swim-body"><span class="swim-chip amber">Business logic</span><span class="swim-chip amber">Domain rules</span><span class="swim-chip amber">Custom rendering</span><span class="swim-chip amber">Conditional columns</span><span class="swim-chip amber">Extension content</span><span class="swim-chip amber">User actions</span></div>
-            </div>
-            <div class="swim-lane">
-              <div class="swim-head neutral"><span class="swim-lane-label neutral">API<br>boundary</span></div>
-              <div class="swim-body"><span class="swim-chip-mono">renderCell()</span><span class="swim-chip-mono">renderExpandedRow()</span><span class="swim-chip-mono">isVisible()</span></div>
-            </div>
-            <div class="swim-lane">
-              <div class="swim-head blue"><span class="swim-lane-label blue">Design<br>System</span></div>
-              <div class="swim-body"><span class="swim-chip blue">UI infrastructure</span><span class="swim-chip blue">Interaction patterns</span><span class="swim-chip blue">Visual design</span><span class="swim-chip blue">Accessibility</span><span class="swim-chip blue">Performance</span></div>
-            </div>
+            <div class="swim-lane"><div class="swim-head amber"><span class="swim-lane-label amber">Hypotheek<br>layer</span></div><div class="swim-body"><span class="swim-chip amber">Business logic</span><span class="swim-chip amber">Domain rules</span><span class="swim-chip amber">Custom rendering</span><span class="swim-chip amber">Conditional columns</span><span class="swim-chip amber">Extension content</span><span class="swim-chip amber">User actions</span></div></div>
+            <div class="swim-lane"><div class="swim-head neutral"><span class="swim-lane-label neutral">API<br>boundary</span></div><div class="swim-body"><span class="swim-chip-mono">renderCell()</span><span class="swim-chip-mono">renderExpandedRow()</span><span class="swim-chip-mono">isVisible()</span></div></div>
+            <div class="swim-lane"><div class="swim-head blue"><span class="swim-lane-label blue">Design<br>System</span></div><div class="swim-body"><span class="swim-chip blue">UI infrastructure</span><span class="swim-chip blue">Interaction patterns</span><span class="swim-chip blue">Visual design</span><span class="swim-chip blue">Accessibility</span><span class="swim-chip blue">Performance</span></div></div>
           </div>
         </div>
       </section>
@@ -780,15 +717,8 @@
 
       <!-- SLIDE 22 — Full-Bleed Data Table -->
       <section class="slide slide-fullbleed" id="slide-22" data-index="21" data-section="cs2" data-slide-type="solution">
-        <div class="fullbleed-img">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/><line x1="15" y1="9" x2="15" y2="21"/></svg>
-          <div>[Image: Composable Data Table in production]</div>
-          <div class="img-label">Critical — full-screen product screenshot · Redact sensitive data · Fill entire slide</div>
-        </div>
-        <div class="caption-overlay">
-          <div class="caption-label">Hypotheek Data Table</div>
-          <div class="caption-text">Domain-specific rendering on shared infrastructure. In production on the advisor portal.</div>
-        </div>
+        <div class="fullbleed-img"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/><line x1="15" y1="9" x2="15" y2="21"/></svg><div>[Image: Composable Data Table in production]</div><div class="img-label">Critical — full-screen product screenshot · Redact sensitive data · Fill entire slide</div></div>
+        <div class="caption-overlay"><div class="caption-label">Hypotheek Data Table</div><div class="caption-text">Domain-specific rendering on shared infrastructure. In production on the advisor portal.</div></div>
       </section>
 
       <!-- SLIDE 23 — Process Change -->
@@ -805,11 +735,7 @@
             <div class="summary-quote">"We'll protect the system, but we won't surprise you or slow delivery."</div>
           </div>
           <div class="col col-center" style="flex:0 0 70%; min-width:0;">
-            <div class="img-placeholder" style="min-height:340px; flex:1;">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              <div>[Image: Process diagram]</div>
-              <div class="img-label">Simple Figma flow diagram · 3–4 steps · Before/after process diff</div>
-            </div>
+            <div class="img-placeholder" style="min-height:340px; flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><div>[Image: Process diagram]</div><div class="img-label">Simple Figma flow diagram · 3–4 steps · Before/after process diff</div></div>
           </div>
         </div>
       </section>
@@ -823,19 +749,13 @@
               <div class="metric-kicker amber">Consolidation</div>
               <div class="metric-value amber">3 → 1</div>
               <div class="metric-label">Custom tables replaced with the shared Data Table</div>
-              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;">
-                <span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured</span>
-                <div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Three separate custom-built table implementations across Hypotheek products were replaced with a single shared Data Table component.</div></div>
-              </div>
+              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Three separate custom-built table implementations across Hypotheek products were replaced with a single shared Data Table component.</div></div></div>
             </div>
             <div class="metric-col">
               <div class="metric-kicker blue">Quality</div>
               <div class="metric-value blue">−62%</div>
               <div class="metric-label">Table-related accessibility defects (keyboard + focus)</div>
-              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;">
-                <span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Verify this number</span>
-                <div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Defect reduction tracked against accessibility QA results pre and post adoption. Confirm exact figure before presenting.</div></div>
-              </div>
+              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Verify this number</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Defect reduction tracked against accessibility QA results pre and post adoption. Confirm exact figure before presenting.</div></div></div>
             </div>
           </div>
         </div>
@@ -852,11 +772,7 @@
             <p class="body-text">Audited all components against WCAG 2.2 AA: focus indicators (2.4.11), target sizes (2.5.8), dragging alternatives (2.5.7). Updated contrast tokens for every semantic state.</p>
           </div>
           <div class="col col-center" style="flex:0 0 70%; min-width:0;">
-            <div class="img-placeholder" style="min-height:360px; flex:1;">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <div>[Image: WCAG audit results]</div>
-              <div class="img-label">Checklist with green checkmarks · Or before/after focus indicators · ~4:5</div>
-            </div>
+            <div class="img-placeholder" style="min-height:360px; flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg><div>[Image: WCAG audit results]</div><div class="img-label">Checklist with green checkmarks · Or before/after focus indicators · ~4:5</div></div>
           </div>
         </div>
       </section>
@@ -867,25 +783,10 @@
           <div class="eyebrow eyebrow-accent">Side projects</div>
           <h2 class="section-title" style="margin-bottom:24px;">Things I build when nobody asked.</h2>
           <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; flex:1;">
-            <a href="https://chardrizard.github.io/samengestelde-werkwoorden-quiz/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;">
-              <div class="sproj-card-icon" style="background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.18);">🇳🇱</div>
-              <div class="sproj-card-body"><div class="sproj-card-name">Samengestelde Werkwoorden</div><div class="sproj-card-desc">Dutch compound verb quiz. Built to pass NT2. It worked.</div><div class="sproj-card-tags"><span class="sproj-tag">Education</span><span class="sproj-tag">Spaced repetition</span></div></div>
-              <div class="sproj-card-arr" style="margin-top:auto;">↗</div>
-            </a>
-            <a href="https://chardrizard.github.io/krachttreinen-tracker/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;">
-              <div class="sproj-card-icon" style="background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.18);">🏋️</div>
-              <div class="sproj-card-body"><div class="sproj-card-name">Krachttreinen Tracker</div><div class="sproj-card-desc">Powerlifting PWA. Started as a spreadsheet. Naturally went too far.</div><div class="sproj-card-tags"><span class="sproj-tag">PWA</span><span class="sproj-tag">Fitness</span></div></div>
-              <div class="sproj-card-arr" style="margin-top:auto;">↗</div>
-            </a>
-            <a href="https://chardrizard.github.io/quip/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;">
-              <div class="sproj-card-icon" style="background:rgba(20,184,166,0.1); border:1px solid rgba(20,184,166,0.18);">💬</div>
-              <div class="sproj-card-body"><div class="sproj-card-name">Quip</div><div class="sproj-card-desc">Party word game. One hint, ten words, 15 tries.</div><div class="sproj-card-tags"><span class="sproj-tag">Game</span><span class="sproj-tag">Multiplayer</span></div></div>
-              <div class="sproj-card-arr" style="margin-top:auto;">↗</div>
-            </a>
-            <div class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px; opacity:0.45; cursor:default; pointer-events:none;">
-              <div class="sproj-card-icon" style="background:rgba(255,255,255,0.04); border:1px dashed rgba(255,255,255,0.12);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-              <div class="sproj-card-body"><div class="sproj-card-name" style="color:rgba(255,255,255,0.4);">Coming soon</div><div class="sproj-card-desc" style="color:rgba(255,255,255,0.25);">Next project in progress. Probably over-engineered.</div><div class="sproj-card-tags"><span class="sproj-tag" style="opacity:0.5;">TBD</span></div></div>
-            </div>
+            <a href="https://chardrizard.github.io/samengestelde-werkwoorden-quiz/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;"><div class="sproj-card-icon" style="background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.18);">🇳🇱</div><div class="sproj-card-body"><div class="sproj-card-name">Samengestelde Werkwoorden</div><div class="sproj-card-desc">Dutch compound verb quiz. Built to pass NT2. It worked.</div><div class="sproj-card-tags"><span class="sproj-tag">Education</span><span class="sproj-tag">Spaced repetition</span></div></div><div class="sproj-card-arr" style="margin-top:auto;">↗</div></a>
+            <a href="https://chardrizard.github.io/krachttreinen-tracker/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;"><div class="sproj-card-icon" style="background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.18);">🏋️</div><div class="sproj-card-body"><div class="sproj-card-name">Krachttreinen Tracker</div><div class="sproj-card-desc">Powerlifting PWA. Started as a spreadsheet. Naturally went too far.</div><div class="sproj-card-tags"><span class="sproj-tag">PWA</span><span class="sproj-tag">Fitness</span></div></div><div class="sproj-card-arr" style="margin-top:auto;">↗</div></a>
+            <a href="https://chardrizard.github.io/quip/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;"><div class="sproj-card-icon" style="background:rgba(20,184,166,0.1); border:1px solid rgba(20,184,166,0.18);">💬</div><div class="sproj-card-body"><div class="sproj-card-name">Quip</div><div class="sproj-card-desc">Party word game. One hint, ten words, 15 tries.</div><div class="sproj-card-tags"><span class="sproj-tag">Game</span><span class="sproj-tag">Multiplayer</span></div></div><div class="sproj-card-arr" style="margin-top:auto;">↗</div></a>
+            <div class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px; opacity:0.45; cursor:default; pointer-events:none;"><div class="sproj-card-icon" style="background:rgba(255,255,255,0.04); border:1px dashed rgba(255,255,255,0.12);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="sproj-card-body"><div class="sproj-card-name" style="color:rgba(255,255,255,0.4);">Coming soon</div><div class="sproj-card-desc" style="color:rgba(255,255,255,0.25);">Next project in progress. Probably over-engineered.</div><div class="sproj-card-tags"><span class="sproj-tag" style="opacity:0.5;">TBD</span></div></div></div>
           </div>
         </div>
       </section>
