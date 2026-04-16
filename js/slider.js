@@ -8,6 +8,25 @@
 
   let dragging = false, hintHidden = false;
 
+  // FIX: disable pointer events on all imgs inside the slider so they don't
+  // absorb mousedown/touchstart before the slider container gets it.
+  // Applied via JS here so it works without touching index.html inline styles.
+  slider.querySelectorAll('img').forEach(img => {
+    img.style.pointerEvents = 'none';
+  });
+
+  // FIX: also disable on the inner layer divs so ba-slider gets every event
+  ['ba-after', 'ba-before', 'ba-divider'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && id !== 'ba-divider') {
+      // ba-after and ba-before should pass pointer events up to the slider
+      // ba-divider grip stays interactive for visual feedback only (cursor)
+      el.style.pointerEvents = 'none';
+    }
+  });
+  // Re-enable on slider itself so it receives events
+  slider.style.pointerEvents = 'auto';
+
   function setPosition(clientX) {
     const rect = slider.getBoundingClientRect();
     let pct = Math.max(0.04, Math.min(0.96, (clientX - rect.left) / rect.width));
