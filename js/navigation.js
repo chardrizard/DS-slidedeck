@@ -1,212 +1,848 @@
-/* ─── NAVIGATION ─── */
-const SLIDES = document.querySelectorAll('.slide');
-const TOTAL = SLIDES.length;
-const SECTIONS = [
-  { id: 'intro',    start: 0,  count: 3  },
-  { id: 'cs1',      start: 3,  count: 12 },
-  { id: 'cs2',      start: 15, count: 9  },
-  { id: 'features', start: 24, count: 2  },
-  { id: 'close',    start: 26, count: 1  },
-];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R/UX - Design System Slidedeck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/typography.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/aeon.css">
+</head>
+<body>
+<div id="stage">
+  <div id="scaler">
 
-let current = 0;
-let notesVisible = false;
+    <!-- NAV BAR -->
+    <nav id="navbar">
+      <div id="nav-logo" style="width:auto; padding:0 10px; background:transparent; border-radius:0;">
+        <svg width="52" height="34" viewBox="0 0 72 56" fill="none">
+          <text x="0" y="46" font-family="Inter, sans-serif" font-size="48" font-weight="700" fill="#ffffff" letter-spacing="-3">R</text>
+          <line x1="38" y1="8" x2="50" y2="50" stroke="#ffffff" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+          <text x="52" y="46" font-family="DM Mono, monospace" font-size="13" font-weight="400" fill="#ffffff" opacity="0.45" letter-spacing="0.5">ux</text>
+        </svg>
+      </div>
+      <div id="nav-divider"></div>
+      <div id="nav-tabs">
+        <button class="nav-tab" data-section="intro">Intro</button>
+        <button class="nav-tab" data-section="cs1">Aeon Design System</button>
+        <button class="nav-tab" data-section="cs2">Hypotheek Adoption</button>
+        <button class="nav-tab" data-section="features">Feature</button>
+        <button class="nav-tab" data-section="close">Contact</button>
+      </div>
+      <div id="nav-right">
+        <button id="notes-toggle" title="Toggle speaker notes">📝</button>
+        <span id="slide-counter">1 / 27</span>
+        <button class="nav-arrow" id="btn-prev">←</button>
+        <button class="nav-arrow" id="btn-next">→</button>
+      </div>
+    </nav>
 
-// ─── SCALE ───
-function scaleStage() {
-  const scaler = document.getElementById('scaler');
-  const scale = Math.min(window.innerWidth / 1440, window.innerHeight / 810);
-  scaler.style.transform = `scale(${scale})`;
-}
-scaleStage();
-window.addEventListener('resize', scaleStage);
+    <!-- SLIDES VIEWPORT -->
+    <div id="viewport">
 
-// ─── BUILD DOTS ───
-const dotsEl = document.getElementById('dots');
-SECTIONS.forEach((sec, si) => {
-  if (si > 0) { const sep = document.createElement('div'); sep.className = 'dot-section-sep'; dotsEl.appendChild(sep); }
-  for (let i = 0; i < sec.count; i++) {
-    const dot = document.createElement('div');
-    dot.className = 'dot';
-    dot.dataset.idx = sec.start + i;
-    dot.addEventListener('click', () => goTo(sec.start + i));
-    dotsEl.appendChild(dot);
-  }
-});
+      <!-- SLIDE 01 — Title -->
+      <section class="slide slide-dark active" id="slide-01" data-index="0" data-section="intro" data-slide-type="title">
+        <div class="slide-inner">
+          <div class="application-label">Senior UX Designer · Design Systems</div>
+          <h1 class="display-title">Richard Andhika</h1>
+          <p class="hero-sub">My favourite design decision is usually the one that removes something.</p>
+          <div class="hero-socials">
+            <a href="https://www.linkedin.com/in/richard-andhika-936344129/" target="_blank" class="hero-social" title="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" opacity="0.8"/><rect x="2" y="9" width="4" height="12" opacity="0.8"/><circle cx="4" cy="4" r="2" opacity="0.8"/></svg>
+            </a>
+            <a href="https://github.com/chardrizard" target="_blank" class="hero-social" title="GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" opacity="0.8"/></svg>
+            </a>
+            <a href="https://www.instagram.com/lichatandhika/" target="_blank" class="hero-social" title="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://medium.com/@chardrizard" target="_blank" class="hero-social" title="Medium">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" opacity="0.8"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+            </a>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px; margin-top:20px; color:rgba(255,255,255,0.45); font-size:14px; font-family:var(--mono);">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Utrecht, NL
+          </div>
+        </div>
+      </section>
 
-// ─── GO TO SLIDE ───
-function goTo(idx, dir) {
-  if (idx < 0 || idx >= TOTAL) return;
-  const fromSlide = SLIDES[current];
-  const toSlide = SLIDES[idx];
-  const direction = dir !== undefined ? dir : (idx > current ? 1 : -1);
+      <!-- SLIDE 02 — About -->
+      <section class="slide slide-dark" id="slide-02" data-index="1" data-section="intro" data-slide-type="context">
+        <div class="slide-inner" style="flex-direction:row; padding:var(--pad); gap:64px;">
+          <div class="col col-center" style="flex:0 0 30%; min-width:0;">
+            <div class="eyebrow">About</div>
+            <p class="body-text">10 years in product design and UX. Built and scaled design systems across 4 countries at Aegon ($22.4B revenue), unifying 60+ products on one component architecture.</p>
+            <p class="body-text" style="margin-top:8px;">Indonesian by birth, Dutch because worstenbroodjes.</p>
+            <div class="eyebrow" style="margin-top:28px; margin-bottom:16px;">Outside work</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <div style="display:grid; grid-template-columns:28px 1fr; gap:0; font-size:14px; color:var(--white-muted); align-items:baseline;"><span style="color:var(--accent); font-size:12px; font-family:var(--mono); padding-top:1px;">01</span><span>Skiing. Alps when budget allows, dry slopes when not</span></div>
+              <div style="display:grid; grid-template-columns:28px 1fr; gap:0; font-size:14px; color:var(--white-muted); align-items:baseline;"><span style="color:var(--accent); font-size:12px; font-family:var(--mono); padding-top:1px;">02</span><span>Emerging tech. Currently building things with AI I didn't know I needed</span></div>
+              <div style="display:grid; grid-template-columns:28px 1fr; gap:0; font-size:14px; color:var(--white-muted); align-items:baseline;"><span style="color:var(--accent); font-size:12px; font-family:var(--mono); padding-top:1px;">03</span><span>Gym. Miss a week and the thinking gets worse</span></div>
+              <div style="display:grid; grid-template-columns:28px 1fr; gap:0; font-size:14px; color:var(--white-muted); align-items:baseline;"><span style="color:var(--accent); font-size:12px; font-family:var(--mono); padding-top:1px;">04</span><span>Photography. Animals, forests, things I don't want to forget</span></div>
+            </div>
+          </div>
+          <div class="col" style="flex:0 0 70%; min-width:0; gap:16px; justify-content:center;">
+            <div data-no-advance="true" style="overflow-x:auto; overflow-y:hidden; display:flex; gap:12px; flex:1; min-height:0; scrollbar-width:none; -ms-overflow-style:none; scroll-snap-type:x mandatory; padding-bottom:2px;">
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Skiing.png" style="width:100%; height:100%; object-fit:cover; display:block; pointer-events:none;"></div>
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Landscape_01.png" style="width:100%; height:100%; object-fit:cover; display:block; pointer-events:none;"></div>
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/Landscape_02.png" style="width:100%; height:100%; object-fit:cover; display:block; pointer-events:none;"></div>
+              <div style="min-width:260px; width:260px; height:100%; min-height:220px; flex-shrink:0; scroll-snap-align:start; border-radius:10px; overflow:hidden;"><img src="images/personal/teaching.png" style="width:100%; height:100%; object-fit:cover; display:block; pointer-events:none;"></div>
+            </div>
+            <div class="eyebrow" style="margin-bottom:12px; margin-top:4px;">Expertise</div>
+            <div class="skill-pills">
+              <span class="skill-pill green">Token architecture</span>
+              <span class="skill-pill green">HTML / CSS</span>
+              <span class="skill-pill blue">WCAG 2.2 AA</span>
+              <span class="skill-pill blue">Component API design</span>
+              <span class="skill-pill purple">Systems thinking</span>
+              <span class="skill-pill orange">Adoption strategy</span>
+              <span class="skill-pill orange">Stakeholder mgmt</span>
+              <span class="skill-pill purple">Content design</span>
+              <span class="skill-pill blue">Product strategy</span>
+              <span class="skill-pill green">AI prototyping</span>
+              <span class="skill-pill blue">Data analysis (GA360, Hotjar)</span>
+              <span class="skill-pill orange" style="font-style:italic; opacity:0.75;">Saying no to feature requests, politely</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  fromSlide.classList.remove('active');
-  fromSlide.classList.add(direction > 0 ? 'exit-left' : 'enter-right');
+      <!-- SLIDE 03 — Contents -->
+      <section class="slide slide-dark" id="slide-03" data-index="2" data-section="intro" data-slide-type="title">
+        <div class="slide-inner">
+          <div class="eyebrow">Contents</div>
+          <h2 class="section-title">Two case studies. One feature deep-dive. <em>Common thread: adoption.</em></h2>
+          <div class="nav-cards">
+            <div class="nav-card" data-goto="3">
+              <div class="nav-card-label">Case Study 01</div>
+              <div class="nav-card-title">Building the System</div>
+              <div class="nav-card-body">Aeon Design System. 60+ products unified under one component architecture. Audit, conditional logic, documentation, adoption pipeline.</div>
+              <div class="nav-card-link">View case study →</div>
+            </div>
+            <div class="nav-card" data-goto="15">
+              <div class="nav-card-label">Case Study 02</div>
+              <div class="nav-card-title">Driving Adoption</div>
+              <div class="nav-card-body">Hypotheek Data Table. When your biggest revenue team won't adopt your system. Reframing conflict into partnership.</div>
+              <div class="nav-card-link">View case study →</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  toSlide.classList.remove('exit-left', 'enter-right');
-  toSlide.style.transform = `translateX(${direction > 0 ? 60 : -60}px)`;
-  toSlide.style.opacity = '0';
-  toSlide.style.pointerEvents = 'none';
+      <!-- SLIDE 04 — CS1 Hero -->
+      <section class="slide slide-dark" id="slide-04" data-index="3" data-section="cs1" data-slide-type="title">
+        <div class="slide-inner cs-hero">
+          <div class="eyebrow eyebrow-accent">Case Study 01 · Design Systems · Aegon · 2022–2023</div>
+          <h2 class="cs-title">Aeon Design System<br><em>60+ products, one system. Actually used.</em></h2>
+          <div class="meta-row">
+            <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">Design System Designer</div></div>
+            <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Aegon · $22.4B revenue</div></div>
+            <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">2 designers + devs + PM</div></div>
+          </div>
+        </div>
+      </section>
 
-  toSlide.getBoundingClientRect(); // force reflow
+      <!-- SLIDE 05 — Before/After Reveal Slider -->
+      <section class="slide slide-fullbleed" id="slide-05" data-index="4" data-section="cs1" data-slide-type="solution">
+        <div id="ba-slider" data-no-advance="true" style="position:absolute; inset:0; overflow:hidden; cursor:ew-resize; user-select:none;">
+          <div id="ba-after" style="position:absolute; inset:0; background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+            <img src="images/cs1-aeon/AIP_uplift_AEON_02.png" style="width:100%; height:100%; object-fit:contain; object-position:center center; display:block;">
+          </div>
+          <div id="ba-before" style="position:absolute; top:0; left:0; bottom:0; width:50%; overflow:hidden;">
+            <div style="position:absolute; top:0; left:0; width:1440px; bottom:0; background:#ffffff; display:flex; align-items:center; justify-content:center;">
+              <img src="images/cs1-aeon/AIP_old_2.0.png" style="width:1440px; height:100%; object-fit:contain; object-position:center center; display:block;">
+            </div>
+          </div>
+          <div id="ba-divider" style="position:absolute; top:0; bottom:0; left:50%; width:2px; background:rgba(255,255,255,0.9); transform:translateX(-50%); pointer-events:none; z-index:10;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px rgba(0,0,0,0.5);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" style="margin-left:-6px;"><polyline points="9 18 15 12 9 6"/></svg>
+            </div>
+          </div>
+          <div id="ba-hint" style="position:absolute; bottom:104px; left:50%; transform:translateX(-50%); font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.35); pointer-events:none; transition:opacity 0.4s; white-space:nowrap;">drag to reveal</div>
+          <div style="position:absolute; bottom:0; left:0; right:0; padding:32px 40px; background:linear-gradient(to top, rgba(15,15,15,0.95) 0%, rgba(0,0,0,0.55) 55%, transparent 100%); pointer-events:none; z-index:20;">
+            <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,0,0,0.90); border:1px solid rgba(255,255,255,0.25); border-radius:4px; padding:4px 10px; margin-bottom:10px;">
+              <div style="width:5px; height:5px; border-radius:50%; background:#f59e0b; flex-shrink:0;"></div>
+              <span style="font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.9);">AIP · Before & After</span>
+            </div>
+            <div style="font-size:20px; font-weight:700; color:#fff; line-height:1.25; letter-spacing:-0.01em; margin-bottom:6px;">The same portal. Four years apart.</div>
+            <div style="font-size:14px; color:rgba(255,255,255,0.55); line-height:1.5; max-width:640px;">Left: AIP 1.0 — each business unit shipping its own patterns. Right: AIP on Aeon — one token system, one component set, 22,000 advisors on a consistent interface.</div>
+          </div>
+        </div>
+      </section>
 
-  toSlide.style.transform = '';
-  toSlide.style.opacity = '';
-  toSlide.style.pointerEvents = '';
-  toSlide.classList.add('active');
+      <!-- SLIDE 06 — Full-Bleed DS Hero -->
+      <section class="slide slide-fullbleed" id="slide-06" data-index="5" data-section="cs1" data-slide-type="solution">
+        <img src="images/cs1-aeon/Aeon Design System Overview.png" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block; position:absolute; inset:0;">
+        <div class="caption-overlay" style="background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 55%, transparent 100%); padding:32px 72px;">
+          <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,0,0,0.90); border:1px solid rgba(255,255,255,0.25); border-radius:4px; padding:4px 10px; margin-bottom:10px; width:fit-content;">
+            <div style="width:5px; height:5px; border-radius:50%; background:#f59e0b; flex-shrink:0;"></div>
+            <span style="font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.9);">Aeon Design System</span>
+          </div>
+          <div style="font-size:16px; font-weight:600; color:#fff; line-height:1.3; margin-bottom:6px;">From 47 variants to one shared language.</div>
+          <div class="caption-text">Buttons, fields, date pickers, step indicators — every component documented with states and usage rules. Built for six platforms.</div>
+        </div>
+      </section>
 
-  setTimeout(() => { fromSlide.classList.remove('exit-left', 'enter-right'); }, 460);
+      <!-- SLIDE 07 — Problem + Scope -->
+      <section class="slide slide-light" id="slide-07" data-index="6" data-section="cs1" data-slide-type="context">
+        <div class="slide-inner" style="justify-content:center;">
+          <div style="display:grid; grid-template-columns:1fr 1px 1fr; gap:0 72px; width:100%;">
+            <div style="display:flex; flex-direction:column; justify-content:center;">
+              <div class="eyebrow">The Problem</div>
+              <h2 class="section-title">47 button variants. <em>Six platforms. Zero shared components.</em></h2>
+              <p class="body-text">Six platforms, each built independently. No shared components, no token language, no documentation. Every team solving the same problems in isolation.</p>
+            </div>
+            <div style="background:var(--border-light);"></div>
+            <div style="display:flex; flex-direction:column; justify-content:center;">
+              <div class="eyebrow">Scope · What I owned</div>
+              <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
+                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#d97706; flex-shrink:0;"></span>Component audit + architecture</div>
+                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#d97706; flex-shrink:0;"></span>Auto-layout + conditional logic</div>
+                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#1d4ed8; flex-shrink:0;"></span>Stakeholder alignment</div>
+                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#1d4ed8; flex-shrink:0;"></span>Component brief template</div>
+                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#1d4ed8; flex-shrink:0;"></span>Adoption strategy</div>
+                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#7c3aed; flex-shrink:0;"></span>Documentation guidelines</div>
+                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#7c3aed; flex-shrink:0;"></span>Semantic color tokens</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  current = idx;
-  updateUI();
-}
+      <!-- SLIDE 08 — Before/After Flipcard -->
+      <!-- FIX: data-no-advance stays on the section so slide doesn't advance on click -->
+      <section class="slide slide-light" id="slide-08" data-index="7" data-section="cs1" data-slide-type="solution" data-no-advance="true">
+        <div class="slide-inner" style="padding: 20px var(--pad);">
+          <div class="card-grid">
 
-function next() { if (current < TOTAL - 1) goTo(current + 1, 1); }
-function prev() { if (current > 0) goTo(current - 1, -1); }
+            <!-- CARD 1 — BUTTONS -->
+            <!-- FIX: onclick moved from .flip-card to .card-front — avoids bubbling through transform-style:preserve-3d -->
+            <div class="flip-card" id="c1">
+              <div class="flip-card-inner">
+                <div class="card-front" onclick="handleCardClick(event,'c1')">
+                  <div class="card-front-header">
+                    <div class="card-bu"><span class="bu-dot" style="background:#4a6080;"></span>Hypotheek Portaal</div>
+                    <div class="card-era">~2008 · Buttons</div>
+                  </div>
+                  <div class="card-screenshot">
+                    <img src="images/before/buttons.png" alt="Before — Hypotheek buttons" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="card-screenshot-placeholder">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      images/before/buttons.png
+                    </div>
+                  </div>
+                  <div class="click-hint">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Before · Fragmented state
+                  </div>
+                </div>
+                <div class="card-back" onclick="event.stopPropagation()">
+                  <div class="card-back-header">
+                    <div class="card-back-label"><div class="aeon-dot"></div>Aeon · Click to reveal</div>
+                    <button class="flip-back-btn" onclick="flipBack('c1')">↩ before</button>
+                  </div>
+                  <div class="card-back-body col-flex gap-10">
+                    <button class="aeon-btn aeon-btn--pri aeon-btn--md aeon-btn--full" type="button">
+                      <span class="aeon-btn__txt">Offerte aanvragen</span>
+                      <span class="aeon-btn__arr"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                    </button>
+                    <button class="aeon-btn aeon-btn--sec aeon-btn--md aeon-btn--full aeon-btn--ctr" type="button">
+                      <span class="aeon-btn__txt">Meer informatie</span>
+                    </button>
+                    <button class="aeon-btn aeon-btn--pri aeon-btn--md aeon-btn--full" type="button" disabled>
+                      <span class="aeon-btn__txt">Bezig met verwerken…</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-// ─── UPDATE UI ───
-function updateUI() {
-  document.getElementById('slide-counter').textContent = `${current + 1} / ${TOTAL}`;
-  document.getElementById('btn-prev').classList.toggle('disabled', current === 0);
-  document.getElementById('btn-next').classList.toggle('disabled', current === TOTAL - 1);
-  const sec = SECTIONS.find(s => current >= s.start && current < s.start + s.count);
-  document.querySelectorAll('.nav-tab').forEach(t => { t.classList.toggle('active', t.dataset.section === (sec ? sec.id : '')); });
-  document.querySelectorAll('.dot').forEach(d => { d.classList.toggle('active', parseInt(d.dataset.idx) === current); });
-}
+            <!-- CARD 2 — TEXT INPUT -->
+            <div class="flip-card" id="c2">
+              <div class="flip-card-inner">
+                <div class="card-front" onclick="handleCardClick(event,'c2')">
+                  <div class="card-front-header">
+                    <div class="card-bu"><span class="bu-dot" style="background:#2a4060;"></span>Beleggingsplatform</div>
+                    <div class="card-era">~2011 · Text Input</div>
+                  </div>
+                  <div class="card-screenshot">
+                    <img src="images/before/input.png" alt="Before — Investment text input" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="card-screenshot-placeholder">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      images/before/input.png
+                    </div>
+                  </div>
+                  <div class="click-hint">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Before · Fragmented state
+                  </div>
+                </div>
+                <div class="card-back" onclick="event.stopPropagation()">
+                  <div class="card-back-header">
+                    <div class="card-back-label"><div class="aeon-dot"></div>Aeon · Click to reveal</div>
+                    <button class="flip-back-btn" onclick="flipBack('c2')">↩ before</button>
+                  </div>
+                  <div class="card-back-body col-flex gap-10">
+                    <div class="s-field s-field--clearable">
+                      <div class="s-field__box">
+                        <div class="s-field__inner">
+                          <span class="s-field__label">Naam</span>
+                          <input class="s-field__input" type="text" autocomplete="off" oninput="sfInput(this)" onblur="sfBlur(this)">
+                        </div>
+                        <button class="s-field__clear" type="button" tabindex="-1" onclick="sfClear(this)">
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                    <div style="display:flex;gap:10px;">
+                      <div class="s-field" style="flex:0 0 120px;">
+                        <div class="s-field__box">
+                          <div class="s-field__inner">
+                            <span class="s-field__label">Postcode</span>
+                            <input class="s-field__input" type="text" maxlength="7" autocomplete="off" oninput="sfInputPostcode(this)" onblur="sfBlurValidate(this,'postcode')">
+                          </div>
+                        </div>
+                        <div class="s-field__support"></div>
+                      </div>
+                      <div class="s-field" style="flex:1;">
+                        <div class="s-field__box">
+                          <div class="s-field__inner">
+                            <span class="s-field__label">IBAN</span>
+                            <input class="s-field__input" type="text" maxlength="22" autocomplete="off" oninput="sfInputIban(this)" onblur="sfBlurValidate(this,'iban')">
+                          </div>
+                        </div>
+                        <div class="s-field__support"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-// ─── NAV CONTROLS ───
-document.getElementById('btn-prev').addEventListener('click', prev);
-document.getElementById('btn-next').addEventListener('click', next);
-document.querySelectorAll('.nav-tab').forEach(tab => {
-  tab.addEventListener('click', () => { const sec = SECTIONS.find(s => s.id === tab.dataset.section); if (sec) goTo(sec.start); });
-});
-document.querySelectorAll('.nav-card[data-goto]').forEach(card => {
-  card.addEventListener('click', () => goTo(parseInt(card.dataset.goto)));
-});
-document.getElementById('notes-toggle').addEventListener('click', () => {
-  notesVisible = !notesVisible;
-  document.body.classList.toggle('notes-visible', notesVisible);
-  document.getElementById('notes-toggle').classList.toggle('active', notesVisible);
-});
+            <!-- CARD 3 — DROPDOWN -->
+            <div class="flip-card" id="c3">
+              <div class="flip-card-inner">
+                <div class="card-front" onclick="handleCardClick(event,'c3')">
+                  <div class="card-front-header">
+                    <div class="card-bu"><span class="bu-dot" style="background:#4a80c0;"></span>Life &amp; Pensions</div>
+                    <div class="card-era">~2010 · Dropdown</div>
+                  </div>
+                  <div class="card-screenshot">
+                    <img src="images/before/dropdown.png" alt="Before — L&amp;P dropdown" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="card-screenshot-placeholder">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      images/before/dropdown.png
+                    </div>
+                  </div>
+                  <div class="click-hint">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Before · Fragmented state
+                  </div>
+                </div>
+                <div class="card-back" onclick="event.stopPropagation()">
+                  <div class="card-back-header">
+                    <div class="card-back-label"><div class="aeon-dot"></div>Aeon · Click to reveal</div>
+                    <button class="flip-back-btn" onclick="flipBack('c3')">↩ before</button>
+                  </div>
+                  <div class="card-back-body" style="justify-content:flex-start;padding-top:16px;">
+                    <div class="pill-group" id="dd-select-ctrl" style="margin-bottom:10px;">
+                      <button class="aeon-pill aeon-pill--on" data-val="single" type="button">Single</button>
+                      <button class="aeon-pill" data-val="multi" type="button">Multi</button>
+                      <button class="aeon-pill" data-val="filterable" type="button">Filterable</button>
+                    </div>
+                    <div id="aeon-dd-c3"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-// ─── KEYBOARD ───
-document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
-  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   prev();
-  if (e.key === 'Home') goTo(0);
-  if (e.key === 'End')  goTo(TOTAL - 1);
-});
+            <!-- CARD 4 — BADGES -->
+            <div class="flip-card" id="c4">
+              <div class="flip-card-inner">
+                <div class="card-front" onclick="handleCardClick(event,'c4')">
+                  <div class="card-front-header">
+                    <div class="card-bu"><span class="bu-dot" style="background:#1B4A88;"></span>Pensioenportaal</div>
+                    <div class="card-era">~2009 · Badges</div>
+                  </div>
+                  <div class="card-screenshot">
+                    <img src="images/before/badges.png" alt="Before — Pensioen badges" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="card-screenshot-placeholder">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      images/before/badges.png
+                    </div>
+                  </div>
+                  <div class="click-hint">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Before · Fragmented state
+                  </div>
+                </div>
+                <div class="card-back" onclick="event.stopPropagation()">
+                  <div class="card-back-header">
+                    <div class="card-back-label"><div class="aeon-dot"></div>Aeon · Click to reveal</div>
+                    <button class="flip-back-btn" onclick="flipBack('c4')">↩ before</button>
+                  </div>
+                  <div class="card-back-body col-flex" style="justify-content:flex-start;padding-top:20px;gap:0;">
+                    <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Status badges</div>
+                    <div class="row-flex" style="gap:6px;flex-wrap:wrap;">
+                      <span class="aeon-badge aeon-badge-primary">Primair</span>
+                      <span class="aeon-badge aeon-badge-secondary">Secundair</span>
+                      <span class="aeon-badge aeon-badge-error">
+                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L1.5 13.5h13L8 2z"/><line x1="8" y1="7" x2="8" y2="10"/><circle cx="8" cy="12" r="0.5" fill="currentColor" stroke="none"/></svg>
+                        Fout
+                      </span>
+                      <span class="aeon-badge aeon-badge-valid">
+                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 8.5 6.5 12.5 13.5 4"/></svg>
+                        Geldig
+                      </span>
+                      <span class="aeon-badge aeon-badge-warning">
+                        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2a4.5 4.5 0 00-4.5 4.5c0 2.5-.5 3.5-1.5 4.5h12c-1-1-1.5-2-1.5-4.5A4.5 4.5 0 008 2z"/><line x1="8" y1="14.5" x2="8" y2="13.5"/></svg>
+                        Waarschuwing
+                      </span>
+                    </div>
+                    <div style="height:1px;background:rgba(0,0,0,0.07);margin:16px 0;flex-shrink:0;"></div>
+                    <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Filter pills</div>
+                    <div class="pill-group" id="pill-c4" style="gap:6px;">
+                      <button class="aeon-pill aeon-pill--on" data-group="c4" type="button">Alle</button>
+                      <button class="aeon-pill" data-group="c4" type="button">Actief</button>
+                      <button class="aeon-pill" data-group="c4" type="button">Concept</button>
+                      <button class="aeon-pill" data-group="c4" type="button">Verlopen</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-// ─── CLICK-TO-ADVANCE ───
-const DRAG_THRESHOLD = 6;
-let mouseDownX = 0;
-let mouseDownY = 0;
-let mouseDownOnNoAdvance = false;
+            <!-- CARD 5 — CHECKBOXES + RADIO -->
+            <div class="flip-card" id="c5">
+              <div class="flip-card-inner">
+                <div class="card-front" onclick="handleCardClick(event,'c5')">
+                  <div class="card-front-header">
+                    <div class="card-bu"><span class="bu-dot" style="background:#4caf50;"></span>Zorgverzekering</div>
+                    <div class="card-era">~2013 · Toggles</div>
+                  </div>
+                  <div class="card-screenshot">
+                    <img src="images/before/toggles.png" alt="Before — Health toggles" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                    <div class="card-screenshot-placeholder">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      images/before/toggles.png
+                    </div>
+                  </div>
+                  <div class="click-hint">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Before · Fragmented state
+                  </div>
+                </div>
+                <div class="card-back" onclick="event.stopPropagation()">
+                  <div class="card-back-header">
+                    <div class="card-back-label"><div class="aeon-dot"></div>Aeon · Click to reveal</div>
+                    <button class="flip-back-btn" onclick="flipBack('c5')">↩ before</button>
+                  </div>
+                  <div class="card-back-body col-flex" style="justify-content:flex-start;padding-top:20px;gap:0;">
+                    <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Aanvullende vergoedingen</div>
+                    <div class="col-flex" style="gap:12px;">
+                      <label class="aeon-chk-row"><input type="checkbox" checked onchange="syncChk(this)"><div class="aeon-chk-box"></div><span class="aeon-chk-label">Tandarts vergoeding</span></label>
+                      <label class="aeon-chk-row"><input type="checkbox" onchange="syncChk(this)"><div class="aeon-chk-box"></div><span class="aeon-chk-label">Fysiotherapie</span></label>
+                      <label class="aeon-chk-row"><input type="checkbox" disabled><div class="aeon-chk-box" style="opacity:0.38;cursor:not-allowed;"></div><span class="aeon-chk-label" style="color:var(--ink-faint);">Buitenland (niet beschikbaar)</span></label>
+                    </div>
+                    <div style="height:1px;background:rgba(0,0,0,0.07);margin:16px 0;flex-shrink:0;"></div>
+                    <div style="font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:0.09em;color:var(--ink-faint);margin-bottom:10px;">Betalingsfrequentie</div>
+                    <div style="display:flex;gap:20px;flex-wrap:wrap;">
+                      <label class="aeon-chk-row">
+                        <input type="radio" name="freq" id="freq-m" checked style="display:none;">
+                        <div class="aeon-radio-box" id="rb-freq-m" onclick="selectRadio('freq','freq-m')" style="width:18px;height:18px;flex-shrink:0;border:1.5px solid var(--aeon-blue);border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 140ms;">
+                          <div class="radio-dot" style="width:8px;height:8px;border-radius:50%;background:var(--aeon-blue);display:block;"></div>
+                        </div>
+                        <span class="aeon-chk-label">Maandelijks</span>
+                      </label>
+                      <label class="aeon-chk-row">
+                        <input type="radio" name="freq" id="freq-q" style="display:none;">
+                        <div class="aeon-radio-box" id="rb-freq-q" onclick="selectRadio('freq','freq-q')" style="width:18px;height:18px;flex-shrink:0;border:1.5px solid #C8C8C8;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 140ms;">
+                          <div class="radio-dot" style="width:8px;height:8px;border-radius:50%;background:var(--aeon-blue);display:none;"></div>
+                        </div>
+                        <span class="aeon-chk-label">Per kwartaal</span>
+                      </label>
+                      <label class="aeon-chk-row">
+                        <input type="radio" name="freq" id="freq-y" style="display:none;">
+                        <div class="aeon-radio-box" id="rb-freq-y" onclick="selectRadio('freq','freq-y')" style="width:18px;height:18px;flex-shrink:0;border:1.5px solid #C8C8C8;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 140ms;">
+                          <div class="radio-dot" style="width:8px;height:8px;border-radius:50%;background:var(--aeon-blue);display:none;"></div>
+                        </div>
+                        <span class="aeon-chk-label">Jaarlijks</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-const ADVANCE_IGNORE = [
-  'a', 'button', 'input', 'select', 'textarea', 'label',
-  '[data-no-advance]',
-  '.flip-card',
-  '.nav-card',
-  '.aeon-dd', '.aeon-dd-wrap', '.aeon-dd-item',
-  '.aeon-pill',
-  '.aeon-chk-row',
-  '.arch-tab',
-  '.sproj-card',
-  '.dot',
-  '#navbar', '#dots',
-].join(', ');
+          </div>
+        </div>
+      </section>
 
-document.getElementById('viewport').addEventListener('mousedown', e => {
-  mouseDownX = e.clientX;
-  mouseDownY = e.clientY;
-  mouseDownOnNoAdvance = !!e.target.closest(ADVANCE_IGNORE);
-});
+      <!-- SLIDE 09 — Full-Bleed 2-col -->
+      <section class="slide slide-fullbleed" id="slide-09" data-index="8" data-section="cs1" data-slide-type="solution">
+        <div style="width:100%; height:100%; display:grid; grid-template-columns:1fr 1fr;">
+          <div style="position:relative; overflow:hidden; border-right:1px solid rgba(255,255,255,0.08);">
+            <div class="fullbleed-img" style="height:100%; border:none; border-radius:0; background:rgba(255,255,255,0.02);">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+              <div>[Image: Left panel — e.g. audit spreadsheet or before-state]</div>
+              <div class="img-label">~1:1 · Fill panel edge to edge</div>
+            </div>
+            <div style="position:absolute; bottom:32px; left:40px; right:40px;">
+              <div class="caption-label">Before</div>
+              <div class="caption-text" style="font-size:14px;">Replace with your audit or fragmented-state visual.</div>
+            </div>
+          </div>
+          <div style="position:relative; overflow:hidden;">
+            <div class="fullbleed-img" style="height:100%; border:none; border-radius:0; background:rgba(255,255,255,0.01);">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <div>[Image: Right panel — e.g. unified system or solution-state]</div>
+              <div class="img-label">~1:1 · Fill panel edge to edge</div>
+            </div>
+            <div style="position:absolute; bottom:32px; left:40px; right:40px;">
+              <div class="caption-label">After</div>
+              <div class="caption-text" style="font-size:14px;">Replace with your unified component system visual.</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-document.getElementById('viewport').addEventListener('click', e => {
-  if (mouseDownOnNoAdvance) return;
-  if (e.target.closest(ADVANCE_IGNORE)) return;
-  const dx = Math.abs(e.clientX - mouseDownX);
-  const dy = Math.abs(e.clientY - mouseDownY);
-  if (dx > DRAG_THRESHOLD || dy > DRAG_THRESHOLD) return;
-  next();
-});
+      <!-- SLIDE 10 — Full-Bleed Component Library -->
+      <section class="slide slide-fullbleed" id="slide-10" data-index="9" data-section="cs1" data-slide-type="solution">
+        <div class="fullbleed-img">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <div>[Image: Component states grid]</div>
+          <div class="img-label">Full-bleed Figma close-up · Crop tight to fill entire slide</div>
+        </div>
+        <div class="caption-overlay">
+          <div class="caption-label">Aeon Design System</div>
+          <div class="caption-text">Every state across Button, Field, Dropdown, Badge, and Table Row. Designed, documented, tokenised.</div>
+        </div>
+      </section>
 
-// ─── TOUCH/SWIPE ───
-let touchStartX = null;
-let touchStartOnNoAdvance = false;
+      <!-- SLIDE 11 — Conditional Architecture -->
+      <section class="slide slide-light" id="slide-11" data-index="10" data-section="cs1" data-slide-type="solution">
+        <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
+          <div class="col col-center" style="flex:0 0 30%; min-width:0;">
+            <div class="eyebrow">Architecture</div>
+            <h2 class="section-title">Three platforms. <em>One component.</em></h2>
+            <p class="body-text">Platform-specific Field variants were replaced with a single component driven by context flags. Reduced build surface, eliminated drift, and cut load times by <strong>25%</strong>.</p>
+          </div>
+          <div class="col col-center" style="flex:0 0 70%; min-width:0;">
+            <div class="arch-tabs">
+              <div class="arch-tab-bar">
+                <button class="arch-tab arch-tab--active" data-arch-tab="0">Component</button>
+                <button class="arch-tab" data-arch-tab="1">AIP</button>
+                <button class="arch-tab" data-arch-tab="2">MijnAegon</button>
+              </div>
+              <div class="arch-panels">
+                <div class="arch-panel arch-panel--active" data-arch-panel="0">
+                  <img src="images/cs1-aeon/arch-component.png" alt="Text Input component — Figma properties panel" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="arch-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>images/cs1-aeon/arch-component.png</span></div>
+                </div>
+                <div class="arch-panel" data-arch-panel="1">
+                  <img src="images/cs1-aeon/arch-aip.png" alt="Text Input in AIP context" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="arch-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>images/cs1-aeon/arch-aip.png</span></div>
+                </div>
+                <div class="arch-panel" data-arch-panel="2">
+                  <img src="images/cs1-aeon/arch-mijnaegon.png" alt="Text Input in MijnAegon context" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div class="arch-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>images/cs1-aeon/arch-mijnaegon.png</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-document.getElementById('viewport').addEventListener('touchstart', e => {
-  touchStartOnNoAdvance = !!e.target.closest('[data-no-advance]');
-  touchStartX = e.touches[0].clientX;
-}, { passive: true });
+      <!-- SLIDE 12 — Documentation & Adoption -->
+      <section class="slide slide-light" id="slide-12" data-index="11" data-section="cs1" data-slide-type="solution">
+        <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
+          <div class="col col-center" style="flex:0 0 30%; min-width:0;">
+            <div class="eyebrow">Documentation & Adoption</div>
+            <h2 class="section-title">Docs nobody read. <em>Then docs that moved teams four times faster.</em></h2>
+            <p class="body-text">Scattered, inconsistent, rarely referenced. We restructured the system documentation: usage guidelines, do/don't examples, token mapping, migration notes. 89% of adopting teams cited it as why they moved faster.</p>
+          </div>
+          <div class="col col-center" style="flex:0 0 70%; min-width:0; gap:16px;">
+            <div class="img-placeholder" style="min-height:200px; flex:1;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg><div>[Image: Documentation page]</div><div class="img-label">Screenshot · ~16:10</div></div>
+            <div class="img-placeholder" style="min-height:100px;"><div>[Image: Adoption timeline]</div><div class="img-label">Figma graphic · ~3:1 wide banner</div></div>
+          </div>
+        </div>
+      </section>
 
-document.getElementById('viewport').addEventListener('touchend', e => {
-  if (touchStartX === null || touchStartOnNoAdvance) return;
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
-  touchStartX = null;
-  touchStartOnNoAdvance = false;
-}, { passive: true });
+      <!-- SLIDE 13 — Full-Bleed Documentation -->
+      <section class="slide slide-fullbleed" id="slide-13" data-index="12" data-section="cs1" data-slide-type="solution">
+        <div class="fullbleed-img"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><div>[Image: Complete documentation page]</div><div class="img-label">Long scroll-capture · Show structure and density</div></div>
+        <div class="caption-overlay"><div class="caption-label">Documentation</div><div class="caption-text">Anatomy, usage rules, do/don't examples, semantic token mapping, migration notes. Restructured to actually get used.</div></div>
+      </section>
 
-// ─── CAROUSEL DRAG SCROLL (slide 02) ───
-// Native overflow-x scroll doesn't work reliably inside a CSS scale() transform.
-// JS drag handler manually sets scrollLeft instead.
-(function () {
-  function initCarousel() {
-    const carousel = document.querySelector('#slide-02 [data-no-advance]');
-    if (!carousel) return;
+      <!-- SLIDE 14 — CS1 Outcomes -->
+      <section class="slide slide-dark" id="slide-14" data-index="13" data-section="cs1" data-slide-type="impact">
+        <div class="slide-inner">
+          <div class="eyebrow eyebrow-accent">Outcomes</div>
+          <div class="metric-grid" style="flex:1;">
+            <div class="metric-col">
+              <div class="metric-kicker amber">Performance</div>
+              <div class="metric-value amber">−25%</div>
+              <div class="metric-label">Average load times across adopting platforms</div>
+              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Team-estimated</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Load time reduction was observed after consolidating platform-specific Field variants into a single component with conditional rendering. Not formally benchmarked — reported consistently across adopting teams.</div></div></div>
+            </div>
+            <div class="metric-col">
+              <div class="metric-kicker blue">Efficiency</div>
+              <div class="metric-value blue">−40%</div>
+              <div class="metric-label">Development time for new features built on system components</div>
+              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Dev team-reported</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Reported by dev leads across three onboarded teams. The component brief template eliminated most one-off build requests before design started — fewer divergent builds, less rework.</div></div></div>
+            </div>
+            <div class="metric-col">
+              <div class="metric-kicker" style="color:rgba(251,191,36,0.5);">Adoption</div>
+              <div class="metric-value" style="color:rgba(251,191,36,0.5);">85%</div>
+              <div class="metric-label">Component adoption rate across tracked screens</div>
+              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured · 3 teams</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Tracked via component audit across screens from three onboarded teams — measured as % of UI surface using system components vs custom builds.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    let isDown = false;
-    let startX = 0;
-    let scrollStart = 0;
+      <!-- SLIDE 15 — CS1 Reflection -->
+      <section class="slide slide-light" id="slide-15" data-index="14" data-section="cs1" data-slide-type="takeaway">
+        <div class="slide-inner">
+          <div class="eyebrow">Reflection</div>
+          <h2 class="section-title" style="margin-bottom:32px;">What worked. What I'd change.</h2>
+          <div class="reflection-timeline">
+            <div class="reflection-tl-col">
+              <div class="reflection-tl-header amber">What I'd keep</div>
+              <div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Component brief template</div><div class="reflection-tl-body">Forcing teams to articulate requirements before design eliminated most custom requests before a pixel was touched.</div></div></div>
+              <div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Documentation as a design artifact</div><div class="reflection-tl-body">89% of adopting teams said it was why they moved 4× faster. Structured, designer-led guidelines. Not afterthoughts.</div></div></div>
+              <div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Framing in business terms</div><div class="reflection-tl-body">Load time = retention. Consistency = support costs. That kept the team funded through two org changes.</div></div></div>
+            </div>
+            <div class="reflection-tl-line"></div>
+            <div class="reflection-tl-col">
+              <div class="reflection-tl-header slate">What I'd change</div>
+              <div class="reflection-tl-item"><div class="reflection-tl-dot slate"></div><div><div class="reflection-tl-title">Brief template before the audit</div><div class="reflection-tl-body">No structured format in round one. Brief first, audit second would have saved weeks of rework.</div></div></div>
+              <div class="reflection-tl-item"><div class="reflection-tl-dot slate"></div><div><div class="reflection-tl-title">Measure adoption from week one</div><div class="reflection-tl-body">Started tracking months in. A week-one baseline would show trajectory, not just endpoint.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    carousel.addEventListener('mousedown', e => {
-      isDown = true;
-      startX = e.clientX;
-      scrollStart = carousel.scrollLeft;
-      carousel.style.cursor = 'grabbing';
-      e.preventDefault();
-    });
+      <!-- SLIDE 16 — CS2 Hero -->
+      <section class="slide slide-dark" id="slide-16" data-index="15" data-section="cs2" data-slide-type="title">
+        <div class="slide-inner cs-hero">
+          <div class="eyebrow eyebrow-accent">Case Study 02 · Design System Adoption · Aegon · 2022–2023</div>
+          <h2 class="cs-title">When your biggest team <em>won't adopt your system.</em></h2>
+          <p style="margin-top:32px;font-size:18px;color:rgba(255,255,255,0.45);font-weight:400;line-height:1.5;max-width:560px;">Building Aeon took 18 months. Getting Hypotheek to use it took another six.</p>
+        </div>
+      </section>
 
-    document.addEventListener('mousemove', e => {
-      if (!isDown) return;
-      carousel.scrollLeft = scrollStart - (e.clientX - startX);
-    });
+      <!-- SLIDE 17 — The Situation -->
+      <section class="slide slide-light" id="slide-17" data-index="16" data-section="cs2" data-slide-type="context">
+        <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
+          <div class="col col-center" style="flex:0 0 30%; min-width:0;">
+            <div class="eyebrow">The Situation</div>
+            <h2 class="section-title">Largest revenue team. <em>Openly resistant.</em></h2>
+            <div class="pushback-quotes">
+              <div class="pushback-quote">"Our tables are too complex for your system."</div>
+              <div class="pushback-quote">"We can't wait weeks for approvals."</div>
+              <div class="pushback-quote">"We'll miss deadlines if we have to conform."</div>
+            </div>
+          </div>
+          <div class="col col-center" style="flex:0 0 70%; min-width:0;">
+            <div class="img-placeholder" style="min-height:380px; flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/></svg><div>[Image: 3 different custom data table UIs]</div><div class="img-label">Screenshot composite · Annotate inconsistencies · Redact data</div></div>
+          </div>
+        </div>
+      </section>
 
-    document.addEventListener('mouseup', () => {
-      if (!isDown) return;
-      isDown = false;
-      carousel.style.cursor = 'grab';
-    });
+      <!-- SLIDE 18 — The Reframe -->
+      <section class="slide slide-light" id="slide-18" data-index="17" data-section="cs2" data-slide-type="context">
+        <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
+          <div class="col col-center" style="flex:0 0 30%; min-width:0;">
+            <div class="eyebrow">The Reframe</div>
+            <div class="key-quote">"I'm not asking you to simplify mortgages. I want to simplify everything that isn't mortgage-specific."</div>
+          </div>
+          <div class="col col-center" style="flex:0 0 70%; min-width:0;">
+            <div class="img-placeholder" style="min-height:340px; flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><div>[Image: Mortgage overview screens being reviewed]</div><div class="img-label">Photo or annotated screenshot · ~4:3 · Candid preferred</div></div>
+          </div>
+        </div>
+      </section>
 
-    carousel.style.cursor = 'grab';
-  }
+      <!-- SLIDE 19 — Analysis -->
+      <section class="slide slide-light" id="slide-19" data-index="18" data-section="cs2" data-slide-type="evidence">
+        <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
+          <div class="col col-center" style="flex:0 0 30%; min-width:0;">
+            <div class="eyebrow">Analysis</div>
+            <h2 class="section-title">70–80% was standard. <em>Just wasn't packaged for them.</em></h2>
+            <div class="analysis-sub" style="margin-top:20px;"><div class="analysis-sub-label">Shared fundamentals</div><div class="analysis-sub-body" style="color:var(--ink-muted);">Sorting, pagination, selection, bulk actions, accessibility, keyboard behavior</div></div>
+            <div class="analysis-sub" style="margin-top:16px;"><div class="analysis-sub-label">Mortgage-specific complexity</div><div class="analysis-sub-body" style="color:var(--ink-muted);">Conditional columns, inline calculations, warning states, expandable rows</div></div>
+          </div>
+          <div class="col col-center" style="flex:0 0 70%; min-width:0;">
+            <div class="img-placeholder" style="min-height:340px; flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/><line x1="15" y1="9" x2="15" y2="21"/></svg><div>[Image: Base data table]</div><div class="img-label">Clean data table screenshot · Redact real values · ~16:10</div></div>
+          </div>
+        </div>
+      </section>
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCarousel);
-  } else {
-    initCarousel();
-  }
-})();
+      <!-- SLIDE 20 — The Contract -->
+      <section class="slide slide-light" id="slide-20" data-index="19" data-section="cs2" data-slide-type="solution">
+        <div class="slide-inner">
+          <div class="eyebrow">The Contract</div>
+          <h2 class="section-title" style="margin-bottom:32px;">Clear ownership. <em>Neither team steps on the other's toes.</em></h2>
+          <div class="swimlane">
+            <div class="swim-lane"><div class="swim-head amber"><span class="swim-lane-label amber">Hypotheek<br>layer</span></div><div class="swim-body"><span class="swim-chip amber">Business logic</span><span class="swim-chip amber">Domain rules</span><span class="swim-chip amber">Custom rendering</span><span class="swim-chip amber">Conditional columns</span><span class="swim-chip amber">Extension content</span><span class="swim-chip amber">User actions</span></div></div>
+            <div class="swim-lane"><div class="swim-head neutral"><span class="swim-lane-label neutral">API<br>boundary</span></div><div class="swim-body"><span class="swim-chip-mono">renderCell()</span><span class="swim-chip-mono">renderExpandedRow()</span><span class="swim-chip-mono">isVisible()</span></div></div>
+            <div class="swim-lane"><div class="swim-head blue"><span class="swim-lane-label blue">Design<br>System</span></div><div class="swim-body"><span class="swim-chip blue">UI infrastructure</span><span class="swim-chip blue">Interaction patterns</span><span class="swim-chip blue">Visual design</span><span class="swim-chip blue">Accessibility</span><span class="swim-chip blue">Performance</span></div></div>
+          </div>
+        </div>
+      </section>
 
-// ─── INIT ───
-updateUI();
+      <!-- SLIDE 21 — Composable Solution -->
+      <section class="slide slide-light" id="slide-21" data-index="20" data-section="cs2" data-slide-type="solution">
+        <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
+          <div class="col col-center" style="flex:0 0 30%; min-width:0;">
+            <div class="eyebrow">Solution</div>
+            <h2 class="section-title">Composable, not rigid.</h2>
+            <p class="body-text">We evolved the Data Table into a composable core with explicit extension points. Structure, behaviour, and accessibility shared; cell rendering, expansion slots, and conditional columns owned by Hypotheek.</p>
+            <p class="body-text">Their edge cases stayed. No fork required.</p>
+          </div>
+          <div class="col col-center" style="flex:0 0 70%; min-width:0; gap:16px;">
+            <div class="img-placeholder" style="min-height:180px; flex:1;"><div>[Image: Conditional columns]</div><div class="img-label">Same table, different column configs · ~16:9</div></div>
+            <div class="img-placeholder" style="min-height:160px; flex:1;"><div>[Image: Expanded row]</div><div class="img-label">Extension slot with domain content inside shared table shell · ~16:9</div></div>
+          </div>
+        </div>
+      </section>
 
-window.goTo = goTo;
-window.next = next;
-window.prev = prev;
+      <!-- SLIDE 22 — Full-Bleed Data Table -->
+      <section class="slide slide-fullbleed" id="slide-22" data-index="21" data-section="cs2" data-slide-type="solution">
+        <div class="fullbleed-img"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="9" x2="9" y2="21"/><line x1="15" y1="9" x2="15" y2="21"/></svg><div>[Image: Composable Data Table in production]</div><div class="img-label">Critical — full-screen product screenshot · Redact sensitive data · Fill entire slide</div></div>
+        <div class="caption-overlay"><div class="caption-label">Hypotheek Data Table</div><div class="caption-text">Domain-specific rendering on shared infrastructure. In production on the advisor portal.</div></div>
+      </section>
 
+      <!-- SLIDE 23 — Process Change -->
+      <section class="slide slide-light" id="slide-23" data-index="22" data-section="cs2" data-slide-type="context">
+        <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
+          <div class="col col-center" style="flex:0 0 30%; min-width:0;">
+            <div class="eyebrow">Process Change</div>
+            <h2 class="section-title">The biggest fear wasn't standards. <em>It was waiting.</em></h2>
+            <div class="process-quotes">
+              <div class="process-quote">Direct weekly sync. No ticket backlog</div>
+              <div class="process-quote">Clear response expectations. Fast yes / no / not now</div>
+              <div class="process-quote">Temporary exceptions documented, not blocked</div>
+            </div>
+            <div class="summary-quote">"We'll protect the system, but we won't surprise you or slow delivery."</div>
+          </div>
+          <div class="col col-center" style="flex:0 0 70%; min-width:0;">
+            <div class="img-placeholder" style="min-height:340px; flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg><div>[Image: Process diagram]</div><div class="img-label">Simple Figma flow diagram · 3–4 steps · Before/after process diff</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 24 — CS2 Outcomes -->
+      <section class="slide slide-dark" id="slide-24" data-index="23" data-section="cs2" data-slide-type="impact">
+        <div class="slide-inner">
+          <div class="eyebrow eyebrow-accent">Outcomes</div>
+          <div class="metric-grid" style="flex:1; grid-template-columns:1fr 1fr;">
+            <div class="metric-col">
+              <div class="metric-kicker amber">Consolidation</div>
+              <div class="metric-value amber">3 → 1</div>
+              <div class="metric-label">Custom tables replaced with the shared Data Table</div>
+              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Three separate custom-built table implementations across Hypotheek products were replaced with a single shared Data Table component.</div></div></div>
+            </div>
+            <div class="metric-col">
+              <div class="metric-kicker blue">Quality</div>
+              <div class="metric-value blue">−62%</div>
+              <div class="metric-label">Table-related accessibility defects (keyboard + focus)</div>
+              <div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Verify this number</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Defect reduction tracked against accessibility QA results pre and post adoption. Confirm exact figure before presenting.</div></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 25 — WCAG Feature -->
+      <section class="slide slide-light" id="slide-25" data-index="24" data-section="features" data-slide-type="solution">
+        <div class="slide-inner" style="flex-direction:row; gap:64px; padding:var(--pad);">
+          <div class="col col-center" style="flex:0 0 30%; min-width:0;">
+            <div class="eyebrow">Selected Feature · Accessibility</div>
+            <div class="feature-icon-wrap">♿</div>
+            <div class="feature-category">WCAG 2.2 AA</div>
+            <h2 class="section-title">Zero accessibility regressions. <em>Two consecutive quarters.</em></h2>
+            <p class="body-text">Audited all components against WCAG 2.2 AA: focus indicators (2.4.11), target sizes (2.5.8), dragging alternatives (2.5.7). Updated contrast tokens for every semantic state.</p>
+          </div>
+          <div class="col col-center" style="flex:0 0 70%; min-width:0;">
+            <div class="img-placeholder" style="min-height:360px; flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg><div>[Image: WCAG audit results]</div><div class="img-label">Checklist with green checkmarks · Or before/after focus indicators · ~4:5</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 26 — Side Projects -->
+      <section class="slide slide-dark" id="slide-26" data-index="25" data-section="features" data-slide-type="context">
+        <div class="slide-inner">
+          <div class="eyebrow eyebrow-accent">Side projects</div>
+          <h2 class="section-title" style="margin-bottom:24px;">Things I build when nobody asked.</h2>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:12px; flex:1;">
+            <a href="https://chardrizard.github.io/samengestelde-werkwoorden-quiz/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;"><div class="sproj-card-icon" style="background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.18);">🇳🇱</div><div class="sproj-card-body"><div class="sproj-card-name">Samengestelde Werkwoorden</div><div class="sproj-card-desc">Dutch compound verb quiz. Built to pass NT2. It worked.</div><div class="sproj-card-tags"><span class="sproj-tag">Education</span><span class="sproj-tag">Spaced repetition</span></div></div><div class="sproj-card-arr" style="margin-top:auto;">↗</div></a>
+            <a href="https://chardrizard.github.io/krachttreinen-tracker/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;"><div class="sproj-card-icon" style="background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.18);">🏋️</div><div class="sproj-card-body"><div class="sproj-card-name">Krachttreinen Tracker</div><div class="sproj-card-desc">Powerlifting PWA. Started as a spreadsheet. Naturally went too far.</div><div class="sproj-card-tags"><span class="sproj-tag">PWA</span><span class="sproj-tag">Fitness</span></div></div><div class="sproj-card-arr" style="margin-top:auto;">↗</div></a>
+            <a href="https://chardrizard.github.io/quip/" target="_blank" class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px;"><div class="sproj-card-icon" style="background:rgba(20,184,166,0.1); border:1px solid rgba(20,184,166,0.18);">💬</div><div class="sproj-card-body"><div class="sproj-card-name">Quip</div><div class="sproj-card-desc">Party word game. One hint, ten words, 15 tries.</div><div class="sproj-card-tags"><span class="sproj-tag">Game</span><span class="sproj-tag">Multiplayer</span></div></div><div class="sproj-card-arr" style="margin-top:auto;">↗</div></a>
+            <div class="sproj-card" style="flex-direction:column; align-items:flex-start; gap:12px; opacity:0.45; cursor:default; pointer-events:none;"><div class="sproj-card-icon" style="background:rgba(255,255,255,0.04); border:1px dashed rgba(255,255,255,0.12);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="sproj-card-body"><div class="sproj-card-name" style="color:rgba(255,255,255,0.4);">Coming soon</div><div class="sproj-card-desc" style="color:rgba(255,255,255,0.25);">Next project in progress. Probably over-engineered.</div><div class="sproj-card-tags"><span class="sproj-tag" style="opacity:0.5;">TBD</span></div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 27 — Contact -->
+      <section class="slide slide-dark" id="slide-27" data-index="26" data-section="close" data-slide-type="title">
+        <div class="slide-inner">
+          <div class="contact-name">Richard Andhika</div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:richard@richard.design">richard@richard.design</a>
+            <a class="contact-link" href="https://richard.design" target="_blank">richard.design</a>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:20px; justify-content:center;">
+            <a href="https://www.linkedin.com/in/richard-andhika-936344129/" target="_blank" class="hero-social" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" opacity="0.8"/><rect x="2" y="9" width="4" height="12" opacity="0.8"/><circle cx="4" cy="4" r="2" opacity="0.8"/></svg></a>
+            <a href="https://github.com/chardrizard" target="_blank" class="hero-social" title="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" opacity="0.8"/></svg></a>
+            <a href="https://www.instagram.com/lichatandhika/" target="_blank" class="hero-social" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://medium.com/@chardrizard" target="_blank" class="hero-social" title="Medium"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" opacity="0.8"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a>
+          </div>
+          <div class="pill-row" style="margin-top:28px;">
+            <div class="pill"><span>🟡</span> Utrecht, NL</div>
+            <div class="pill"><span>🔵</span> Senior UX Designer</div>
+            <div class="pill"><span>🟣</span> Design Systems</div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /viewport -->
+
+    <!-- DOT NAV -->
+    <div id="dots"></div>
+
+  </div><!-- /scaler -->
+</div><!-- /stage -->
+
+<script src="js/navigation.js"></script>
+<script src="js/slider.js"></script>
+<script src="js/flipcards.js"></script>
+
+<script>
 /* ─── ARCH TAB SWITCHER ─── */
-document.querySelectorAll('.arch-tab').forEach(tab => {
+document.querySelectorAll('.arch-tab').forEach(function(tab) {
   tab.addEventListener('click', function(e) {
     e.stopPropagation();
     var idx = this.dataset.archTab;
     var container = this.closest('.arch-tabs');
-    container.querySelectorAll('.arch-tab').forEach(t => t.classList.remove('arch-tab--active'));
-    container.querySelectorAll('.arch-panel').forEach(p => p.classList.remove('arch-panel--active'));
+    container.querySelectorAll('.arch-tab').forEach(function(t) {
+      t.classList.remove('arch-tab--active');
+    });
+    container.querySelectorAll('.arch-panel').forEach(function(p) {
+      p.classList.remove('arch-panel--active');
+    });
     this.classList.add('arch-tab--active');
     container.querySelector('.arch-panel[data-arch-panel="' + idx + '"]').classList.add('arch-panel--active');
   });
 });
+</script>
+
+</body>
+</html>
