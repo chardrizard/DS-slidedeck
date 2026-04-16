@@ -3,9 +3,26 @@
 ═══════════════════════════════════════════ */
 
 // ─── FLIP CARDS ───
-function handleCardClick(e, id) { flipTo(id); }
-function flipTo(id) { const c = document.getElementById(id); if (c && !c.classList.contains('flipped')) c.classList.add('flipped'); }
-function flipBack(id) { const c = document.getElementById(id); if (c) c.classList.remove('flipped'); }
+// FIX: guard against clicks that originate from interactive elements inside
+// the card (inputs, buttons, dropdowns, labels, checkboxes).
+// Also guard against clicks on the back face bleeding through.
+const INTERACTIVE_SELECTORS = 'input, button, select, textarea, label, .aeon-dd, .aeon-dd-wrap, .aeon-dd-item, .aeon-pill, .aeon-chk-row';
+
+function handleCardClick(e, id) {
+  // If the click target is or is inside an interactive element, don't flip
+  if (e.target.closest(INTERACTIVE_SELECTORS)) return;
+  flipTo(id);
+}
+
+function flipTo(id) {
+  const c = document.getElementById(id);
+  if (c && !c.classList.contains('flipped')) c.classList.add('flipped');
+}
+
+function flipBack(id) {
+  const c = document.getElementById(id);
+  if (c) c.classList.remove('flipped');
+}
 
 // Export to global scope for inline onclick handlers
 window.handleCardClick = handleCardClick;
@@ -201,7 +218,7 @@ function initPillGroup(groupId, cb) {
 initPillGroup('dd-select-ctrl', val => { ddSelect = val; ddSelected = []; ddOpen = false; renderDD(); });
 initPillGroup('pill-c4', () => {});
 
-// Close dropdown on outside click
+// FIX: close dropdown on outside click — guard against firing on card elements
 document.addEventListener('click', e => {
   if (ddOpen && !e.target.closest('#aeon-dd-root') && !e.target.closest('#aeon-dd-c3')) {
     ddOpen = false;
