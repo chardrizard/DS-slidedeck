@@ -6,30 +6,23 @@
   const hint = document.getElementById('ba-hint');
   if (!slider) return;
 
-  let dragging = false, hintHidden = false;
+  let dragging = false;
+  let hintHidden = false;
 
-  // FIX: disable pointer events on all imgs inside the slider so they don't
-  // absorb mousedown/touchstart before the slider container gets it.
-  // Applied via JS here so it works without touching index.html inline styles.
-  slider.querySelectorAll('img').forEach(img => {
-    img.style.pointerEvents = 'none';
+  // All child elements pass pointer events up to the slider container.
+  // The slider itself catches everything. We do this in JS so index.html
+  // inline styles don't need changing, and it runs after elements exist.
+  slider.querySelectorAll('*').forEach(el => {
+    // Skip the bottom caption overlay — it already has pointer-events:none inline
+    // Skip ba-divider grip — cosmetic only, no interaction needed
+    el.style.pointerEvents = 'none';
   });
-
-  // FIX: also disable on the inner layer divs so ba-slider gets every event
-  ['ba-after', 'ba-before', 'ba-divider'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el && id !== 'ba-divider') {
-      // ba-after and ba-before should pass pointer events up to the slider
-      // ba-divider grip stays interactive for visual feedback only (cursor)
-      el.style.pointerEvents = 'none';
-    }
-  });
-  // Re-enable on slider itself so it receives events
+  // Slider itself must receive events
   slider.style.pointerEvents = 'auto';
 
   function setPosition(clientX) {
     const rect = slider.getBoundingClientRect();
-    let pct = Math.max(0.04, Math.min(0.96, (clientX - rect.left) / rect.width));
+    const pct = Math.max(0.04, Math.min(0.96, (clientX - rect.left) / rect.width));
     const pctStr = (pct * 100).toFixed(2) + '%';
     before.style.width = pctStr;
     divider.style.left = pctStr;
@@ -39,15 +32,39 @@
     if (!hintHidden) { hint.style.opacity = '0'; hintHidden = true; }
   }
 
-  slider.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); hideHint(); e.preventDefault(); });
-  document.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
-  document.addEventListener('mouseup', () => { dragging = false; });
+  slider.addEventListener('mousedown', e => {
+    dragging = true;
+    setPosition(e.clientX);
+    hideHint();
+    e.preventDefault();
+  });
 
-  slider.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); hideHint(); }, { passive: true });
-  slider.addEventListener('touchmove', e => { if (dragging) { setPosition(e.touches[0].clientX); e.stopPropagation(); } }, { passive: true });
-  slider.addEventListener('touchend', () => { dragging = false; });
+  document.addEventListener('mousemove', e => {
+    if (dragging) setPosition(e.clientX);
+  });
 
-  // Reset when slide becomes active
+  document.addEventListener('mouseup', () => {
+    dragging = false;
+  });
+
+  slider.addEventListener('touchstart', e => {
+    dragging = true;
+    setPosition(e.touches[0].clientX);
+    hideHint();
+  }, { passive: true });
+
+  slider.addEventListener('touchmove', e => {
+    if (dragging) {
+      setPosition(e.touches[0].clientX);
+      e.stopPropagation();
+    }
+  }, { passive: true });
+
+  slider.addEventListener('touchend', () => {
+    dragging = false;
+  });
+
+  // Reset position when slide becomes active
   const slideEl = document.getElementById('slide-05');
   new MutationObserver(() => {
     if (slideEl.classList.contains('active')) {
