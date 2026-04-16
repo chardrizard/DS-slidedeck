@@ -138,6 +138,18 @@ window.sfInputPostcode = sfInputPostcode;
 window.sfInputIban = sfInputIban;
 window.sfBlurValidate = sfBlurValidate;
 
+/* FIX 4a: Click anywhere on .s-field__box focuses the input inside it.
+   Without this, only the bottom 20px (where the <input> lives) is clickable.
+   Event delegation so it works for dynamically rendered fields too. */
+document.addEventListener('click', e => {
+  const box = e.target.closest('.s-field__box');
+  if (!box) return;
+  // Don't steal focus from the clear button
+  if (e.target.closest('.s-field__clear')) return;
+  const inp = box.querySelector('.s-field__input');
+  if (inp) inp.focus();
+});
+
 // ─── DROPDOWN ───
 const DD_LABEL = 'Verzekeringsproduct';
 const ddOptions = {
