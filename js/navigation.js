@@ -99,20 +99,16 @@ document.addEventListener('keydown', e => {
 });
 
 // ─── CLICK-TO-ADVANCE ───
-// Track mousedown position so we can distinguish a clean click from a drag.
-// If the pointer moved more than DRAG_THRESHOLD px between down and up, it's
-// a drag (carousel scroll, BA slider, etc.) — don't advance the slide.
-const DRAG_THRESHOLD = 6; // px
+const DRAG_THRESHOLD = 6;
 let mouseDownX = 0;
 let mouseDownY = 0;
 let mouseDownOnNoAdvance = false;
 
-// Interactive elements that should never trigger slide advance
 const ADVANCE_IGNORE = [
   'a', 'button', 'input', 'select', 'textarea', 'label',
-  '[data-no-advance]',          // explicit opt-out (slider, flip cards)
-  '.flip-card',                 // flip cards handle their own click
-  '.nav-card',                  // contents-page nav cards
+  '[data-no-advance]',
+  '.flip-card',
+  '.nav-card',
   '.aeon-dd', '.aeon-dd-wrap', '.aeon-dd-item',
   '.aeon-pill',
   '.aeon-chk-row',
@@ -125,30 +121,19 @@ const ADVANCE_IGNORE = [
 document.getElementById('viewport').addEventListener('mousedown', e => {
   mouseDownX = e.clientX;
   mouseDownY = e.clientY;
-  // Check at mousedown whether we're on a no-advance zone so we don't have
-  // to re-check at mouseup (target may differ after a drag).
   mouseDownOnNoAdvance = !!e.target.closest(ADVANCE_IGNORE);
 });
 
 document.getElementById('viewport').addEventListener('click', e => {
-  // Bail if mousedown was on an interactive / no-advance element
   if (mouseDownOnNoAdvance) return;
-
-  // Bail if the click target itself is interactive
   if (e.target.closest(ADVANCE_IGNORE)) return;
-
-  // Bail if the pointer moved — user was dragging (carousel, slider, etc.)
   const dx = Math.abs(e.clientX - mouseDownX);
   const dy = Math.abs(e.clientY - mouseDownY);
   if (dx > DRAG_THRESHOLD || dy > DRAG_THRESHOLD) return;
-
   next();
 });
 
-// ─── TOUCH/SWIPE (slide-level) ───
-// Only fires on areas that are NOT marked data-no-advance.
-// Carousel and BA slider stop propagation on their own touchmove so this
-// won't interfere with horizontal scroll inside those elements.
+// ─── TOUCH/SWIPE ───
 let touchStartX = null;
 let touchStartOnNoAdvance = false;
 
@@ -165,10 +150,50 @@ document.getElementById('viewport').addEventListener('touchend', e => {
   touchStartOnNoAdvance = false;
 }, { passive: true });
 
+// ─── CAROUSEL DRAG SCROLL (slide 02) ───
+// Native overflow-x scroll doesn't work reliably inside a CSS scale() transform.
+// JS drag handler manually sets scrollLeft instead.
+(function () {
+  function initCarousel() {
+    const carousel = document.querySelector('#slide-02 [data-no-advance]');
+    if (!carousel) return;
+
+    let isDown = false;
+    let startX = 0;
+    let scrollStart = 0;
+
+    carousel.addEventListener('mousedown', e => {
+      isDown = true;
+      startX = e.clientX;
+      scrollStart = carousel.scrollLeft;
+      carousel.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      carousel.scrollLeft = scrollStart - (e.clientX - startX);
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (!isDown) return;
+      isDown = false;
+      carousel.style.cursor = 'grab';
+    });
+
+    carousel.style.cursor = 'grab';
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCarousel);
+  } else {
+    initCarousel();
+  }
+})();
+
 // ─── INIT ───
 updateUI();
 
-// Export for other modules
 window.goTo = goTo;
 window.next = next;
 window.prev = prev;
@@ -177,11 +202,11 @@ window.prev = prev;
 document.querySelectorAll('.arch-tab').forEach(tab => {
   tab.addEventListener('click', function(e) {
     e.stopPropagation();
-    const idx = this.dataset.tab;
-    const container = this.closest('.arch-tabs');
+    var idx = this.dataset.archTab;
+    var container = this.closest('.arch-tabs');
     container.querySelectorAll('.arch-tab').forEach(t => t.classList.remove('arch-tab--active'));
     container.querySelectorAll('.arch-panel').forEach(p => p.classList.remove('arch-panel--active'));
     this.classList.add('arch-tab--active');
-    container.querySelector(`.arch-panel[data-panel="${idx}"]`).classList.add('arch-panel--active');
+    container.querySelector('.arch-panel[data-arch-panel="' + idx + '"]').classList.add('arch-panel--active');
   });
 });
