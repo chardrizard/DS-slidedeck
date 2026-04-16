@@ -29,12 +29,21 @@
   overflow: hidden;
 }
 
+/* FIX: disable pointer events on whichever face is hidden */
+.flip-card:not(.flipped) .card-back  { pointer-events: none; }
+.flip-card.flipped       .card-front { pointer-events: none; }
+
 /* ─── Front face ─── */
 .card-front {
   background: var(--white); border: 1px solid rgba(0,0,0,0.1);
   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  display: flex; flex-direction: column; transition: box-shadow 0.2s; cursor: pointer;
+  display: flex; flex-direction: column; transition: box-shadow 0.2s;
+  /* FIX: entire front is a click target */
+  cursor: pointer;
 }
+/* FIX: every child of front face inherits pointer cursor so the whole area feels clickable */
+.card-front * { cursor: pointer; }
+
 .flip-card:not(.flipped):hover .card-front {
   box-shadow: 0 4px 16px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.06);
 }
@@ -118,7 +127,6 @@
 .aeon-btn__txt { flex: 1; text-align: left; }
 .aeon-btn--ctr { justify-content: center; }
 .aeon-btn--ctr .aeon-btn__txt { text-align: center; }
-/* FIX 1: removed border-left: 2px solid rgba(255,255,255,0.18) — was causing vertical divider line */
 .aeon-btn__arr { display: flex; align-items: center; justify-content: center; width: 57px; height: 100%; flex-shrink: 0; }
 .aeon-btn__arr svg { width: 16px; height: 16px; }
 .aeon-btn--full { width: 100%; }
@@ -161,6 +169,8 @@
   border: none; outline: none; background: transparent;
   font-family: var(--sans); font-size: 14px; color: #0e1218;
   line-height: 1; padding: 0; caret-color: var(--aeon-blue);
+  /* FIX: ensure input captures its own clicks, not the card-front handler */
+  cursor: text;
 }
 .s-field__input::placeholder { color: transparent; }
 .s-field__support { min-height: 16px; padding: 3px 2px 0; font-family: var(--sans); font-size: 10px; line-height: 1.3; }
@@ -198,7 +208,6 @@
 .aeon-dd--open .aeon-dd__chev { color: var(--aeon-blue); transform: rotate(180deg); align-self: center; }
 .aeon-dd--dis .aeon-dd__chev { color: #d4d4d4; }
 .aeon-dd-menu { position: absolute; top: 100%; left: 0; right: 0; border: 1.5px solid var(--aeon-blue); border-top: none; border-radius: 0 0 4px 4px; background: #fff; z-index: 300; box-shadow: 0 6px 18px rgba(0,0,0,0.10); overflow-y: auto; max-height: 340px; }
-/* FIX 4: gap:8px between checkbox and label text */
 .aeon-dd-item { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 16px; font-size: 16px; color: #0e1218; cursor: pointer; transition: background 100ms; font-family: var(--sans); }
 .aeon-dd-item:hover { background: #f5f5f5; }
 .aeon-dd-item--sel { background: var(--aeon-sec-h); color: var(--aeon-blue); font-weight: 500; }
@@ -221,18 +230,7 @@
 .aeon-pill--on { background: var(--aeon-blue); color: #fff; }
 .aeon-pill--on:hover { background: var(--aeon-blue-h); }
 
-/* ─── Aeon Badge ───────────────────────────────────────
-   Spec (from Figma):
-     Size:         small-12px | large-16px (default)
-     Visual weight: Primary | Secondary | Error | Valid | Warning
-     Inverted:      no (default) | yes
-
-   large-16px: height 32px, padding 4px 16px, radius 16px, font 14px
-   small-12px: height 26px, padding 4px 12px, radius 16px, font 12px
-
-   Icon sizes:  14px (large), 12px (small)
-   Icon gap:    6px (large), 5px (small)
-─────────────────────────────────────────────────────── */
+/* ─── Aeon Badge ─── */
 .aeon-badge {
   display: inline-flex; align-items: center; gap: 6px;
   height: 32px; padding: 4px 16px; border-radius: 100px;
@@ -249,50 +247,36 @@
 .aeon-badge--sm svg {
   width: 12px; height: 12px;
 }
-
-/* Primary — white fill, aegonblue border */
 .aeon-badge-primary {
   background: #fff;
   border: 1.5px solid var(--aeon-blue);
   color: var(--aeon-blue);
 }
-
-/* Secondary — subtle neutral, no border */
 .aeon-badge-secondary {
   background: var(--paper-2);
   border: 1px solid transparent;
   color: var(--ink-muted);
 }
-
-/* Error — red tint, triangle warning icon */
 .aeon-badge-error {
   background: rgba(229,57,53,0.1);
   border: 1px solid rgba(229,57,53,0.25);
   color: #b91c1c;
 }
-
-/* Valid — green tint, checkmark icon */
 .aeon-badge-valid {
   background: rgba(34,197,94,0.1);
   border: 1px solid rgba(34,197,94,0.25);
   color: #15803d;
 }
-
-/* Warning — amber tint, bell icon */
 .aeon-badge-warning {
   background: rgba(245,158,11,0.1);
   border: 1px solid rgba(245,158,11,0.25);
   color: #b45309;
 }
-
-/* Inverted modifier — filled bg, white text */
 .aeon-badge--inverted.aeon-badge-primary {
   background: var(--aeon-blue);
   border-color: var(--aeon-blue);
   color: #fff;
 }
-
-/* Legacy aliases — keep working for slide 14 tooltips etc */
 .aeon-badge-success { background: rgba(34,197,94,0.1); color: #15803d; border: 1px solid rgba(34,197,94,0.2); }
 .aeon-badge-info    { background: rgba(27,117,187,0.1); color: #1d4ed8; border: 1px solid rgba(27,117,187,0.2); }
 .aeon-badge-neutral { background: var(--paper-2); color: var(--ink-muted); border: 1px solid rgba(0,0,0,0.1); }
