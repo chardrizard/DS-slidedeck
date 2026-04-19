@@ -1113,26 +1113,34 @@
         </div>
       </section>
 
-      <!-- SLIDE 07 — Problem + Scope -->
-      <section class="slide slide-light" id="slide-07" data-index="6" data-section="cs1" data-slide-type="context">
-        <div class="slide-inner" style="justify-content:center;">
-          <div style="display:grid; grid-template-columns:1fr 1px 1fr; gap:0 72px; width:100%;">
-            <div style="display:flex; flex-direction:column; justify-content:center;">
-              <div class="eyebrow">The Problem</div>
-              <h2 class="section-title">47 button variants. <em>Six platforms. Zero shared components.</em></h2>
-              <p class="body-text">Six platforms, each built independently. No shared components, no token language, no documentation. Every team solving the same problems in isolation.</p>
-            </div>
-            <div style="background:var(--border-light);"></div>
-            <div style="display:flex; flex-direction:column; justify-content:center;">
-              <div class="eyebrow">Scope · What I owned</div>
-              <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
-                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#d97706; flex-shrink:0;"></span>Component audit + architecture</div>
-                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#d97706; flex-shrink:0;"></span>Auto-layout + conditional logic</div>
-                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#1d4ed8; flex-shrink:0;"></span>Stakeholder alignment</div>
-                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#1d4ed8; flex-shrink:0;"></span>Component brief template</div>
-                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#1d4ed8; flex-shrink:0;"></span>Adoption strategy</div>
-                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#7c3aed; flex-shrink:0;"></span>Documentation guidelines</div>
-                <div style="display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink-muted);"><span style="width:6px; height:6px; border-radius:50%; background:#7c3aed; flex-shrink:0;"></span>Semantic color tokens</div>
+      <!-- SLIDE 07 -->
+      <section class="slide slide-light" id="slide-11" data-index="10" data-section="cs1" data-slide-type="solution">
+        <div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);">
+          <div class="col col-center" style="flex:0 0 30%;min-width:0;">
+            <div class="eyebrow">Architecture</div>
+            <h2 class="section-title">Three platforms. <em>One component.</em></h2>
+            <p class="body-text">Platform-specific Field variants were replaced with a single component driven by context flags. Reduced build surface, eliminated drift, and cut load times by <strong>25%</strong>.</p>
+          </div>
+          <div class="col col-center" style="flex:0 0 70%;min-width:0;">
+            <div class="arch-tabs">
+              <div class="arch-tab-bar">
+                <button class="arch-tab arch-tab--active" data-arch-tab="0">Component</button>
+                <button class="arch-tab" data-arch-tab="1">AIP</button>
+                <button class="arch-tab" data-arch-tab="2">MijnAegon</button>
+              </div>
+              <div class="arch-panels">
+                <div class="arch-panel arch-panel--active" data-arch-panel="0">
+                  <img src="images/cs1-aeon/arch-component.png" alt="Text Input component — Figma properties panel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                  <div class="arch-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>images/cs1-aeon/arch-component.png</span></div>
+                </div>
+                <div class="arch-panel" data-arch-panel="1">
+                  <img src="images/cs1-aeon/arch-aip.png" alt="Text Input in AIP context" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                  <div class="arch-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>images/cs1-aeon/arch-aip.png</span></div>
+                </div>
+                <div class="arch-panel" data-arch-panel="2">
+                  <img src="images/cs1-aeon/arch-mijnaegon.png" alt="Text Input in MijnAegon context" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                  <div class="arch-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>images/cs1-aeon/arch-mijnaegon.png</span></div>
+                </div>
               </div>
             </div>
           </div>
