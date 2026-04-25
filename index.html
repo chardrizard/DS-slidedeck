@@ -240,14 +240,31 @@
   .sproj-card-arr { font-size: 14px; color: rgba(255,255,255,0.25); flex-shrink: 0; padding-top: 2px; transition: color 0.15s; }
   .sproj-card:hover .sproj-card-arr { color: var(--accent); }
 
-  #slide-26 .slide-inner { align-items: center; justify-content: center; text-align: center; }
-  #slide-26 .contact-name { font-size: 60px; font-weight: 700; margin-bottom: 32px; color: var(--white); }
-  #slide-26 .contact-links { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
-  #slide-26 .contact-link { font-size: 18px; color: var(--white-muted); font-family: var(--mono); transition: color 0.15s; }
-  #slide-26 .contact-link:hover { color: var(--accent); }
-  #slide-26 .pill-row { justify-content: center; }
+  #slide-26 .slide-inner { align-items: stretch; justify-content: flex-start; text-align: left; }
+  #slide-26 .sproj-layout { display: flex; flex-direction: row; gap: 24px; flex: 1; min-height: 0; }
+  #slide-26 .sproj-hero { flex: 0 0 60%; display: flex; flex-direction: column; padding: 28px; background: var(--dark-3); border: 1px solid var(--border-dark); border-radius: 12px; transition: border-color 0.15s, background 0.15s; cursor: pointer; text-decoration: none; min-width: 0; }
+  #slide-26 .sproj-hero:hover { border-color: rgba(245,158,11,0.3); background: #262626; }
+  #slide-26 .sproj-hero-img { width: 100%; flex: 1; min-height: 320px; border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.03); border: 1px dashed rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+  #slide-26 .sproj-hero-img.has-image { border: none; background: #0a0a0a; }
+  #slide-26 .sproj-hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  #slide-26 .sproj-hero-img-placeholder { font-family: var(--mono); font-size: 10px; color: rgba(255,255,255,0.3); text-transform: uppercase; letter-spacing: 0.1em; text-align: center; line-height: 1.6; }
+  #slide-26 .sproj-hero-img-placeholder strong { display: block; color: rgba(255,255,255,0.5); font-weight: 500; margin-bottom: 4px; }
+  #slide-26 .sproj-hero-meta { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-shrink: 0; }
+  #slide-26 .sproj-hero-text { flex: 1; min-width: 0; }
+  #slide-26 .sproj-hero-name { font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 6px; letter-spacing: -0.01em; }
+  #slide-26 .sproj-hero-desc { font-size: 14px; color: var(--white-muted); line-height: 1.5; }
+  #slide-26 .sproj-hero-arr { font-size: 18px; color: rgba(255,255,255,0.3); flex-shrink: 0; padding-top: 4px; transition: color 0.15s; }
+  #slide-26 .sproj-hero:hover .sproj-hero-arr { color: var(--accent); }
+  #slide-26 .sproj-side { flex: 1; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+  #slide-26 .sproj-side .sproj-card { flex: 1; flex-direction: column; align-items: flex-start; gap: 0; padding: 22px 24px; position: relative; }
+  #slide-26 .sproj-side .sproj-card-name { font-size: 17px; margin-bottom: 8px; }
+  #slide-26 .sproj-side .sproj-card-mono { font-family: var(--sans); font-size: 13px; color: var(--white-muted); line-height: 1.5; }
+  #slide-26 .sproj-side .sproj-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 16px; }
+  #slide-26 .sproj-side .sproj-card-arr { position: absolute; top: 22px; right: 24px; padding-top: 0; }
+  #slide-26 .sproj-github { font-family: var(--mono); font-size: 11px; color: var(--white-faint); text-decoration: none; padding: 4px 0; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.15s; align-self: flex-start; }
+  #slide-26 .sproj-github:hover { color: var(--accent); }
 
-  /* ─── SLIDE 27 — CLOSE ─── */
+  /* ─── CLOSE SLIDE ─── */
   #slide-27 .slide-inner { flex-direction: row; padding: 0; gap: 0; }
   #slide-27 .s27-left { flex: 0 0 40%; padding: var(--pad); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border-dark); }
   #slide-27 .s27-right { flex: 1; padding: var(--pad); display: flex; flex-direction: column; justify-content: center; min-width: 0; }
@@ -326,6 +343,223 @@
   .click-hint { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 14px; border-top: 1px solid var(--border-light); background: var(--paper); flex-shrink: 0; font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); transition: color 0.15s, background 0.15s; }
   .flip-card:not(.flipped):hover .click-hint { color: var(--accent); background: var(--accent-dim); }
   .flip-card.flipped .click-hint { opacity: 0; }
+
+  .legacy-capture {
+    --legacy-blue: #2B6CB4;
+    --legacy-blue-d: #1D5491;
+    --legacy-blue-dd: #174478;
+    --legacy-blue-l: #EEF3FA;
+    --legacy-blue-ll: #F2F7FC;
+    --legacy-orange: #E87722;
+    --legacy-text: #333333;
+    --legacy-text-m: #666666;
+    --legacy-text-l: #999999;
+    --legacy-bg: #F0F0F0;
+    --legacy-border: #CCCCCC;
+    --legacy-border-d: #ADADAD;
+    --legacy-red: #CC0000;
+    --legacy-red-l: #FEF0F0;
+    --legacy-green: #2E7D32;
+    --legacy-green-l: #EFF8EF;
+    position: relative;
+    height: 100%;
+    padding: 18px 22px;
+    background: #f6f6f4;
+    color: var(--legacy-text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    pointer-events: none;
+    user-select: none;
+    filter: saturate(0.78) contrast(0.94);
+    overflow: hidden;
+  }
+  .legacy-capture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
+    background-size: 100% 4px, 4px 100%;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+  .legacy-capture * { pointer-events: none; }
+  .legacy-frame {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .legacy-frame-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--legacy-border);
+    background: #f7f7f7;
+    color: var(--legacy-text-l);
+    font-family: var(--mono);
+    font-size: 7.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: none;
+  }
+  .legacy-panel {
+    flex: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+    overflow: hidden;
+  }
+  #c3 .legacy-panel { padding: 0; gap: 12px; }
+  .legacy-panel--buttons { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: 0 22px; }
+  .legacy-button-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 13px; }
+  .legacy-button-side { display: flex; flex-direction: column; align-items: flex-start; gap: 13px; padding-top: 0; }
+  .legacy-panel--input { gap: 14px; }
+  .legacy-panel--dropdown { align-items: center; justify-content: center; gap: 30px; }
+  .legacy-divider { width: 100%; height: 1px; border: none; background: #eeeeee; margin: 2px 0; }
+  .aip-btn {
+    display: inline-block;
+    padding: 6px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    cursor: default;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    line-height: 1.5;
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: normal;
+  }
+  .btn-primary { background: var(--legacy-blue); color: #fff; border-color: var(--legacy-blue-d); }
+  .btn-primary-hover { background: var(--legacy-blue-d); color: #fff; border-color: var(--legacy-blue-dd); }
+  .btn-outline { background: #fff; color: var(--legacy-blue); border-color: var(--legacy-blue); }
+  .btn-outline-hover { background: var(--legacy-blue-l); color: var(--legacy-blue-d); border-color: var(--legacy-blue-d); }
+  .btn-disabled { background: #E5E5E5; color: #AAAAAA; border-color: var(--legacy-border); cursor: default; }
+  .btn-link { background: none; color: var(--legacy-blue); border-color: transparent; text-decoration: underline; padding-left: 0; padding-right: 0; }
+  .btn-orange { background: var(--legacy-orange); color: #fff; border-color: #C4611A; }
+  .aip-field { display: flex; flex-direction: column; gap: 4px; }
+  .aip-label { font-size: 13px; font-weight: bold; color: var(--legacy-text); }
+  .aip-label-note { font-size: 12px; font-weight: normal; color: var(--legacy-text-m); margin-left: 3px; }
+  .aip-input {
+    width: 240px;
+    padding: 5px 8px;
+    border: 1px solid var(--legacy-border-d);
+    border-radius: 0;
+    background: #fff;
+    color: var(--legacy-text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    outline: none;
+    appearance: none;
+  }
+  .aip-input::placeholder { color: var(--legacy-text-l); }
+  .inp-focus { border-color: var(--legacy-blue); box-shadow: 0 0 0 2px rgba(43,108,180,0.18); }
+  .inp-error { border-color: var(--legacy-red); background: #FFFAFA; }
+  .inp-disabled { background: #F5F5F5; color: #999; border-color: var(--legacy-border); cursor: default; }
+  .aip-error-msg { font-size: 12px; color: var(--legacy-red); margin-top: 2px; }
+  .aip-select-wrap { position: relative; display: block; width: 240px; overflow: hidden; }
+  .aip-select {
+    width: 100%;
+    padding: 5px 28px 5px 8px;
+    border: 1px solid var(--legacy-border-d);
+    border-radius: 0;
+    background: #fff;
+    color: var(--legacy-text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: default;
+  }
+  .aip-select-btn {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    width: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--legacy-border-d);
+    background: #F5F5F5;
+    color: var(--legacy-text-m);
+  }
+  .aip-dropdown-sim { width: 240px; position: relative; }
+  .aip-dropdown-trigger {
+    width: 100%;
+    padding: 5px 8px;
+    border: 1px solid var(--legacy-blue);
+    background: #fff;
+    color: var(--legacy-text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .aip-dropdown-list { border: 1px solid var(--legacy-blue); border-top: none; background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,0.12); }
+  .aip-dd-opt { padding: 6px 8px; font-size: 14px; color: var(--legacy-text); }
+  .aip-dd-opt.opt-hover { background: var(--legacy-blue-ll); }
+  .aip-dd-opt.opt-selected { background: var(--legacy-blue-l); color: var(--legacy-blue-d); font-weight: bold; }
+  .aip-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  .bdg-blue { background: var(--legacy-blue-l); color: var(--legacy-blue-d); border-color: #8CBAD9; }
+  .bdg-green { background: var(--legacy-green-l); color: var(--legacy-green); border-color: #88C88A; }
+  .bdg-orange { background: #FEF4EA; color: #7A3A00; border-color: #E8A870; }
+  .bdg-yellow { background: #FEF9EC; color: #6B5000; border-color: #D4AC0A; }
+  .bdg-red { background: var(--legacy-red-l); color: var(--legacy-red); border-color: #D98080; }
+  .bdg-gray { background: #F5F5F5; color: #666; border-color: var(--legacy-border); }
+  .aip-radio-seg { display: flex; max-width: 100%; }
+  .aip-radio-seg-btn {
+    padding: 6px 14px;
+    border: 1px solid var(--legacy-border-d);
+    background: #fff;
+    color: var(--legacy-text);
+    margin-left: -1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .aip-radio-seg-btn:first-child { margin-left: 0; }
+  .aip-radio-seg-btn.is-on { background: var(--legacy-blue); color: #fff; border-color: var(--legacy-blue-d); position: relative; z-index: 1; }
+  .aip-radio-seg-btn.is-dis { background: #F5F5F5; color: #BBBBBB; border-color: var(--legacy-border); }
+  .aip-chk-group { display: flex; flex-direction: column; gap: 9px; }
+  .aip-chk-item { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .chk-box { width: 16px; height: 16px; border: 2px solid var(--legacy-border-d); background: #fff; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .chk-box.is-on { background: var(--legacy-blue); border-color: var(--legacy-blue-d); }
+  .chk-box.is-on::after { content: ''; width: 4px; height: 8px; border: 2px solid #fff; border-top: none; border-left: none; transform: rotate(45deg) translate(-1px, -1px); }
+  .chk-box.is-mid { border-color: var(--legacy-blue); }
+  .chk-box.is-mid::after { content: ''; width: 8px; height: 2px; background: var(--legacy-blue); }
+  .chk-box.is-dis { background: #F5F5F5; border-color: var(--legacy-border); }
+  .is-dis-txt { color: var(--legacy-text-l); }
+  .aip-toggle { width: 40px; height: 20px; border-radius: 10px; position: relative; flex-shrink: 0; }
+  .aip-toggle::after { content: ''; position: absolute; top: 2px; width: 16px; height: 16px; background: #fff; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.28); }
+  .toggle-on { background: var(--legacy-blue); }
+  .toggle-on::after { right: 2px; }
+  .toggle-off { background: var(--legacy-border); }
+  .toggle-off::after { left: 2px; }
+  .toggle-dis { background: #8CBAD8; }
+  .toggle-dis::after { right: 2px; background: #EDEDED; box-shadow: none; }
 
   .card-back { transform: rotateY(180deg); background: var(--white); border: 1px solid rgba(27,117,187,0.2); box-shadow: 0 1px 3px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
   .card-back-header { display: flex; align-items: center; justify-content: space-between; padding: 9px 12px; border-bottom: 1px solid rgba(27,117,187,0.1); background: var(--paper); flex-shrink: 0; }
@@ -492,10 +726,10 @@
             <p class="body-text" style="margin-top:8px;">Indonesian by birth, Dutch because worstenbroodjes.</p>
             <div class="eyebrow" style="margin-top:28px;margin-bottom:16px;">Outside work</div>
             <div style="display:flex;flex-direction:column;gap:8px;">
-              <div style="display:grid;grid-template-columns:28px 1fr;gap:0;font-size:14px;color:var(--white-muted);align-items:baseline;"><span style="color:var(--accent);font-size:12px;font-family:var(--mono);padding-top:1px;">01</span><span>Skiing. Alps when budget allows, dry slopes when not</span></div>
-              <div style="display:grid;grid-template-columns:28px 1fr;gap:0;font-size:14px;color:var(--white-muted);align-items:baseline;"><span style="color:var(--accent);font-size:12px;font-family:var(--mono);padding-top:1px;">02</span><span>Emerging tech. Currently building things with AI I didn't know I needed</span></div>
-              <div style="display:grid;grid-template-columns:28px 1fr;gap:0;font-size:14px;color:var(--white-muted);align-items:baseline;"><span style="color:var(--accent);font-size:12px;font-family:var(--mono);padding-top:1px;">03</span><span>Gym. Miss a week and the thinking gets worse</span></div>
-              <div style="display:grid;grid-template-columns:28px 1fr;gap:0;font-size:14px;color:var(--white-muted);align-items:baseline;"><span style="color:var(--accent);font-size:12px;font-family:var(--mono);padding-top:1px;">04</span><span>Photography. Animals, forests, things I don't want to forget</span></div>
+              <div style="display:grid;grid-template-columns:18px 1fr;gap:0;font-size:14px;color:var(--white-muted);align-items:baseline;"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);margin-top:7px;"></span><span>Skiing. Alps when budget allows, dry slopes when not</span></div>
+              <div style="display:grid;grid-template-columns:18px 1fr;gap:0;font-size:14px;color:var(--white-muted);align-items:baseline;"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);margin-top:7px;"></span><span>Emerging tech. Currently building things with AI I didn't know I needed</span></div>
+              <div style="display:grid;grid-template-columns:18px 1fr;gap:0;font-size:14px;color:var(--white-muted);align-items:baseline;"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);margin-top:7px;"></span><span>Gym. Miss a week and the thinking gets worse</span></div>
+              <div style="display:grid;grid-template-columns:18px 1fr;gap:0;font-size:14px;color:var(--white-muted);align-items:baseline;"><span style="width:5px;height:5px;border-radius:50%;background:var(--accent);margin-top:7px;"></span><span>Photography. Animals, forests, things I don't want to forget</span></div>
             </div>
           </div>
           <div class="col" style="flex:0 0 70%;min-width:0;gap:16px;justify-content:center;">
@@ -519,8 +753,8 @@
           <div class="eyebrow">Contents</div>
           <h2 class="section-title">Two case studies. One feature deep-dive. <em>Common thread: adoption.</em></h2>
           <div class="nav-cards">
-            <div class="nav-card" data-goto="3"><div class="nav-card-label">Case Study 01</div><div class="nav-card-title">Building the System</div><div class="nav-card-body">Aeon Design System. 60+ products unified under one component architecture. Audit, conditional logic, documentation, adoption pipeline.</div><div class="nav-card-link">View case study →</div></div>
-            <div class="nav-card" data-goto="15"><div class="nav-card-label">Case Study 02</div><div class="nav-card-title">Driving Adoption</div><div class="nav-card-body">Hypotheek Data Table. When your biggest revenue team won't adopt your system. Reframing conflict into partnership.</div><div class="nav-card-link">View case study →</div></div>
+            <div class="nav-card" data-goto-section="cs1"><div class="nav-card-label">Case Study 01</div><div class="nav-card-title">Building the System</div><div class="nav-card-body">Aeon Design System. 60+ products unified under one component architecture. Audit, conditional logic, documentation, adoption pipeline.</div><div class="nav-card-link">View case study →</div></div>
+            <div class="nav-card" data-goto-section="cs2"><div class="nav-card-label">Case Study 02</div><div class="nav-card-title">Driving Adoption</div><div class="nav-card-body">Hypotheek Data Table. When your biggest revenue team won't adopt your system. Reframing conflict into partnership.</div><div class="nav-card-link">View case study →</div></div>
           </div>
         </div>
       </section>
@@ -533,7 +767,7 @@
           <div class="meta-row">
             <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">Design System Designer</div></div>
             <div class="meta-item"><div class="meta-label">Company</div><div class="meta-value">Aegon · $22.4B revenue</div></div>
-            <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">2 designers + devs + PM</div></div>
+            <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">2 designers + 3 devs + PO</div></div>
           </div>
         </div>
       </section>
@@ -603,10 +837,28 @@
             <div class="flip-card" id="c1" onclick="handleCardClick(event,'c1')">
               <div class="flip-card-inner">
                 <div class="card-front">
-                  <div class="card-front-header"><div class="card-bu"><span class="bu-dot" style="background:#4a6080;"></span>Hypotheek Portaal</div><div class="card-era">~2008 · Buttons</div></div>
+                  <div class="card-front-header"><div class="card-bu"><span class="bu-dot" style="background:#4a6080;"></span>Buttons</div><div class="card-era">Hypotheek Portaal</div></div>
                   <div class="card-screenshot">
-                    <img src="images/before/buttons.png" alt="Before — Hypotheek buttons" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:100%;height:100%;object-fit:cover;object-position:top left;display:block;">
-                    <div class="card-screenshot-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>images/before/buttons.png</div>
+                    <div class="legacy-capture" aria-hidden="true">
+                      <div class="legacy-frame">
+                        <div class="legacy-panel legacy-panel--buttons">
+                          <div class="legacy-button-stack">
+                            <button class="aip-btn btn-primary">Opslaan</button>
+                            <button class="aip-btn btn-primary-hover">Opslaan</button>
+                            <button class="aip-btn btn-outline">Annuleren</button>
+                            <button class="aip-btn btn-outline-hover">Annuleren</button>
+                            <button class="aip-btn btn-disabled" disabled>Versturen</button>
+                          </div>
+                          <div class="legacy-button-side">
+                            <button class="aip-btn btn-primary">Bekijk Documenten ↗</button>
+                            <button class="aip-btn btn-orange">Download in PDF</button>
+                            <button class="aip-btn btn-primary">Bevestigen</button>
+                            <button class="aip-btn btn-outline">Annuleren</button>
+                            <button class="aip-btn btn-link">Meer informatie</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="click-hint"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Before · Fragmented state</div>
                 </div>
@@ -629,10 +881,21 @@
             <div class="flip-card" id="c2" onclick="handleCardClick(event,'c2')">
               <div class="flip-card-inner">
                 <div class="card-front">
-                  <div class="card-front-header"><div class="card-bu"><span class="bu-dot" style="background:#2a4060;"></span>Beleggingsplatform</div><div class="card-era">~2011 · Text Input</div></div>
+                  <div class="card-front-header"><div class="card-bu"><span class="bu-dot" style="background:#2a4060;"></span>Text Input</div><div class="card-era">Beleggingsplatform</div></div>
                   <div class="card-screenshot">
-                    <img src="images/before/input.png" alt="Before — Investment text input" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                    <div class="card-screenshot-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>images/before/input.png</div>
+                    <div class="legacy-capture" aria-hidden="true">
+                      <div class="legacy-frame">
+                        <div class="legacy-panel legacy-panel--input">
+                          <div style="display:flex;gap:12px;align-items:flex-end;">
+                            <div class="aip-field"><label class="aip-label">Postcode</label><input class="aip-input" type="text" placeholder="0000 AA" style="width:110px;"></div>
+                            <div class="aip-field"><label class="aip-label">Huisnummer</label><input class="aip-input" type="text" placeholder="0" style="width:90px;"></div>
+                          </div>
+                          <hr class="legacy-divider">
+                          <div class="aip-field"><label class="aip-label">IBAN</label><input class="aip-input inp-focus" type="text" placeholder="NL00 BANK 0000 0000 00"></div>
+                          <div class="aip-field"><label class="aip-label">IBAN</label><input class="aip-input inp-error" type="text" value="NL12 XXXX 0000"><div class="aip-error-msg">Voer een geldig IBAN-nummer in</div></div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="click-hint"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Before · Fragmented state</div>
                 </div>
@@ -655,10 +918,47 @@
             <div class="flip-card" id="c3" onclick="handleCardClick(event,'c3')">
               <div class="flip-card-inner">
                 <div class="card-front">
-                  <div class="card-front-header"><div class="card-bu"><span class="bu-dot" style="background:#4a80c0;"></span>Life &amp; Pensions</div><div class="card-era">~2010 · Dropdown</div></div>
+                  <div class="card-front-header"><div class="card-bu"><span class="bu-dot" style="background:#4a80c0;"></span>Dropdown</div><div class="card-era">Life &amp; Pensions</div></div>
                   <div class="card-screenshot">
-                    <img src="images/before/dropdown.png" alt="Before — L&amp;P dropdown" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                    <div class="card-screenshot-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>images/before/dropdown.png</div>
+                    <div class="legacy-capture" aria-hidden="true">
+                      <div class="legacy-frame">
+                        <div class="legacy-panel legacy-panel--dropdown">
+                          <div class="aip-field">
+                            <label class="aip-label">Soort aanvraag</label>
+                            <div class="aip-select-wrap">
+                              <select class="aip-select"><option value="">— Maak een keuze —</option></select>
+                              <div class="aip-select-btn"><svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 1 5 5 9 1"/></svg></div>
+                            </div>
+                          </div>
+                          <div class="aip-field">
+                            <label class="aip-label">Soort aanvraag</label>
+                            <div class="aip-dropdown-sim">
+                              <div class="aip-dropdown-trigger"><span style="color:var(--legacy-text-l);">— Maak een keuze —</span><svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="#666" stroke-width="1.5"><polyline points="1 5 5 1 9 5"/></svg></div>
+                              <div class="aip-dropdown-list">
+                                <div class="aip-dd-opt opt-hover">Nieuwe hypotheek</div>
+                                <div class="aip-dd-opt">Oversluiting</div>
+                                <div class="aip-dd-opt">Verhoging</div>
+                                <div class="aip-dd-opt">Omzetting</div>
+                                <div class="aip-dd-opt">Rentewijziging</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="aip-field">
+                            <label class="aip-label">Soort aanvraag</label>
+                            <div class="aip-dropdown-sim">
+                              <div class="aip-dropdown-trigger"><span>Oversluiting</span><svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="#666" stroke-width="1.5"><polyline points="1 5 5 1 9 5"/></svg></div>
+                              <div class="aip-dropdown-list">
+                                <div class="aip-dd-opt">Nieuwe hypotheek</div>
+                                <div class="aip-dd-opt opt-selected">Oversluiting</div>
+                                <div class="aip-dd-opt">Verhoging</div>
+                                <div class="aip-dd-opt">Omzetting</div>
+                                <div class="aip-dd-opt">Rentewijziging</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="click-hint"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Before · Fragmented state</div>
                 </div>
@@ -680,10 +980,37 @@
             <div class="flip-card" id="c4" onclick="handleCardClick(event,'c4')">
               <div class="flip-card-inner">
                 <div class="card-front">
-                  <div class="card-front-header"><div class="card-bu"><span class="bu-dot" style="background:#1B4A88;"></span>Pensioenportaal</div><div class="card-era">~2009 · Badges</div></div>
+                  <div class="card-front-header"><div class="card-bu"><span class="bu-dot" style="background:#1B4A88;"></span>Badges</div><div class="card-era">Pensioenportaal</div></div>
                   <div class="card-screenshot">
-                    <img src="images/before/badges.png" alt="Before — Pensioen badges" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                    <div class="card-screenshot-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>images/before/badges.png</div>
+                    <div class="legacy-capture" aria-hidden="true">
+                      <div class="legacy-frame">
+                        <div class="legacy-panel">
+                          <div style="display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;">
+                            <span class="aip-badge bdg-green">Actief</span>
+                            <span class="aip-badge bdg-blue">In behandeling</span>
+                            <span class="aip-badge bdg-yellow">Wachten op klant</span>
+                            <span class="aip-badge bdg-orange">Concept</span>
+                            <span class="aip-badge bdg-red">Vervallen</span>
+                            <span class="aip-badge bdg-gray">Inactief</span>
+                          </div>
+                          <hr class="legacy-divider">
+                          <table style="width:100%;border-collapse:collapse;font-size:12px;">
+                            <thead>
+                              <tr style="background:var(--legacy-blue);color:#fff;">
+                                <th style="padding:7px 8px;text-align:left;font-weight:normal;border-right:1px solid #4A88CA;">Polisnummer</th>
+                                <th style="padding:7px 8px;text-align:left;font-weight:normal;border-right:1px solid #4A88CA;">Product</th>
+                                <th style="padding:7px 8px;text-align:left;font-weight:normal;">Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr style="border-bottom:1px solid var(--legacy-border);"><td style="padding:7px 8px;">P-00234718</td><td style="padding:7px 8px;">Pensioen</td><td style="padding:7px 8px;"><span class="aip-badge bdg-green">Actief</span></td></tr>
+                              <tr style="border-bottom:1px solid var(--legacy-border);background:#FAFAFA;"><td style="padding:7px 8px;">P-00198443</td><td style="padding:7px 8px;">Lijfrente</td><td style="padding:7px 8px;"><span class="aip-badge bdg-blue">In behandeling</span></td></tr>
+                              <tr><td style="padding:7px 8px;">P-00312050</td><td style="padding:7px 8px;">ORV</td><td style="padding:7px 8px;"><span class="aip-badge bdg-yellow">Wachten</span></td></tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="click-hint"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Before · Fragmented state</div>
                 </div>
@@ -725,10 +1052,31 @@
             <div class="flip-card" id="c5" onclick="handleCardClick(event,'c5')">
               <div class="flip-card-inner">
                 <div class="card-front">
-                  <div class="card-front-header"><div class="card-bu"><span class="bu-dot" style="background:#4caf50;"></span>Zorgverzekering</div><div class="card-era">~2013 · Toggles</div></div>
+                  <div class="card-front-header"><div class="card-bu"><span class="bu-dot" style="background:#4caf50;"></span>Toggles</div><div class="card-era">Zorgverzekering</div></div>
                   <div class="card-screenshot">
-                    <img src="images/before/toggles.png" alt="Before — Health toggles" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                    <div class="card-screenshot-placeholder"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>images/before/toggles.png</div>
+                    <div class="legacy-capture" aria-hidden="true">
+                      <div class="legacy-frame">
+                        <div class="legacy-panel">
+                          <div class="aip-radio-seg">
+                            <div class="aip-radio-seg-btn is-on">Vergoeding aanvragen</div>
+                            <div class="aip-radio-seg-btn">Wijziging</div>
+                            <div class="aip-radio-seg-btn is-dis">Niet beschikbaar</div>
+                          </div>
+                          <hr class="legacy-divider">
+                          <div class="aip-chk-group">
+                            <label class="aip-chk-item"><div class="chk-box is-on"></div><span>Tandheelkundige verzorging</span></label>
+                            <label class="aip-chk-item"><div class="chk-box is-on"></div><span>Aanvullende fysiotherapie</span></label>
+                            <label class="aip-chk-item"><div class="chk-box"></div><span>Buitenlanddekking</span></label>
+                            <label class="aip-chk-item" style="opacity:0.5;"><div class="chk-box is-dis"></div><span class="is-dis-txt">Chronische zorg</span></label>
+                          </div>
+                          <hr class="legacy-divider">
+                          <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+                            <div style="display:flex;align-items:center;gap:10px;"><div class="aip-toggle toggle-on"></div><span>Notificaties aan</span></div>
+                            <div style="display:flex;align-items:center;gap:10px;"><div class="aip-toggle toggle-off"></div><span>E-mail updates</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="click-hint"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M6 3l2 2-2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Before · Fragmented state</div>
                 </div>
@@ -776,22 +1124,25 @@
         </div>
       </section>
 
-      <!-- SLIDES 09–27: unchanged from stable -->
+      <!-- CS1 continuation -->
       <section class="slide slide-fullbleed" id="slide-09" data-index="8" data-section="cs1" data-slide-type="solution"><img src="images/cs1-aeon/Brand color.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;"></section>
       <section class="slide slide-fullbleed" id="slide-10" data-index="9" data-section="cs1" data-slide-type="solution"><div class="fullbleed-img"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><div>[Image: Component states grid — Button, Field, Dropdown, Badge, Card, Table Row]</div><div class="img-label">Full-bleed Figma close-up · Crop tight to fill entire slide</div></div><div class="caption-overlay"><div class="caption-label">Aeon Design System</div><div class="caption-text">Every state across Button, Field, Dropdown, Badge, and Table Row. Designed, documented, tokenised.</div></div></section>
-      <section class="slide slide-light" id="slide-11" data-index="10" data-section="cs1" data-slide-type="solution"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">Architecture</div><h2 class="section-title">Three platforms. <em>One component.</em></h2><p class="body-text">Platform-specific Field variants were replaced with a single component driven by context flags. Reduced build surface, eliminated drift, and cut load times by <strong>25%</strong>.</p></div><div class="col col-center" style="flex:0 0 70%;min-width:0;"><div class="img-placeholder" style="min-height:320px;flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="7" x2="12" y2="12"/><line x1="12" y1="12" x2="5" y2="17"/><line x1="12" y1="12" x2="19" y2="17"/></svg><div>[Image: Conditional architecture diagram]</div><div class="img-label">Figma component tree · ~3:4 portrait</div></div></div></div></section>
-      <section class="slide slide-light" id="slide-12" data-index="11" data-section="cs1" data-slide-type="solution"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">Documentation & Adoption</div><h2 class="section-title">Docs nobody read. <em>Then docs that moved teams four times faster.</em></h2><p class="body-text">Scattered, inconsistent, rarely referenced. We restructured the system documentation: usage guidelines, do/don't examples, token mapping, migration notes. 89% of adopting teams cited it as why they moved faster.</p></div><div class="col col-center" style="flex:0 0 70%;min-width:0;gap:16px;"><div class="img-placeholder" style="min-height:200px;flex:1;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><div>[Image: Documentation page]</div><div class="img-label">Screenshot · ~16:10</div></div><div class="img-placeholder" style="min-height:100px;"><div>[Image: Adoption timeline]</div><div class="img-label">~3:1 wide banner</div></div></div></div></section>
-      <section class="slide slide-fullbleed" id="slide-13" data-index="12" data-section="cs1" data-slide-type="solution"><div class="fullbleed-img"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><div>[Image: Complete documentation page]</div><div class="img-label">Long scroll-capture · Show structure and density</div></div><div class="caption-overlay"><div class="caption-label">Documentation</div><div class="caption-text">Anatomy, usage rules, do/don't examples, semantic token mapping, migration notes.</div></div></section>
-      <section class="slide slide-dark" id="slide-14" data-index="13" data-section="cs1" data-slide-type="impact"><div class="slide-inner"><div class="eyebrow eyebrow-accent">Outcomes</div><div class="metric-grid" style="flex:1;"><div class="metric-col"><div class="metric-kicker amber">Performance</div><div class="metric-value amber">−25%</div><div class="metric-label">Average load times across adopting platforms</div><div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Team-estimated</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Load time reduction observed after consolidating platform-specific Field variants. Not formally benchmarked, reported consistently across adopting teams.</div></div></div></div><div class="metric-col"><div class="metric-kicker blue">Efficiency</div><div class="metric-value blue">−40%</div><div class="metric-label">Development time for new features built on system components</div><div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Dev team-reported</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Reported by dev leads across three onboarded teams. The component brief template eliminated most one-off build requests before design started.</div></div></div></div><div class="metric-col"><div class="metric-kicker" style="color:rgba(251,191,36,0.5);">Adoption</div><div class="metric-value" style="color:rgba(251,191,36,0.5);">85%</div><div class="metric-label">Component adoption rate across tracked screens</div><div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured · 3 teams</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Tracked via component audit across screens from three onboarded teams.</div></div></div></div></div></div></section>
-      <section class="slide slide-light" id="slide-15" data-index="14" data-section="cs1" data-slide-type="takeaway"><div class="slide-inner"><div class="eyebrow">Reflection</div><h2 class="section-title" style="margin-bottom:32px;">What worked. What I'd change.</h2><div class="reflection-timeline"><div class="reflection-tl-col"><div class="reflection-tl-header amber">What I'd keep</div><div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Component brief template</div><div class="reflection-tl-body">Forcing teams to articulate requirements before design eliminated most custom requests before a pixel was touched.</div></div></div><div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Documentation as a design artifact</div><div class="reflection-tl-body">89% of adopting teams said it was why they moved 4× faster. Structured, designer-led guidelines. Not afterthoughts.</div></div></div><div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Framing in business terms</div><div class="reflection-tl-body">Load time = retention. Consistency = support costs. That kept the team funded through two org changes.</div></div></div></div><div class="reflection-tl-line"></div><div class="reflection-tl-col"><div class="reflection-tl-header slate">What I'd change</div><div class="reflection-tl-item"><div class="reflection-tl-dot slate"></div><div><div class="reflection-tl-title">Brief template before the audit</div><div class="reflection-tl-body">No structured format in round one. Brief first, audit second would have saved weeks of rework.</div></div></div><div class="reflection-tl-item"><div class="reflection-tl-dot slate"></div><div><div class="reflection-tl-title">Measure adoption from week one</div><div class="reflection-tl-body">Started tracking months in. A week-one baseline would show trajectory, not just endpoint.</div></div></div></div></div></div></section>
-      <section class="slide slide-dark" id="slide-16" data-index="15" data-section="cs2" data-slide-type="title"><div class="slide-inner cs-hero"><div class="eyebrow eyebrow-accent">Case Study 02 · Design System Adoption · Aegon · 2022–2023</div><h2 class="cs-title">When your biggest team <em>won't adopt your system.</em></h2><p style="margin-top:32px;font-size:18px;color:rgba(255,255,255,0.45);font-weight:400;line-height:1.5;max-width:560px;">Building Aeon took 18 months. Getting Hypotheek to use it took another six.</p></div></section>
-      <section class="slide slide-light" id="slide-17" data-index="16" data-section="cs2" data-slide-type="context"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">The Situation</div><h2 class="section-title">Largest revenue team. <em>Openly resistant.</em></h2><div class="pushback-quotes"><div class="pushback-quote">"Our tables are too complex for your system."</div><div class="pushback-quote">"We can't wait weeks for approvals."</div><div class="pushback-quote">"We'll miss deadlines if we have to conform."</div></div></div><div class="col col-center" style="flex:0 0 70%;min-width:0;"><div id="s17-img-wrap" style="flex:1;min-height:380px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:24px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/3 different custom data table UIs side by side.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div></div></div></section>
-      <section class="slide slide-light" id="slide-18" data-index="17" data-section="cs2" data-slide-type="context"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">The Reframe</div><div class="key-quote">"I'm not asking you to simplify mortgages. I want to simplify everything that isn't mortgage-specific."</div></div><div class="col col-center" style="flex:0 0 70%;min-width:0;"><div style="flex:1;min-height:340px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:24px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Mortgage reviews.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div></div></div></section>
-      <section class="slide slide-light" id="slide-19" data-index="18" data-section="cs2" data-slide-type="evidence"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">Analysis</div><h2 class="section-title">70–80% was standard. <em>Just wasn't packaged for them.</em></h2><div class="analysis-sub" style="margin-top:20px;"><div class="analysis-sub-label">Shared fundamentals</div><div class="analysis-sub-body" style="color:var(--ink-muted);">Sorting, pagination, selection, bulk actions, accessibility, keyboard behavior</div></div><div class="analysis-sub" style="margin-top:16px;"><div class="analysis-sub-label">Mortgage-specific complexity</div><div class="analysis-sub-body" style="color:var(--ink-muted);">Conditional columns, inline calculations, warning states, expandable rows</div></div></div><div class="col col-center" style="flex:0 0 70%;min-width:0;"><div id="s19-img-wrap" style="flex:1;min-height:340px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:24px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Shared fundamentals.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div></div></div></section>
-      <section class="slide slide-light" id="slide-20" data-index="19" data-section="cs2" data-slide-type="solution"><div class="slide-inner"><div class="eyebrow">The Contract</div><h2 class="section-title" style="margin-bottom:32px;">Clear ownership. <em>Neither team steps on the other's toes.</em></h2><div class="swimlane"><div class="swim-lane"><div class="swim-head amber"><span class="swim-lane-label amber">Hypotheek<br>layer</span></div><div class="swim-body"><span class="swim-chip amber">Business logic</span><span class="swim-chip amber">Domain rules</span><span class="swim-chip amber">Custom rendering</span><span class="swim-chip amber">Conditional columns</span><span class="swim-chip amber">Extension content</span><span class="swim-chip amber">User actions</span></div></div><div class="swim-lane"><div class="swim-head neutral"><span class="swim-lane-label neutral">API<br>boundary</span></div><div class="swim-body"><span class="swim-chip-mono">renderCell()</span><span class="swim-chip-mono">renderExpandedRow()</span><span class="swim-chip-mono">isVisible()</span></div></div><div class="swim-lane"><div class="swim-head blue"><span class="swim-lane-label blue">Design<br>System</span></div><div class="swim-body"><span class="swim-chip blue">UI infrastructure</span><span class="swim-chip blue">Interaction patterns</span><span class="swim-chip blue">Visual design</span><span class="swim-chip blue">Accessibility</span><span class="swim-chip blue">Performance</span></div></div></div></div></section>
-      <section class="slide slide-light" id="slide-21" data-index="20" data-section="cs2" data-slide-type="solution"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">Solution</div><h2 class="section-title">Composable, not rigid.</h2><p class="body-text">We evolved the Data Table into a composable core with explicit extension points. Structure, behaviour, and accessibility shared; cell rendering, expansion slots, and conditional columns owned by Hypotheek.</p><p class="body-text">Their edge cases stayed. No fork required.</p><div style="margin-top:24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;"><span style="font-family:var(--mono);font-size:14px;color:var(--accent-2);">①–⑦ DS infrastructure</span><span style="font-family:var(--mono);font-size:14px;color:var(--ink-faint);">·</span><span style="font-family:var(--mono);font-size:14px;color:var(--accent);">⑧ Team extension slot</span></div></div><div class="col col-center" style="flex:0 0 70%;min-width:0;gap:16px;"><div style="flex:1;min-height:180px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:8px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Datatable_anatomy.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div><div style="flex:1;min-height:160px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:8px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Datatable_states.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div></div></div></section>
+      <section class="slide slide-light" id="slide-11" data-index="10" data-section="cs1" data-slide-type="solution"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">Architecture</div><h2 class="section-title">Three platforms. <em>One component.</em></h2><p class="body-text">Platform-specific Field variants were replaced with a single component driven by context flags. Reduced build surface, eliminated drift, and cut load times by <strong>25%</strong>.</p></div><div class="col col-center" style="flex:0 0 70%;min-width:0;"><div style="flex:1;min-height:320px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:8px;display:flex;align-items:center;justify-content:center;"><img src="images/cs1-aeon/Input properties.png" alt="Input component properties" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div></div></div></section>
+      <section class="slide slide-light" id="slide-11b" data-index="11" data-section="cs1" data-slide-type="solution"><div class="slide-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:var(--pad);"><div style="min-width:0;min-height:0;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:8px;display:flex;align-items:center;justify-content:center;"><img src="images/cs1-aeon/Alert &amp; Notifications.png" alt="Alert and notifications component properties" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div><div style="min-width:0;min-height:0;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:8px;display:flex;align-items:center;justify-content:center;"><img src="images/cs1-aeon/File Upload.png" alt="File upload component properties" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div></div></section>
+      <section class="slide slide-light" id="slide-12" data-index="12" data-section="cs1" data-slide-type="solution"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:48px 72px;"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">Documentation & Adoption</div><h2 class="section-title">Docs nobody read. <em>Then docs that moved teams four times faster.</em></h2><p class="body-text">Scattered, inconsistent, rarely referenced. We restructured the system documentation: usage guidelines, do/don't examples, token mapping, team contribution notes. <em>Adopting teams cited it as why they moved faster.</em></p></div><div class="col col-center" style="flex:0 0 70%;min-width:0;gap:16px;"><div class="img-placeholder" style="min-height:0;flex:1;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><div>[Image: Documentation page]</div><div class="img-label">862 × 303px frame</div></div><div class="img-placeholder" style="min-height:0;flex:1;"><div>[Image: Adoption timeline]</div><div class="img-label">862 × 303px frame</div></div></div></div></section>
+      <section class="slide slide-fullbleed" id="slide-12b" data-index="13" data-section="cs1" data-slide-type="solution"><img src="images/cs1-aeon/Spots.png" alt="Spots illustration overview" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;"><div class="caption-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 55%,transparent 100%);padding:32px 72px;"><div style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,0.90);border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:4px 10px;margin-bottom:10px;width:fit-content;"><div style="width:5px;height:5px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div><span style="font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.9);">Illustration System</span></div><div style="font-size:16px;font-weight:600;color:#fff;line-height:1.3;margin-bottom:6px;">Spots</div><div class="caption-text">Spots are slightly simplified versions of frames, visually and metaphorically. Often they are a slightly more literal representation of a single concept. Below are our medium sized illustrations. These are excellent to put emphasis on services or themes.</div></div></section>
+      <section class="slide slide-fullbleed" id="slide-12c" data-index="14" data-section="cs1" data-slide-type="solution"><img src="images/cs1-aeon/Stamps.png" alt="Stamps illustration overview" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;"><div class="caption-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 55%,transparent 100%);padding:32px 72px;"><div style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,0.90);border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:4px 10px;margin-bottom:10px;width:fit-content;"><div style="width:5px;height:5px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div><span style="font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.9);">Illustration System</span></div><div style="font-size:16px;font-weight:600;color:#fff;line-height:1.3;margin-bottom:6px;">Stamps</div><div class="caption-text">These are the smallest and most functional illustrations. They resemble a single action or fact. By reducing the details these images can be used small. The minimal size is 120 by 120 pixels, smaller and they lose their inherent power and an icon would be better.</div></div></section>
+      <section class="slide slide-fullbleed" id="slide-13" data-index="15" data-section="cs1" data-slide-type="solution"><div class="fullbleed-img"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><div>[Image: Complete documentation page]</div><div class="img-label">Long scroll-capture · Show structure and density</div></div><div class="caption-overlay"><div class="caption-label">Documentation</div><div class="caption-text">Anatomy, usage rules, do/don't examples, semantic token mapping, migration notes.</div></div></section>
+      <section class="slide slide-dark" id="slide-14" data-index="16" data-section="cs1" data-slide-type="impact"><div class="slide-inner"><div class="eyebrow eyebrow-accent">Outcomes</div><div class="metric-grid" style="flex:1;"><div class="metric-col"><div class="metric-kicker amber">Performance</div><div class="metric-value amber">−25%</div><div class="metric-label">Average load times across adopting platforms</div><div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Team-estimated</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Load time reduction observed after consolidating platform-specific Field variants. Not formally benchmarked, reported consistently across adopting teams.</div></div></div></div><div class="metric-col"><div class="metric-kicker blue">Efficiency</div><div class="metric-value blue">−40%</div><div class="metric-label">Development time for new features built on system components</div><div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Dev team-reported</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Reported by dev leads across three onboarded teams. The component brief template eliminated most one-off build requests before design started.</div></div></div></div><div class="metric-col"><div class="metric-kicker" style="color:rgba(251,191,36,0.5);">Adoption</div><div class="metric-value" style="color:rgba(251,191,36,0.5);">85%</div><div class="metric-label">Component adoption rate across tracked screens</div><div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured · 3 teams</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Tracked via component audit across screens from three onboarded teams.</div></div></div></div></div></div></section>
+      <section class="slide slide-light" id="slide-15" data-index="17" data-section="cs1" data-slide-type="takeaway"><div class="slide-inner"><div class="eyebrow">Reflection</div><h2 class="section-title" style="margin-bottom:32px;">What worked. What I'd change.</h2><div class="reflection-timeline"><div class="reflection-tl-col"><div class="reflection-tl-header amber">What I'd keep</div><div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Component brief template</div><div class="reflection-tl-body">Forcing teams to articulate requirements before design eliminated most custom requests before a pixel was touched.</div></div></div><div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Documentation as a design artifact</div><div class="reflection-tl-body">89% of adopting teams said it was why they moved 4× faster. Structured, designer-led guidelines. Not afterthoughts.</div></div></div><div class="reflection-tl-item"><div class="reflection-tl-dot amber"></div><div><div class="reflection-tl-title">Framing in business terms</div><div class="reflection-tl-body">Load time = retention. Consistency = support costs. That kept the team funded through two org changes.</div></div></div></div><div class="reflection-tl-line"></div><div class="reflection-tl-col"><div class="reflection-tl-header slate">What I'd change</div><div class="reflection-tl-item"><div class="reflection-tl-dot slate"></div><div><div class="reflection-tl-title">Brief template before the audit</div><div class="reflection-tl-body">No structured format in round one. Brief first, audit second would have saved weeks of rework.</div></div></div><div class="reflection-tl-item"><div class="reflection-tl-dot slate"></div><div><div class="reflection-tl-title">Measure adoption from week one</div><div class="reflection-tl-body">Started tracking months in. A week-one baseline would show trajectory, not just endpoint.</div></div></div></div></div></div></section>
+      <section class="slide slide-dark" id="slide-16" data-index="18" data-section="cs2" data-slide-type="title"><div class="slide-inner cs-hero"><div class="eyebrow eyebrow-accent">Case Study 02 · Design System Adoption · Aegon · 2022–2023</div><h2 class="cs-title">When your biggest team <em>won't adopt your system.</em></h2><p style="margin-top:32px;font-size:18px;color:rgba(255,255,255,0.45);font-weight:400;line-height:1.5;max-width:560px;">Building Aeon took 18 months. Getting Hypotheek to use it took another six.</p></div></section>
+      <section class="slide slide-light" id="slide-17" data-index="19" data-section="cs2" data-slide-type="context"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">The Situation</div><h2 class="section-title">Largest revenue team. <em>Openly resistant.</em></h2><div class="pushback-quotes"><div class="pushback-quote">"Our tables are too complex for your system."</div><div class="pushback-quote">"We can't wait weeks for approvals."</div><div class="pushback-quote">"We'll miss deadlines if we have to conform."</div></div></div><div class="col col-center" style="flex:0 0 70%;min-width:0;"><div id="s17-img-wrap" style="flex:1;min-height:380px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:24px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/3 different custom data table UIs side by side.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div></div></div></section>
+      <section class="slide slide-light" id="slide-18" data-index="20" data-section="cs2" data-slide-type="context"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">The Reframe</div><div class="key-quote">"I'm not asking you to simplify mortgages. I want to simplify everything that isn't mortgage-specific."</div></div><div class="col col-center" style="flex:0 0 70%;min-width:0;"><div style="flex:1;min-height:340px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:24px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Mortgage reviews.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div></div></div></section>
+      <section class="slide slide-light" id="slide-19" data-index="21" data-section="cs2" data-slide-type="evidence"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">Analysis</div><h2 class="section-title">70–80% was standard. <em>Just wasn't packaged for them.</em></h2><div class="analysis-sub" style="margin-top:20px;"><div class="analysis-sub-label">Shared fundamentals</div><div class="analysis-sub-body" style="color:var(--ink-muted);">Sorting, pagination, selection, bulk actions, accessibility, keyboard behavior</div></div><div class="analysis-sub" style="margin-top:16px;"><div class="analysis-sub-label">Mortgage-specific complexity</div><div class="analysis-sub-body" style="color:var(--ink-muted);">Conditional columns, inline calculations, warning states, expandable rows</div></div></div><div class="col col-center" style="flex:0 0 70%;min-width:0;"><div id="s19-img-wrap" style="flex:1;min-height:340px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:24px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Shared fundamentals.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div></div></div></section>
+      <section class="slide slide-light" id="slide-20" data-index="22" data-section="cs2" data-slide-type="solution"><div class="slide-inner"><div class="eyebrow">The Contract</div><h2 class="section-title" style="margin-bottom:32px;">Clear ownership. <em>Neither team steps on the other's toes.</em></h2><div class="swimlane"><div class="swim-lane"><div class="swim-head amber"><span class="swim-lane-label amber">Hypotheek<br>layer</span></div><div class="swim-body"><span class="swim-chip amber">Business logic</span><span class="swim-chip amber">Domain rules</span><span class="swim-chip amber">Custom rendering</span><span class="swim-chip amber">Conditional columns</span><span class="swim-chip amber">Extension content</span><span class="swim-chip amber">User actions</span></div></div><div class="swim-lane"><div class="swim-head neutral"><span class="swim-lane-label neutral">API<br>boundary</span></div><div class="swim-body"><span class="swim-chip-mono">renderCell()</span><span class="swim-chip-mono">renderExpandedRow()</span><span class="swim-chip-mono">isVisible()</span></div></div><div class="swim-lane"><div class="swim-head blue"><span class="swim-lane-label blue">Design<br>System</span></div><div class="swim-body"><span class="swim-chip blue">UI infrastructure</span><span class="swim-chip blue">Interaction patterns</span><span class="swim-chip blue">Visual design</span><span class="swim-chip blue">Accessibility</span><span class="swim-chip blue">Performance</span></div></div></div></div></section>
+      <section class="slide slide-light" id="slide-21" data-index="23" data-section="cs2" data-slide-type="solution"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">Solution</div><h2 class="section-title">Composable, not rigid.</h2><p class="body-text">We evolved the Data Table into a composable core with explicit extension points. Structure, behaviour, and accessibility shared; cell rendering, expansion slots, and conditional columns owned by Hypotheek.</p><p class="body-text">Their edge cases stayed. No fork required.</p><div style="margin-top:24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;"><span style="font-family:var(--mono);font-size:14px;color:var(--accent-2);">①–⑦ DS infrastructure</span><span style="font-family:var(--mono);font-size:14px;color:var(--ink-faint);">·</span><span style="font-family:var(--mono);font-size:14px;color:var(--accent);">⑧ Team extension slot</span></div></div><div class="col col-center" style="flex:0 0 70%;min-width:0;gap:16px;"><div style="flex:1;min-height:180px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:8px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Datatable_anatomy.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div><div style="flex:1;min-height:160px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:8px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Datatable_states.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div></div></div></section>
       <!-- SLIDE 22 — Before/After Slider: Hypotheek -->
-      <section class="slide slide-fullbleed" id="slide-22" data-index="21" data-section="cs2" data-slide-type="solution">
+      <section class="slide slide-fullbleed" id="slide-22" data-index="24" data-section="cs2" data-slide-type="solution">
         <div id="ba2-slider" data-no-advance="true" style="position:absolute;inset:0;overflow:hidden;cursor:ew-resize;user-select:none;">
           <div id="ba2-after" style="position:absolute;inset:0;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="images/cs2-hypotheek/Hypotheeken_in_aanvraag_AEON.png" style="width:100%;height:100%;object-fit:contain;object-position:center center;display:block;"></div>
           <div id="ba2-before" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:1440px;bottom:0;background:#ffffff;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Hypotheeken_in_aanvraag_old.png" style="width:1440px;height:100%;object-fit:contain;object-position:center center;display:block;"></div></div>
@@ -812,7 +1163,7 @@
       </section>
 
       <!-- SLIDE 22b — Full bleed: Hypotheek expanded -->
-      <section class="slide slide-fullbleed" id="slide-22b" data-index="22" data-section="cs2" data-slide-type="solution">
+      <section class="slide slide-fullbleed" id="slide-22b" data-index="25" data-section="cs2" data-slide-type="solution">
         <img src="images/cs2-hypotheek/Hypotheeken_in_aanvraag_AEON_expanded.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;">
         <div class="caption-overlay" style="background:linear-gradient(to top,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.5) 55%,transparent 100%);padding:32px 72px;">
           <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,0.90);border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:4px 10px;margin-bottom:10px;width:fit-content;"><div style="width:5px;height:5px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div><span style="font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.9);">Hypotheek in Aanvraag · Aeon</span></div>
@@ -822,7 +1173,7 @@
       </section>
 
       <!-- SLIDE 22c — Before/After Slider: Klant Documenten -->
-      <section class="slide slide-fullbleed" id="slide-22c" data-index="23" data-section="cs2" data-slide-type="solution">
+      <section class="slide slide-fullbleed" id="slide-22c" data-index="26" data-section="cs2" data-slide-type="solution">
         <div id="ba3-slider" data-no-advance="true" style="position:absolute;inset:0;overflow:hidden;cursor:ew-resize;user-select:none;">
           <div id="ba3-after" style="position:absolute;inset:0;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="images/cs2-hypotheek/Klant_documenten_AEON.png" style="width:100%;height:100%;object-fit:contain;object-position:center center;display:block;"></div>
           <div id="ba3-before" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:1440px;bottom:0;background:#ffffff;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Klant_documenten_old.png" style="width:1440px;height:100%;object-fit:contain;object-position:center center;display:block;"></div></div>
@@ -839,13 +1190,13 @@
         </div>
       </section>
 
-      <section class="slide slide-fullbleed" id="slide-23b" data-index="24" data-section="cs2" data-slide-type="solution"><img src="images/cs2-hypotheek/Data_table_component_01.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;"></section>
-      <section class="slide slide-fullbleed" id="slide-23c" data-index="25" data-section="cs2" data-slide-type="solution"><img src="images/cs2-hypotheek/Data_table_component_02.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;"></section>
-      <section class="slide slide-light" id="slide-23" data-index="26" data-section="cs2" data-slide-type="context"><div class="slide-inner" style="flex-direction:column;padding:var(--pad);gap:0;"><div style="margin-bottom:48px;"><div class="eyebrow">Process Change</div><h2 class="section-title" style="max-width:700px;margin-bottom:0;">The biggest fear wasn't standards. <em>It was waiting.</em></h2></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;flex:1;"><div style="display:flex;flex-direction:column;padding-right:52px;border-right:1px solid var(--border-light);"><div style="font-family:var(--mono);font-size:108px;font-weight:400;color:rgba(0,0,0,0.05);line-height:1;letter-spacing:-0.04em;margin-bottom:20px;">01</div><div style="font-size:20px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:12px;">Direct weekly sync</div><div class="body-text" style="margin-bottom:0;">Every open question gets a live answer that week. No ticket, no queue, no waiting to find out if you're blocked.</div></div><div style="display:flex;flex-direction:column;padding:0 52px;border-right:1px solid var(--border-light);"><div style="font-family:var(--mono);font-size:108px;font-weight:400;color:rgba(0,0,0,0.05);line-height:1;letter-spacing:-0.04em;margin-bottom:20px;">02</div><div style="font-size:20px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:12px;">Every request gets a clear answer</div><div class="body-text" style="margin-bottom:0;">Yes, not now, or no. Always with a reason. No ambiguity about where things stand or what comes next.</div></div><div style="display:flex;flex-direction:column;padding-left:52px;"><div style="font-family:var(--mono);font-size:108px;font-weight:400;color:rgba(0,0,0,0.05);line-height:1;letter-spacing:-0.04em;margin-bottom:20px;">03</div><div style="font-size:20px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:12px;">Exceptions documented, not blocked</div><div class="body-text" style="margin-bottom:0;">Edge cases get a temporary exception and a note. The system stays intact. The team ships on time.</div></div></div></div></section>
-      <section class="slide slide-dark" id="slide-24" data-index="27" data-section="cs2" data-slide-type="impact"><div class="slide-inner"><div class="eyebrow eyebrow-accent">Outcomes</div><div class="metric-grid" style="flex:1;grid-template-columns:1fr 1fr;"><div class="metric-col"><div class="metric-kicker amber">Consolidation</div><div class="metric-value amber">3 → 1</div><div class="metric-label">Custom tables replaced with the shared Data Table</div><div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Three separate custom-built table implementations replaced with one shared Data Table component.</div></div></div></div><div class="metric-col"><div class="metric-kicker blue">Quality</div><div class="metric-value blue">−62%</div><div class="metric-label">Table-related accessibility defects (keyboard + focus)</div><div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Verify this number</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Defect reduction tracked against accessibility QA results pre and post adoption. Confirm exact figure before presenting.</div></div></div></div></div></div></section>
-      <section class="slide slide-light" id="slide-25" data-index="28" data-section="features" data-slide-type="solution"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">Selected Feature · Accessibility</div><div class="feature-icon-wrap">♿</div><div class="feature-category">WCAG 2.2 AA</div><h2 class="section-title">Zero accessibility regressions. <em>Two consecutive quarters.</em></h2><p class="body-text">Audited all components against WCAG 2.2 AA: focus indicators (2.4.11), target sizes (2.5.8), dragging alternatives (2.5.7). Updated contrast tokens for every semantic state.</p></div><div class="col col-center" style="flex:0 0 70%;min-width:0;"><div class="img-placeholder" style="min-height:360px;flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg><div>[Image: WCAG audit results]</div><div class="img-label">~4:5</div></div></div></div></section>
-      <section class="slide slide-dark" id="slide-26" data-index="29" data-section="features" data-slide-type="context"><div class="slide-inner"><div class="eyebrow eyebrow-accent">Side projects</div><h2 class="section-title" style="margin-bottom:24px;">Things I build when nobody asked.</h2><div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;flex:1;"><a href="https://chardrizard.github.io/samengestelde-werkwoorden-quiz/" target="_blank" class="sproj-card" style="flex-direction:column;align-items:flex-start;gap:12px;"><div class="sproj-card-icon" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.18);">🇳🇱</div><div class="sproj-card-body"><div class="sproj-card-name">Samengestelde Werkwoorden</div><div class="sproj-card-desc">Dutch compound verb quiz. Built to pass NT2. It worked.</div><div class="sproj-card-tags"><span class="sproj-tag">Education</span><span class="sproj-tag">Spaced repetition</span></div></div><div class="sproj-card-arr" style="margin-top:auto;">↗</div></a><a href="https://chardrizard.github.io/krachttreinen-tracker/" target="_blank" class="sproj-card" style="flex-direction:column;align-items:flex-start;gap:12px;"><div class="sproj-card-icon" style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.18);">🏋️</div><div class="sproj-card-body"><div class="sproj-card-name">Krachttreinen Tracker</div><div class="sproj-card-desc">Powerlifting PWA. Started as a spreadsheet. Naturally went too far.</div><div class="sproj-card-tags"><span class="sproj-tag">PWA</span><span class="sproj-tag">Fitness</span></div></div><div class="sproj-card-arr" style="margin-top:auto;">↗</div></a><a href="https://chardrizard.github.io/quip/" target="_blank" class="sproj-card" style="flex-direction:column;align-items:flex-start;gap:12px;"><div class="sproj-card-icon" style="background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.18);">💬</div><div class="sproj-card-body"><div class="sproj-card-name">Quip</div><div class="sproj-card-desc">Party word game. One hint, ten words, 15 tries.</div><div class="sproj-card-tags"><span class="sproj-tag">Game</span><span class="sproj-tag">Multiplayer</span></div></div><div class="sproj-card-arr" style="margin-top:auto;">↗</div></a><div class="sproj-card" style="flex-direction:column;align-items:flex-start;gap:12px;opacity:0.45;cursor:default;pointer-events:none;"><div class="sproj-card-icon" style="background:rgba(255,255,255,0.04);border:1px dashed rgba(255,255,255,0.12);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="sproj-card-body"><div class="sproj-card-name" style="color:rgba(255,255,255,0.4);">Coming soon</div><div class="sproj-card-desc" style="color:rgba(255,255,255,0.25);">Next project in progress. Probably over-engineered.</div><div class="sproj-card-tags"><span class="sproj-tag" style="opacity:0.5;">TBD</span></div></div></div></div></div></section>
-      <section class="slide slide-dark" id="slide-27" data-index="30" data-section="close" data-slide-type="title"><div class="slide-inner"><div class="s27-left"><div class="eyebrow eyebrow-accent" style="margin-bottom:36px;">Let's work together</div><div class="s27-name">Richard<br>Andhika</div><div class="s27-links"><a class="s27-link" href="mailto:chardrizard@gmail.com">chardrizard@gmail.com</a></div><div class="s27-socials"><a href="https://www.linkedin.com/in/richard-andhika-936344129/" target="_blank" class="hero-social" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" opacity="0.8"/><rect x="2" y="9" width="4" height="12" opacity="0.8"/><circle cx="4" cy="4" r="2" opacity="0.8"/></svg></a><a href="https://github.com/chardrizard" target="_blank" class="hero-social" title="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" opacity="0.8"/></svg></a><a href="https://www.instagram.com/lichatandhika/" target="_blank" class="hero-social" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://medium.com/@chardrizard" target="_blank" class="hero-social" title="Medium"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" opacity="0.8"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div><div class="s27-right"><div class="s27-faq-label">Frequently asked</div><div id="s27-faq"><div class="faq-item"><div class="faq-q">Do you need visa sponsorship?<span class="faq-chevron">+</span></div><div class="faq-a">No. Dutch citizen, full EU work authorization. No sponsorship needed. I do need sponsor for my cheese addiction.</div></div><div class="faq-item"><div class="faq-q">Are you open to working on-site?<span class="faq-chevron">+</span></div><div class="faq-a">Yes. Based in Utrecht, well-connected to Amsterdam, Den Haag, Eindhoven, and Rotterdam. Hybrid is my natural default, happy to negotiate the on-site split. Face to face is preferred for collabs.</div></div><div class="faq-item"><div class="faq-q">What's your availability?<span class="faq-chevron">+</span></div><div class="faq-a">The usual 1 month notice period constraints.</div></div><div class="faq-item"><div class="faq-q">Do you work well in organizations without an existing design system?<span class="faq-chevron">+</span></div><div class="faq-a">Both case studies in this deck are from orgs where we're building design system from scratch while managing active stakeholder resistance. Starting from zero is familiar territory. Sometimes preferable. However, mature DS that are looking into LLMs integration is a big interest atm.</div></div></div></div></div></section>
+      <section class="slide slide-fullbleed" id="slide-23b" data-index="27" data-section="cs2" data-slide-type="solution"><img src="images/cs2-hypotheek/Data_table_component_01.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;"></section>
+      <section class="slide slide-fullbleed" id="slide-23c" data-index="28" data-section="cs2" data-slide-type="solution"><img src="images/cs2-hypotheek/Data_table_component_02.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;position:absolute;inset:0;"></section>
+      <section class="slide slide-light" id="slide-23" data-index="29" data-section="cs2" data-slide-type="context"><div class="slide-inner" style="flex-direction:column;padding:var(--pad);gap:0;"><div style="margin-bottom:48px;"><div class="eyebrow">Process Change</div><h2 class="section-title" style="max-width:700px;margin-bottom:0;">The biggest fear wasn't standards. <em>It was waiting.</em></h2></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;flex:1;"><div style="display:flex;flex-direction:column;padding-right:52px;border-right:1px solid var(--border-light);"><div style="font-family:var(--mono);font-size:108px;font-weight:400;color:rgba(0,0,0,0.05);line-height:1;letter-spacing:-0.04em;margin-bottom:20px;">01</div><div style="font-size:20px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:12px;">Direct weekly sync</div><div class="body-text" style="margin-bottom:0;">Every open question gets a live answer that week. No ticket, no queue, no waiting to find out if you're blocked.</div></div><div style="display:flex;flex-direction:column;padding:0 52px;border-right:1px solid var(--border-light);"><div style="font-family:var(--mono);font-size:108px;font-weight:400;color:rgba(0,0,0,0.05);line-height:1;letter-spacing:-0.04em;margin-bottom:20px;">02</div><div style="font-size:20px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:12px;">Every request gets a clear answer</div><div class="body-text" style="margin-bottom:0;">Yes, not now, or no. Always with a reason. No ambiguity about where things stand or what comes next.</div></div><div style="display:flex;flex-direction:column;padding-left:52px;"><div style="font-family:var(--mono);font-size:108px;font-weight:400;color:rgba(0,0,0,0.05);line-height:1;letter-spacing:-0.04em;margin-bottom:20px;">03</div><div style="font-size:20px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:12px;">Exceptions documented, not blocked</div><div class="body-text" style="margin-bottom:0;">Edge cases get a temporary exception and a note. The system stays intact. The team ships on time.</div></div></div></div></section>
+      <section class="slide slide-dark" id="slide-24" data-index="30" data-section="cs2" data-slide-type="impact"><div class="slide-inner"><div class="eyebrow eyebrow-accent">Outcomes</div><div class="metric-grid" style="flex:1;grid-template-columns:1fr 1fr;"><div class="metric-col"><div class="metric-kicker amber">Consolidation</div><div class="metric-value amber">3 → 1</div><div class="metric-label">Custom tables replaced with the shared Data Table</div><div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Measured</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Three separate custom-built table implementations replaced with one shared Data Table component.</div></div></div></div><div class="metric-col"><div class="metric-kicker blue">Quality</div><div class="metric-value blue">−62%</div><div class="metric-label">Table-related accessibility defects (keyboard + focus)</div><div style="display:flex;align-items:center;gap:5px;margin-top:6px;position:relative;"><span style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.28);">Verify this number</span><div class="metric-tooltip-wrap"><div class="metric-info-icon">i</div><div class="metric-tooltip">Defect reduction tracked against accessibility QA results pre and post adoption. Confirm exact figure before presenting.</div></div></div></div></div></div></section>
+      <section class="slide slide-light" id="slide-25" data-index="31" data-section="features" data-slide-type="solution"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">Selected Feature · Accessibility</div><div class="feature-icon-wrap">♿</div><div class="feature-category">WCAG 2.2 AA</div><h2 class="section-title">Zero accessibility regressions. <em>Two consecutive quarters.</em></h2><p class="body-text">Audited all components against WCAG 2.2 AA: focus indicators (2.4.11), target sizes (2.5.8), dragging alternatives (2.5.7). Updated contrast tokens for every semantic state.</p></div><div class="col col-center" style="flex:0 0 70%;min-width:0;"><div class="img-placeholder" style="min-height:360px;flex:1;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg><div>[Image: WCAG audit results]</div><div class="img-label">~4:5</div></div></div></div></section>
+      <section class="slide slide-dark" id="slide-26" data-index="32" data-section="features" data-slide-type="context"><div class="slide-inner"><div class="eyebrow eyebrow-accent">Side projects</div><h2 class="section-title" style="margin-bottom:24px;">Things I build when nobody asked.</h2><div class="sproj-layout"><a href="https://chardrizard.github.io/samengestelde-werkwoorden-quiz/" target="_blank" class="sproj-hero"><div class="sproj-hero-img has-image"><img src="images/side-projects/werkwoorden.png" alt="Samengestelde Werkwoorden screenshot"></div><div class="sproj-hero-meta"><div class="sproj-hero-text"><div class="sproj-hero-name">Samengestelde Werkwoorden</div><div class="sproj-hero-desc">Dutch compound verb quiz. Built to pass NT2. It worked.</div></div><div class="sproj-hero-arr">↗</div></div></a><div class="sproj-side"><a href="https://chardrizard.github.io/krachttreinen-tracker/" target="_blank" class="sproj-card"><div class="sproj-card-body"><div class="sproj-card-name">Krachttreinen Tracker</div><div class="sproj-card-mono">Started as a spreadsheet. Naturally went too far.</div></div><div class="sproj-card-tags"><span class="sproj-tag">Vanilla JS</span><span class="sproj-tag">PWA</span><span class="sproj-tag">Offline-first</span></div><div class="sproj-card-arr">↗</div></a><a href="https://chardrizard.github.io/quip/" target="_blank" class="sproj-card"><div class="sproj-card-body"><div class="sproj-card-name">Quip</div><div class="sproj-card-mono">Built for game night. Survived three.</div></div><div class="sproj-card-tags"><span class="sproj-tag">No backend</span><span class="sproj-tag">Browser only</span><span class="sproj-tag">NL &amp; EN</span></div><div class="sproj-card-arr">↗</div></a><a href="https://github.com/chardrizard" target="_blank" class="sproj-github">More on GitHub →</a></div></div></div></section>
+      <section class="slide slide-dark" id="slide-27" data-index="33" data-section="close" data-slide-type="title"><div class="slide-inner"><div class="s27-left"><div class="eyebrow eyebrow-accent" style="margin-bottom:36px;">Let's work together</div><div class="s27-name">Richard<br>Andhika</div><div class="s27-links"><a class="s27-link" href="mailto:chardrizard@gmail.com">chardrizard@gmail.com</a></div><div class="s27-socials"><a href="https://www.linkedin.com/in/richard-andhika-936344129/" target="_blank" class="hero-social" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" opacity="0.8"/><rect x="2" y="9" width="4" height="12" opacity="0.8"/><circle cx="4" cy="4" r="2" opacity="0.8"/></svg></a><a href="https://github.com/chardrizard" target="_blank" class="hero-social" title="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" opacity="0.8"/></svg></a><a href="https://www.instagram.com/lichatandhika/" target="_blank" class="hero-social" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://medium.com/@chardrizard" target="_blank" class="hero-social" title="Medium"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" opacity="0.8"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a></div></div><div class="s27-right"><div class="s27-faq-label">Frequently asked</div><div id="s27-faq"><div class="faq-item"><div class="faq-q">Do you need visa sponsorship?<span class="faq-chevron">+</span></div><div class="faq-a">No. Dutch citizen, full EU work authorization. No sponsorship needed. I do need sponsor for my cheese addiction.</div></div><div class="faq-item"><div class="faq-q">Are you open to working on-site?<span class="faq-chevron">+</span></div><div class="faq-a">Yes. Based in Utrecht, well-connected to Amsterdam, Den Haag, Eindhoven, and Rotterdam. Hybrid is my natural default, happy to negotiate the on-site split. Face to face is preferred for collabs.</div></div><div class="faq-item"><div class="faq-q">What's your availability?<span class="faq-chevron">+</span></div><div class="faq-a">The usual 1 month notice period constraints.</div></div><div class="faq-item"><div class="faq-q">Do you work well in organizations without an existing design system?<span class="faq-chevron">+</span></div><div class="faq-a">Both case studies in this deck are from orgs where we're building design system from scratch while managing active stakeholder resistance. Starting from zero is familiar territory. Sometimes preferable. However, mature DS that are looking into LLMs integration is a big interest atm.</div></div></div></div></div></section>
 
     </div><!-- /viewport -->
     <div id="dots"></div>
@@ -855,13 +1206,11 @@
 <script>
   const SLIDES = document.querySelectorAll('.slide');
   const TOTAL = SLIDES.length;
-  const SECTIONS = [
-    { id: 'intro',    start: 0,  count: 3  },
-    { id: 'cs1',      start: 3,  count: 12 },
-    { id: 'cs2',      start: 15, count: 13 },
-    { id: 'features', start: 28, count: 2  },
-    { id: 'close',    start: 30, count: 1  },
-  ];
+  const SECTION_ORDER = ['intro', 'cs1', 'cs2', 'features', 'close'];
+  const SECTIONS = SECTION_ORDER.map(id => {
+    const indices = [...SLIDES].map((slide, index) => slide.dataset.section === id ? index : -1).filter(index => index !== -1);
+    return { id, start: indices[0], count: indices.length };
+  }).filter(section => section.count > 0);
   let current = 0, notesVisible = false;
 
   function scaleStage() {
@@ -912,7 +1261,7 @@
   document.getElementById('btn-prev').addEventListener('click', prev);
   document.getElementById('btn-next').addEventListener('click', next);
   document.querySelectorAll('.nav-tab').forEach(tab => tab.addEventListener('click', () => { const sec = SECTIONS.find(s => s.id === tab.dataset.section); if (sec) goTo(sec.start); }));
-  document.querySelectorAll('.nav-card[data-goto]').forEach(card => card.addEventListener('click', () => goTo(parseInt(card.dataset.goto))));
+  document.querySelectorAll('.nav-card[data-goto-section]').forEach(card => card.addEventListener('click', e => { e.stopPropagation(); const sec = SECTIONS.find(s => s.id === card.dataset.gotoSection); if (sec) goTo(sec.start); }));
   document.getElementById('notes-toggle').addEventListener('click', () => {
     notesVisible = !notesVisible;
     document.body.classList.toggle('notes-visible', notesVisible);
@@ -939,7 +1288,7 @@
     if (e.target.closest('[data-no-advance]')) return;
     const tag = e.target.tagName.toLowerCase();
     if (['a','button','input','select','textarea','label'].includes(tag)) return;
-    if (e.target.closest('a, button, input, select, textarea')) return;
+    if (e.target.closest('a, button, input, select, textarea, .nav-card')) return;
     next();
   });
 
