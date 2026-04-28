@@ -324,6 +324,15 @@
   /* ═══ SLIDE 08 — FLIP CARDS ═══ */
   .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 16px; flex: 1; min-height: 0; }
   #c3 { grid-column: 3; grid-row: 1 / 3; }
+  .ba-hit-area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20%;
+    right: 20%;
+    z-index: 25;
+    cursor: ew-resize;
+  }
 
   .flip-card { perspective: 1200px; cursor: pointer; min-height: 0; }
   .flip-card-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1); will-change: transform; }
@@ -774,7 +783,7 @@
 
       <!-- SLIDE 05 — Before/After Slider -->
       <section class="slide slide-fullbleed" id="slide-05" data-index="4" data-section="cs1" data-slide-type="solution">
-        <div id="ba-slider" data-no-advance="true" style="position:absolute;inset:0;overflow:hidden;cursor:ew-resize;user-select:none;">
+        <div id="ba-slider" style="position:absolute;inset:0;overflow:hidden;user-select:none;">
           <div id="ba-after" style="position:absolute;inset:0;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="images/cs1-aeon/AIP_uplift_AEON_02.png" style="width:100%;height:100%;object-fit:contain;object-position:center center;display:block;"></div>
           <div id="ba-before" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:1440px;bottom:0;background:#ffffff;display:flex;align-items:center;justify-content:center;"><img src="images/cs1-aeon/AIP_old_2.0.png" style="width:1440px;height:100%;object-fit:contain;object-position:center center;display:block;"></div></div>
           <div id="ba-divider" style="position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(255,255,255,0.9);transform:translateX(-50%);pointer-events:none;z-index:10;">
@@ -784,6 +793,7 @@
             </div>
           </div>
           <div id="ba-hint" style="position:absolute;bottom:104px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);pointer-events:none;transition:opacity 0.4s;white-space:nowrap;">drag to reveal</div>
+          <div class="ba-hit-area" id="ba-hit-area" data-no-advance="true" aria-hidden="true"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;padding:32px 40px;background:linear-gradient(to top,rgba(15,15,15,0.95) 0%,rgba(0,0,0,0.55) 55%,transparent 100%);pointer-events:none;z-index:20;">
             <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,0.90);border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:4px 10px;margin-bottom:10px;"><div style="width:5px;height:5px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div><span style="font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.9);">AIP · Before & After</span></div>
             <div style="font-size:20px;font-weight:700;color:#fff;line-height:1.25;letter-spacing:-0.01em;margin-bottom:6px;">The same portal. Four years apart.</div>
@@ -1143,7 +1153,7 @@
       <section class="slide slide-light" id="slide-21" data-index="23" data-section="cs2" data-slide-type="solution"><div class="slide-inner" style="flex-direction:row;gap:64px;padding:var(--pad);"><div class="col col-center" style="flex:0 0 30%;min-width:0;"><div class="eyebrow">Solution</div><h2 class="section-title">Composable, not rigid.</h2><p class="body-text">We evolved the Data Table into a composable core with explicit extension points. Structure, behaviour, and accessibility shared; cell rendering, expansion slots, and conditional columns owned by Hypotheek.</p><p class="body-text">Their edge cases stayed. No fork required.</p><div style="margin-top:24px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;"><span style="font-family:var(--mono);font-size:14px;color:var(--accent-2);">①–⑦ DS infrastructure</span><span style="font-family:var(--mono);font-size:14px;color:var(--ink-faint);">·</span><span style="font-family:var(--mono);font-size:14px;color:var(--accent);">⑧ Team extension slot</span></div></div><div class="col col-center" style="flex:0 0 70%;min-width:0;gap:16px;"><div style="flex:1;min-height:180px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:8px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Datatable_anatomy.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div><div style="flex:1;min-height:160px;border-radius:10px;overflow:hidden;background:var(--paper-2);padding:8px;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Datatable_states.png" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;border-radius:6px;"></div></div></div></section>
       <!-- SLIDE 22 — Before/After Slider: Hypotheek -->
       <section class="slide slide-fullbleed" id="slide-22" data-index="24" data-section="cs2" data-slide-type="solution">
-        <div id="ba2-slider" data-no-advance="true" style="position:absolute;inset:0;overflow:hidden;cursor:ew-resize;user-select:none;">
+        <div id="ba2-slider" style="position:absolute;inset:0;overflow:hidden;user-select:none;">
           <div id="ba2-after" style="position:absolute;inset:0;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="images/cs2-hypotheek/Hypotheeken_in_aanvraag_AEON.png" style="width:100%;height:100%;object-fit:contain;object-position:center center;display:block;"></div>
           <div id="ba2-before" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:1440px;bottom:0;background:#ffffff;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Hypotheeken_in_aanvraag_old.png" style="width:1440px;height:100%;object-fit:contain;object-position:center center;display:block;"></div></div>
           <div id="ba2-divider" style="position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(255,255,255,0.9);transform:translateX(-50%);pointer-events:none;z-index:10;">
@@ -1153,6 +1163,7 @@
             </div>
           </div>
           <div id="ba2-hint" style="position:absolute;bottom:104px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);pointer-events:none;transition:opacity 0.4s;white-space:nowrap;">drag to reveal</div>
+          <div class="ba-hit-area" id="ba2-hit-area" data-no-advance="true" aria-hidden="true"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;padding:32px 40px;background:linear-gradient(to top,rgba(15,15,15,0.95) 0%,rgba(0,0,0,0.55) 55%,transparent 100%);pointer-events:none;z-index:20;">
             <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,0.90);border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:4px 10px;margin-bottom:10px;"><div style="width:5px;height:5px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div><span style="font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.9);">Hypotheek · Before & After</span></div>
             <div style="font-size:20px;font-weight:700;color:#fff;line-height:1.25;letter-spacing:-0.01em;margin-bottom:6px;">The same flow. Before and after Aeon.</div>
@@ -1174,7 +1185,7 @@
 
       <!-- SLIDE 22c — Before/After Slider: Klant Documenten -->
       <section class="slide slide-fullbleed" id="slide-22c" data-index="26" data-section="cs2" data-slide-type="solution">
-        <div id="ba3-slider" data-no-advance="true" style="position:absolute;inset:0;overflow:hidden;cursor:ew-resize;user-select:none;">
+        <div id="ba3-slider" style="position:absolute;inset:0;overflow:hidden;user-select:none;">
           <div id="ba3-after" style="position:absolute;inset:0;background:#ffffff;display:flex;align-items:center;justify-content:center;overflow:hidden;"><img src="images/cs2-hypotheek/Klant_documenten_AEON.png" style="width:100%;height:100%;object-fit:contain;object-position:center center;display:block;"></div>
           <div id="ba3-before" style="position:absolute;top:0;left:0;bottom:0;width:50%;overflow:hidden;"><div style="position:absolute;top:0;left:0;width:1440px;bottom:0;background:#ffffff;display:flex;align-items:center;justify-content:center;"><img src="images/cs2-hypotheek/Klant_documenten_old.png" style="width:1440px;height:100%;object-fit:contain;object-position:center center;display:block;"></div></div>
           <div id="ba3-divider" style="position:absolute;top:0;bottom:0;left:50%;width:2px;background:rgba(255,255,255,0.9);transform:translateX(-50%);pointer-events:none;z-index:10;">
@@ -1184,6 +1195,7 @@
             </div>
           </div>
           <div id="ba3-hint" style="position:absolute;bottom:104px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);pointer-events:none;transition:opacity 0.4s;white-space:nowrap;">drag to reveal</div>
+          <div class="ba-hit-area" id="ba3-hit-area" data-no-advance="true" aria-hidden="true"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;padding:32px 40px;background:linear-gradient(to top,rgba(15,15,15,0.95) 0%,rgba(0,0,0,0.55) 55%,transparent 100%);pointer-events:none;z-index:20;">
             <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,0.90);border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:4px 10px;"><div style="width:5px;height:5px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div><span style="font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.9);">Klant Documenten · Before & After</span></div>
           </div>
@@ -1275,7 +1287,7 @@
     if (e.key === 'End')  goTo(TOTAL - 1);
   });
 
-  let touchStartX = null, touchOnSlider = false;
+  let touchStartX = null, touchOnSlider = false, suppressSlideClick = false;
   document.getElementById('viewport').addEventListener('touchstart', e => { touchOnSlider = !!e.target.closest('[data-no-advance]'); touchStartX = e.touches[0].clientX; }, { passive: true });
   document.getElementById('viewport').addEventListener('touchend', e => {
     if (touchStartX === null) return;
@@ -1285,6 +1297,10 @@
   }, { passive: true });
 
   document.getElementById('viewport').addEventListener('click', e => {
+    if (suppressSlideClick) {
+      suppressSlideClick = false;
+      return;
+    }
     if (e.target.closest('[data-no-advance]')) return;
     const tag = e.target.tagName.toLowerCase();
     if (['a','button','input','select','textarea','label'].includes(tag)) return;
@@ -1295,51 +1311,82 @@
   // ─── Before/After Slider ───
   (function() {
     const slider = document.getElementById('ba-slider');
+    const hitArea = document.getElementById('ba-hit-area');
     const before = document.getElementById('ba-before');
     const divider = document.getElementById('ba-divider');
     const hint = document.getElementById('ba-hint');
-    if (!slider) return;
+    if (!slider || !hitArea) return;
     let dragging = false, hintHidden = false;
     function setPosition(clientX) {
       const rect = slider.getBoundingClientRect();
-      let pct = Math.max(0.04, Math.min(0.96, (clientX - rect.left) / rect.width));
+      let pct = Math.max(0.20, Math.min(0.80, (clientX - rect.left) / rect.width));
       const p = (pct * 100).toFixed(2) + '%';
       before.style.width = p; divider.style.left = p;
     }
     function hideHint() { if (!hintHidden) { hint.style.opacity = '0'; hintHidden = true; } }
-    slider.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); hideHint(); e.preventDefault(); });
+    hitArea.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); hideHint(); e.preventDefault(); });
     document.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
-    document.addEventListener('mouseup', () => { dragging = false; });
-    slider.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); hideHint(); }, { passive: true });
-    slider.addEventListener('touchmove', e => { if (dragging) { setPosition(e.touches[0].clientX); e.stopPropagation(); } }, { passive: true });
-    slider.addEventListener('touchend', () => { dragging = false; });
+    document.addEventListener('mouseup', () => {
+      if (dragging) {
+        suppressSlideClick = true;
+        setTimeout(() => { suppressSlideClick = false; }, 0);
+      }
+      dragging = false;
+    });
+    hitArea.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); hideHint(); }, { passive: true });
+    hitArea.addEventListener('touchmove', e => { if (dragging) { setPosition(e.touches[0].clientX); e.stopPropagation(); } }, { passive: true });
+    hitArea.addEventListener('touchend', () => {
+      if (dragging) {
+        suppressSlideClick = true;
+        setTimeout(() => { suppressSlideClick = false; }, 0);
+      }
+      dragging = false;
+    });
     const slideEl = document.getElementById('slide-05');
     new MutationObserver(() => {
-      if (slideEl.classList.contains('active')) { before.style.width = '50%'; divider.style.left = '50%'; hint.style.opacity = '1'; hintHidden = false; }
+      if (slideEl.classList.contains('active')) {
+        before.style.width = '50%';
+        divider.style.left = '50%';
+        hint.style.opacity = '1';
+        hintHidden = false;
+      }
     }).observe(slideEl, { attributes: true, attributeFilter: ['class'] });
   })();
 
   // ─── Before/After Slider 2 (Hypotheek) ───
   (function() {
     const slider = document.getElementById('ba2-slider');
+    const hitArea = document.getElementById('ba2-hit-area');
     const before = document.getElementById('ba2-before');
     const divider = document.getElementById('ba2-divider');
     const hint = document.getElementById('ba2-hint');
-    if (!slider) return;
+    if (!slider || !hitArea) return;
     let dragging = false, hintHidden = false;
     function setPosition(clientX) {
       const rect = slider.getBoundingClientRect();
-      let pct = Math.max(0.04, Math.min(0.96, (clientX - rect.left) / rect.width));
+      let pct = Math.max(0.20, Math.min(0.80, (clientX - rect.left) / rect.width));
       const p = (pct * 100).toFixed(2) + '%';
       before.style.width = p; divider.style.left = p;
     }
     function hideHint() { if (!hintHidden) { hint.style.opacity = '0'; hintHidden = true; } }
-    slider.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); hideHint(); e.preventDefault(); });
+    hitArea.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); hideHint(); e.preventDefault(); });
     document.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
-    document.addEventListener('mouseup', () => { dragging = false; });
-    slider.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); hideHint(); }, { passive: true });
-    slider.addEventListener('touchmove', e => { if (dragging) { setPosition(e.touches[0].clientX); e.stopPropagation(); } }, { passive: true });
-    slider.addEventListener('touchend', () => { dragging = false; });
+    document.addEventListener('mouseup', () => {
+      if (dragging) {
+        suppressSlideClick = true;
+        setTimeout(() => { suppressSlideClick = false; }, 0);
+      }
+      dragging = false;
+    });
+    hitArea.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); hideHint(); }, { passive: true });
+    hitArea.addEventListener('touchmove', e => { if (dragging) { setPosition(e.touches[0].clientX); e.stopPropagation(); } }, { passive: true });
+    hitArea.addEventListener('touchend', () => {
+      if (dragging) {
+        suppressSlideClick = true;
+        setTimeout(() => { suppressSlideClick = false; }, 0);
+      }
+      dragging = false;
+    });
     const slideEl = document.getElementById('slide-22');
     new MutationObserver(() => {
       if (slideEl.classList.contains('active')) { before.style.width = '50%'; divider.style.left = '50%'; hint.style.opacity = '1'; hintHidden = false; }
@@ -1349,24 +1396,37 @@
   // ─── Before/After Slider 3 (Klant Documenten) ───
   (function() {
     const slider = document.getElementById('ba3-slider');
+    const hitArea = document.getElementById('ba3-hit-area');
     const before = document.getElementById('ba3-before');
     const divider = document.getElementById('ba3-divider');
     const hint = document.getElementById('ba3-hint');
-    if (!slider) return;
+    if (!slider || !hitArea) return;
     let dragging = false, hintHidden = false;
     function setPosition(clientX) {
       const rect = slider.getBoundingClientRect();
-      let pct = Math.max(0.04, Math.min(0.96, (clientX - rect.left) / rect.width));
+      let pct = Math.max(0.20, Math.min(0.80, (clientX - rect.left) / rect.width));
       const p = (pct * 100).toFixed(2) + '%';
       before.style.width = p; divider.style.left = p;
     }
     function hideHint() { if (!hintHidden) { hint.style.opacity = '0'; hintHidden = true; } }
-    slider.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); hideHint(); e.preventDefault(); });
+    hitArea.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); hideHint(); e.preventDefault(); });
     document.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
-    document.addEventListener('mouseup', () => { dragging = false; });
-    slider.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); hideHint(); }, { passive: true });
-    slider.addEventListener('touchmove', e => { if (dragging) { setPosition(e.touches[0].clientX); e.stopPropagation(); } }, { passive: true });
-    slider.addEventListener('touchend', () => { dragging = false; });
+    document.addEventListener('mouseup', () => {
+      if (dragging) {
+        suppressSlideClick = true;
+        setTimeout(() => { suppressSlideClick = false; }, 0);
+      }
+      dragging = false;
+    });
+    hitArea.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); hideHint(); }, { passive: true });
+    hitArea.addEventListener('touchmove', e => { if (dragging) { setPosition(e.touches[0].clientX); e.stopPropagation(); } }, { passive: true });
+    hitArea.addEventListener('touchend', () => {
+      if (dragging) {
+        suppressSlideClick = true;
+        setTimeout(() => { suppressSlideClick = false; }, 0);
+      }
+      dragging = false;
+    });
     const slideEl = document.getElementById('slide-22c');
     new MutationObserver(() => {
       if (slideEl.classList.contains('active')) { before.style.width = '50%'; divider.style.left = '50%'; hint.style.opacity = '1'; hintHidden = false; }
