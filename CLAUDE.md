@@ -11,12 +11,27 @@ The deck covers two case studies (Aeon Design System at Aegon, Hypotheek team ad
 ```
 /
 ├── index.html          — the entire app: slides, styles, and JS in one file
-└── images/
-    ├── personal/       — about slide photos (Skiing.png, Landscape_01.png, etc.)
-    ├── cs1-aeon/       — Case Study 1 images (AIP_old_2.0.png, AIP_uplift_AEON_02.png, etc.)
-    ├── cs2-hypotheek/  — Case Study 2 images
-    └── before/         — Flip card "before" screenshots (buttons.png, input.png, etc.)
+├── images/
+│   ├── personal/       — about slide photos (Skiing.png, Landscape_01.png, etc.)
+│   ├── cs1-aeon/       — Case Study 1 images (AIP_old_2.0.png, AIP_uplift_AEON_02.png, etc.)
+│   ├── cs2-hypotheek/  — Case Study 2 images
+│   └── before/         — Flip card "before" screenshots (buttons.png, input.png, etc.)
+├── case-studies/       — gitignored sandbox of standalone case-study HTMLs (cs-aeon.html, cs-hypotheek.html, _template.html)
+└── docs/
+    └── CASE-STUDY-SNIPPETS.md  — reference for building new isolated case studies (read on demand only)
 ```
+
+## Building isolated case studies
+
+Standalone case-study HTML files live in `case-studies/`. Each is a full clone
+of `index.html` with only the slides for that case study retained (full CSS,
+JS, fonts, nav inherited verbatim — that's the point). Folder is gitignored
+and not deployed.
+
+Workflow, snippet inventory, and component-reuse rules are documented in
+[docs/CASE-STUDY-SNIPPETS.md](docs/CASE-STUDY-SNIPPETS.md). **Do not auto-load
+that file** — read it only when starting a new case study or migrating
+slides between isolated and main.
 
 ## How to run
 
@@ -28,15 +43,17 @@ npx serve .
 
 Then open `http://localhost:3000`.
 
-## Slide structure (current: 34 slides)
+## Slide structure (current: 31 slides)
 
-| Section | Slides | Content |
+| Section | Deck position (data-index) | Content |
 |---|---|---|
-| Intro | 01–03 | Title, About, Contents nav |
-| CS1 — Aeon | 04–18 | DS overview, before/after slider, flip cards (live components), architecture, docs, illustration system slides, metrics, reflection |
-| CS2 — Hypotheek | 19–31 | Resistance story, reframe, composable table, outcomes |
-| Features | 32–33 | WCAG deep-dive, side projects |
-| Close | 34 | Contact |
+| Intro | 1–3 (0–2) | Title, About, Contents nav |
+| CS1 — Aeon | 4–15 (3–14) | Title, problem, before/after slider, DS overview, flip cards, architecture, docs, illustration system, outcomes, reflection |
+| CS2 — Hypotheek | 16–28 (15–27) | Resistance, reframe, analysis, contract, composable solution, before/after sliders, process change, outcomes, reflection |
+| Features | 29–30 (28–29) | WCAG deep-dive, side projects |
+| Close | 31 (30) | Contact |
+
+DOM ids are non-sequential by design (e.g. `slide-07` precedes `slide-05`, no `slide-09`/`slide-10`/`slide-13`). Navigation is driven by `data-index` and `data-section`, not by id. Don't rely on id numbering when reading or extending the deck.
 
 ## Slide maintenance norm
 

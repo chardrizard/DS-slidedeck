@@ -4,7 +4,7 @@
 
 A self-contained HTML interview presentation. Single `index.html` file, no build tools, no npm, no framework. Deployed as a static site on GitHub Pages.
 
-The deck covers two case studies (Aeon Design System at Aegon, Hypotheek team adoption) plus a feature deep-dive and contact slide. Slide count is fluid; currently 34 slides.
+The deck covers two case studies (Aeon Design System at Aegon, Hypotheek team adoption) plus a feature deep-dive and contact slide. Slide count is fluid; currently 31 slides.
 
 ## File structure
 
@@ -28,15 +28,15 @@ npx serve .
 
 Then open `http://localhost:3000`.
 
-## Slide structure (current: 34 slides)
+## Slide structure (current: 31 slides)
 
 | Section | Slides | Content |
 |---|---|---|
 | Intro | 01–03 | Title, About, Contents nav |
-| CS1 — Aeon | 04–18 | DS overview, before/after slider, flip cards (live components), architecture, docs, illustration system slides, metrics, reflection |
-| CS2 — Hypotheek | 19–31 | Resistance story, reframe, composable table, outcomes |
-| Features | 32–33 | WCAG deep-dive, side projects |
-| Close | 34 | Contact |
+| CS1 — Aeon | 04–15 | DS overview, before/after slider, flip cards (live components), architecture, docs, documentation bento, illustration system slides, metrics, reflection |
+| CS2 — Hypotheek | 16–28 | Resistance story, reframe, composable table, outcomes |
+| Features | 29–30 | WCAG deep-dive, side projects |
+| Close | 31 | Contact |
 
 ## Slide maintenance norm
 
